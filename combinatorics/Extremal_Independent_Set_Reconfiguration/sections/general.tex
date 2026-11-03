@@ -1,0 +1,18 @@
+\begin{frame}{General bound}
+\only<1>{
+\begin{theorem}{Theorem}
+        \[D(n,k)=\frac{n^{2 \lfloor k /3 \rfloor}}{e^{O_k(\sqrt{\log n})}}\]
+\end{theorem}
+}
+\begin{lemma}{Lemma}
+    Let \(n,k\) be two integers. Let \(G\) be a graph with maximum independent sets of size \(k\) such that the \(k\) configuration graph of \(G\) has diameter \(d\). Then, there exists a graph on at most \(|V(G)|+3kn\) vertices whose \(k+3\) reconfiguration diameter is at least \(\frac{dn^2}{e^{O(\sqrt{log n})}}\).
+\end{lemma}
+\pause
+\begin{heading}{Construction idea}
+\begin{itemize}
+    \item We take graph \(G\) with k-reconfiguration diameter \(d\)
+    \item We take graph \(H\) constructed as for \(k=3\).
+\end{itemize}
+\end{heading}
+\end{frame}
+% f

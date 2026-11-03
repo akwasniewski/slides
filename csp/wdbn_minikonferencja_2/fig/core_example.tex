@@ -1,0 +1,24 @@
+\begin{tikzpicture}[
+    scale=1,
+    line width=1pt,
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+    arr2/.style={{Triangle[length=2mm,width=1.5mm]}-{Triangle[length=2mm,width=1.5mm]}},
+    minimum size=0.06cm
+]
+
+\begin{scope}[shift={(11,0)}]
+    \node[circle, fill=cfblue!85, label=left:{\(u\)}]
+        (v1) at (0,0.2) {};
+    \node[circle, fill=cfblue!85, label=right:{\(v\)}]
+        (v3) at (2,0.2) {};
+    \node[circle, fill=cfblue!85, label=above:{\(w\)}]
+        (v2) at (1,1.8) {};
+
+    \draw[arr] (v1) -- (v2);
+    \draw[arr] (v2) -- (v3);
+    \draw[arr2] (v1) -- (v3);
+
+    \node at (1,-1) {rdzeń bez automorfizmów};
+\end{scope}
+
+\end{tikzpicture}

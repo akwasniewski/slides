@@ -1,0 +1,71 @@
+\begin{tikzpicture}[
+    scale=0.85,
+    line width=1pt,
+    minimum size=0.08cm
+]
+
+% 1 rdzeń
+% =====================================================================
+\begin{scope}[shift={(0,0)}]
+
+    \node[circle, draw=black, fill=cfyel!85]  (v1) at (0,2) {};
+    \node[circle, draw=black, fill=cfblue!85] (v2) at (2,2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v3) at (2,0) {};
+    \node[circle, draw=black, fill=cfblue!85] (v4) at (0,0) {};
+    \node[circle, draw=black, fill=cfred!85]  (v5) at (1,1) {};
+
+    \draw (v1) -- (v2) -- (v3) -- (v4) -- (v1);
+
+    \draw (v2) -- (v5);
+    \draw (v3) -- (v5);
+
+    \node at (1,-0.8) {1 kopia rdzenia};
+
+\end{scope}
+
+
+% kilka kopii
+% =====================================================================
+\begin{scope}[shift={(5,0)}]
+
+    \node[circle, draw=black, fill=cfyel!85]  (v1) at (0,2) {};
+    \node[circle, draw=black, fill=cfblue!85] (v2) at (2,2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v3) at (2,0) {};
+    \node[circle, draw=black, fill=cfblue!85] (v4) at (0,0) {};
+    \node[circle, draw=black, fill=cfred!85]  (v5) at (1,1) {};
+
+    \draw (v1) -- (v2) -- (v3) -- (v4) -- (v1);
+
+    \draw (v2) -- (v5);
+    \draw (v3) -- (v5);
+    \draw (v4) -- (v5);
+
+    \node at (1.2,-0.8) {kilka kopii rdzenia};
+
+\end{scope}
+
+
+% kopie pokrywają cały graf
+% =====================================================================
+\begin{scope}[shift={(10,0)}]
+
+    \node[circle, draw=black, fill=cfyel!85]  (v1) at (0,2) {};
+    \node[circle, draw=black, fill=cfblue!85] (v2) at (2,2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v3) at (2,0) {};
+    \node[circle, draw=black, fill=cfblue!85] (v4) at (0,0) {};
+    \node[circle, draw=black, fill=cfred!85]  (v5) at (1,1) {};
+
+    \draw (v1) -- (v2) -- (v3) -- (v4) -- (v1);
+
+    \draw (v1) -- (v5);
+    \draw (v2) -- (v5);
+    \draw (v3) -- (v5);
+    \draw (v4) -- (v5);
+
+
+    \node at (1,-0.8) {kopie rdzenia};
+    \node at (1,-1.4) {pokrywają cały graf};
+
+\end{scope}
+
+\end{tikzpicture}

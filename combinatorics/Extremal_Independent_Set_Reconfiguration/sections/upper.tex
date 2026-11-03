@@ -1,0 +1,199 @@
+\begin{frame}{A silly upper bound}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            
+            \begin{theorem}{Theorem}
+                \(D(n,k) \leq \binom{n}{k-1}\)
+            \end{theorem}
+            
+            \begin{proof}{}
+                In the reconfiguration path, each edge has sets with \(k-1\) vertices in common on both sides. \\
+                \pause
+                The path is minimal, so they don't repeat. Thus the number of edges is at most \(\binom{n}{k-1}\).
+            \end{proof}
+            
+        \end{column}
+    
+        \begin{column}{0.5\textwidth}
+        
+            \begin{figure}
+                \centering
+                \input{sections/tikzzz/silly}
+            \end{figure}
+            
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}
+    \begin{theorem}{Theorem}
+        \(D(n,2)=n-2\)
+    \end{theorem}
+    \begin{proof}{Proof}
+        Independent sets are exactly non edges of \(G\). Thus \(D(n-2)\leq \mathrm{diam}(\overline{G})-1\leq n-2\). \pause Consider complement of a path:
+    \begin{figure}
+        \centering
+        \input{sections/tikzzz/Gn2}    
+    \end{figure}
+    
+    \pause
+    
+    Thus \(D(n,2)=n-2\)
+    
+    \end{proof}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}
+    \begin{columns}
+
+    \begin{column}{0.6\textwidth}
+    
+        \begin{theorem}{Theorem}
+        For \( k \geq 3 \), we have
+        \[
+        D(n,k) = o\bigl(n^{k-1}\bigr).
+        \]
+        \end{theorem}
+        
+        \begin{heading}{Proof idea}
+        
+            \begin{itemize}
+                \item each independent set on diameter path creates a \(k\) vertex, \(k-1\) uniform hyperclique
+                \item too many hypercliques \(\to\) shortcut exists
+                \item less \(\to\) apply the hypergraph removal lemma
+            \end{itemize}
+            
+        \end{heading}
+    
+    \end{column}
+    \begin{column}{0.4\textwidth}
+    
+        \begin{figure}
+            \centering
+            \input{sections/tikzzz/ppathgraph}
+        \end{figure}
+        
+    \end{column}
+    \end{columns}
+    
+    \begin{figure}
+        \centering
+        \input{sections/tikzzz/ppath}
+    \end{figure}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}
+
+    \begin{columns}
+        \begin{column}{0.8\textwidth}
+            \onslide<2->{
+                We partition the vertices into \textcolor{cfyel}{even \(P_e\)} and \textcolor{cfred}{odd \(P_o\)}.
+            }
+            
+            \\\vspace{1em}
+            
+            \onslide<3->{
+                Intersection of sets in \(P_i\) is at most \(k-2\) thus each edge comes from one independent set.
+            }
+
+            \onslide<4->{
+                \\\vspace{1em}
+                
+                \(H_e,H_o\) : \(k-1\) uniform hypergraphs on vertices from \(G\). Edges are independent sets contained in some independent set from \(P_i\).
+            }
+            \begin{columns}
+                \begin{column}{0.55\textwidth}
+            \\\vspace{1em}
+
+            \onslide<5->{
+                \(K\): \(k-1\) uniform hyperclique of size \(k\).
+                
+                \\\vspace{1em}
+                
+                Each \(Z_i\) creates exactly one copy of \(K\)
+            }
+            \end{column}
+            \begin{column}{0.4\textwidth}
+                \onslide<4->{
+                    \begin{figure}
+                        \centering
+                        \input{sections/tikzzz/hypergraph2}
+                    \end{figure}
+                }
+            \end{column}
+            \end{columns}
+
+        \end{column}
+        
+        \begin{column}{0.2\textwidth}
+        
+            \begin{figure}
+                \input{sections/tikzzz/ppath2}
+            \end{figure}
+            
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}
+    \begin{header}\textcolor{cfred}{
+    \textbf{Case 1:}} \(H_i\) contains more than \(n^{k-1}\) copies of \(K\).\\
+    Each \(Z_j\in H_i\) adds exactly one copy. There are at most \(n^{k-1}\) sets in \(H_i\), thus there exists copy of \(K\) - \(K'\) such that \(V(K')\notin P_i\).\\
+    \vspace{1em}
+    \begin{columns}
+    \begin{column}{0.53\textwidth}
+    In \(K'\) there are 3 hyperedges \(e_1,e_2,e_3\) intersecting on \(k-2\) vertices.\\
+    \vspace{1em}
+    There exists \(x_1,x_2,x_3 \in V(G)\) such that \(x_i \cup e_i\) are independent sets in \(P_i\).\\
+    \vspace{1em}
+    \end{column}
+    \begin{column}{0.4\textwidth}
+        \begin{figure}
+            \centering
+            \input{sections/tikzzz/hypergraph2}
+        \end{figure}
+    \end{column}
+    \end{columns}
+    \pause
+    But \(e_1 \cup e_2 \cup e_3\) is also independent set in \(G\) of size \(k\) adjacent to \(x_i \cup e_i\). Thus \(x_i \cup e_i\) are at distance 2 from each other, thus contradiction.    
+\end{header}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}
+     \begin{header}\textcolor{cfred}{\textbf{Case 2:}} \(H_i\) contains less than \(n^{k-1}\) copies of \(K\).
+     \begin{lemma}{Graph removal lemma}
+        \(H\), k-uniform, n-vertex hypergraph\\
+        \(K\), r-uniform hypergraph\\
+        If \(H\) contains at most \(o(n^k)\) copies of \(K\) then we can eliminate them all by removing at most \(o(n^r)\) hyperedges.
+     \end{lemma}
+     \pause
+     Thus there exists a set of hyperedges \(S\), \(S=|o(n^{k-1}|)\), such that \(H-S\) contains~no~copy~of~\(K\).\\
+     \vspace{1em}
+     Each hyperedge of \(S\) is contained in exactly one element of \(P_i\), thus \(|P_i|\leq |S| = o(n^{k-1})\). \\
+     \[d\leq 2 | P_i|=o(n^{k-1})\].
+\end{header}
+\end{frame}
+
+%--------------------------------------------
+
+
+\begin{frame}{Summary: Upper bound}
+    \begin{theorem}{Theorem}
+        \(D(n,k) =o(n^{k-1})\)
+    \end{theorem}
+    \textcolor{cfred}{\textbf{Case 1:}} \(H_i\) contains more than \(n^{k-1}\) copies of \(K\).\\
+    \(\longrightarrow\) a shortcut exists\\
+    \textcolor{cfred}{\textbf{Case 2:}} \(H_i\) contains less than \(n^{k-1}\) copies of \(K\).\\
+     \(\longrightarrow\)    Each hyperedge of \(S\) is contained in exactly one element of \(P_i\), thus \(|P_i|\leq |S| = o(n^{k-1})\). Moreover \(d\leq 2 | P_i|=o(n^{k-1})\).
+\end{frame}

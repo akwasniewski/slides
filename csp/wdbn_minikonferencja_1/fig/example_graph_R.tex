@@ -1,0 +1,21 @@
+\begin{tikzpicture}[
+    scale=0.85,
+    minimum size=0.05cm,
+    line width=1.2pt
+]
+
+\begin{scope}[shift=({0,-3})]
+    \node at (-1.5,1.8) {\Large \(R\)};
+
+    \node[circle, draw=black] (v0) at (-1,1) {\(0\)};
+    \node[circle, draw=black] (v1) at (1,1) {\(1\)};
+    \node[circle, draw=black] (v2) at (0,2.5) {\(2\)};
+
+    \draw[cfred] (v0) -- (v1);
+    \draw[cfred] (v0) -- (v2);
+    \draw[cfred, loop left] (v0) to node[left] {} (v0);
+    \draw[cfred, loop right] (v1) to node[left] {} (v1);
+    \draw[cfred, loop above] (v2) to node[left] {} (v2);
+\end{scope}
+
+\end{tikzpicture}

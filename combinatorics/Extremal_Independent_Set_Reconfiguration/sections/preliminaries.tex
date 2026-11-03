@@ -1,0 +1,96 @@
+\begin{frame}{Reconfiguration problems}
+    \begin{heading}{What are they?}
+Ask whether one configuration can be transformed into another via a sequence of local, legal moves.
+    \end{heading}
+    \begin{heading}{Examples of reconfiguration problems}
+    \begin{itemize}
+        \item Rubik's cube
+        \item Sokoban
+        \item Graph recolouring reconfiguration
+        \item Independent set reconfiguration
+    \end{itemize}
+    \end{heading}
+    \pause
+    Most reconfiguration problems don't belong in NP
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{Independent set reconfiguration}
+        Given two independent sets of size \(k\), is it possible to transform one into the other by changing vertices one by one in such a way that intermediate sets remain independent?
+    \vspace{1em}
+    \pause
+    \begin{heading}{Two paradigms}
+    \begin{itemize}
+        \item Token sliding - only allows swaps within edges
+        \item Token jumping - allows any swaps preserving independence
+    \end{itemize}
+    \end{heading}
+
+    Both are PSPACE-complete
+\end{frame}
+
+%--------------------------------------------
+
+\input{sections/reconfiguration}
+
+%--------------------------------------------
+
+\begin{frame}{}
+    \begin{fact}{Reconfiguration graph \(R_k(G)\)} is a graph whose vertices correspond to independent sets of size \(k\) in \(G\). Edges correspond to one-step reconfigurations. Possibly exponential in size!
+    \end{fact}
+    \vspace{1em}
+    \onslide<2>{
+        \begin{fact}{Reconfiguration path} is a path in \(R_k(G)\).
+        \end{fact}
+    }
+    \vspace{-2em}
+    \begin{figure}
+        \centering
+        \include{sections/tikzzz/recpath}
+    \end{figure}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}
+\vspace{-3em}
+    \begin{figure}
+        \centering
+        \include{sections/tikzzz/recpath2}
+    \end{figure}
+    \vspace{-4em}
+    \begin{fact}{\(D(n,k)\)}
+        is the maximum diameter of \(R_k(G)\) among all graphs on \(n\) vertices.
+    \end{fact}
+    \vspace{1em}
+    % \begin{fact}{Diameter path} is the path realising \(D(n,k)\).
+    % \end{fact}
+    \pause
+    \begin{center}
+        \large \textcolor{cfred}{How can we bound \(D(n,k)\)?} 
+    \end{center}
+    We want to find a graph such that its reconfiguration diameter is the longest possible.
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{Why is this important?}
+    \begin{itemize}
+        \item Set reconfiguration has been heavily studied
+        \item No one before has studied set reconfiguration in an extremal way 
+        \item Extremal reconfiguration problems have only been studied for recolouring \framemark.
+    \end{itemize}
+    \vspace{1em}
+    \pause
+    Most of the techniques used are similar to the ones used to bound the \((6,3)\) problem.
+    
+    \begin{heading}{(6,3) Problem}
+    (Ruzsa–Szemerédi problem) asks for asks for the maximum number of hyperedges in a (6, 3)-free n-vertex 3-uniform hypergraph \framemark..
+    \end{heading}
+\framereference{Bonsma, Cereceda, \emph{Finding Paths between graph colourings: PSPACE-completeness and superpolynomial distances, 2009
+}}
+\vspace{-1em}
+\framereference{I. Z. Ruzsa and E. Szemerédi. Triple systems with no six points carrying three triangles.
+Combinatorics (Keszthely, 1976), Coll. Math. Soc. J. Bolyai, 18:939–945, 1978.}
+\end{frame}

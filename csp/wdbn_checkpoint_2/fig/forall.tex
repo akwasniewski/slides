@@ -1,0 +1,27 @@
+\begin{tikzpicture}[
+    line width=1pt,
+]
+
+    \node[font=\Large] at (1.4, 3){\textcolor{cfblue}{\(R(u) \equiv \forall_{v \in V}\) \( u \to v\)}};
+    \node[font=\Large] at (-1, 0.75){\(\exists_{v_1, \dots, v_4}\)};
+    \node[font=\Large] at (2.75, 0.75){\( \land \bigwedge_{i=1}^4 u \to v_i\)};
+        
+    \node[circle, line width=1pt, draw=white, fill=black] (v1) at (0,1.25) {};
+    \node[above left] at (v1) {\(v_1\)};
+    
+    \node[circle, line width=1pt, draw=white, fill=black] (v2) at (1,1.25) {};
+    \node[above right] at (v2) {\(v_2\)};
+
+    \node[circle, line width=1pt, draw=white, fill=black] (v3) at (1,0.25) {};
+    \node[below right] at (v3) {\(v_3\)};
+
+    \node[circle, line width=1pt, draw=white, fill=black] (v4) at (0,0.25) {};
+    \node[below left] at (v4) {\(v_4\)};
+
+
+    \draw[->] (v1) -- (v2);
+    \draw[->] (v2) -- (v3);
+    \draw[->] (v3) -- (v4);
+    \draw[->] (v4) -- (v1);
+
+\end{tikzpicture}

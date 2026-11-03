@@ -1,0 +1,26 @@
+\begin{frame}{Gadżety}
+\begin{columns}
+    \begin{column}{0.4\textwidth}
+    Definiujemy relację w grafie przy~pomocy:
+        \begin{itemize}
+            \item relacji krawędzi: \(\to\)
+            \item koniunkcji: \(\land\)
+            \item równości wierzchołków: \(=\)
+            \item kwantyfikatora: \(\exists\)
+        \end{itemize}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+    \begin{figure}
+        \centering
+        \input{fig/gadgets_undirected}
+    \end{figure}
+        \[P_3(u,v)=\exists_{x,y} \ u \to x \land x \to y \land y \to v\]
+    \vspace{-2em}
+    \onslide<2->{
+        \[F_1(u,v)=\exists_x \ u \to x \land v \to x\]
+    }
+    \vspace{-2em}
+    \end{column}
+
+\end{columns}
+\end{frame}

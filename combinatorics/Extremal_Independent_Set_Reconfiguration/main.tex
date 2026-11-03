@@ -1,0 +1,44 @@
+\documentclass[aspectratio=169]{beamer}
+\newif\ifdraft
+\draftfalse
+\usepackage{style}
+\addbibresource{references.bib}
+\title[Title]{Extremal independent Set Reconfiguration}
+\subtitle{ Nicolas Bousquet, Bastien Durain, Théo Pierron, Stéphan Thomassé}
+
+% \subtitle{Subtitle}
+
+\author{Andrzej Antoni Kwaśniewski \\ 
+Advisor: Clément Legrand – Duchesne}
+\date[]{Combinatorics 23 I 2026}
+\begin{document}
+\onehalfspacing
+%---------------------------------------------------------
+
+\frame{\titlepage}
+
+%---------------------------------------------------------
+\section{Preliminaries}
+\input{sections/preliminaries}
+
+\section{Upper bounds and exact solutions}
+\input{sections/upper}
+\section{Lower bound for k=3}
+\input{sections/lower3}
+% \section{General lower bound}
+\section{Conclusions}
+\input{sections/general}
+\input{sections/conclusions}
+%---------------------------------------------------------
+% \begin{frame}{Sources}
+% \label{references}
+%     \begin{itemize}
+%         \item Nicolas Bousquet, Bastien Durain, Théo Pierron, Stéphan Thomassé\href{https://arxiv.org/pdf/2301.02020}{\textit{Extremal Independent Set Reconfiguration}}, 2023. \\
+%     \end{itemize}
+
+% \end{frame}
+
+%---------------------------------------------------------
+
+
+\end{document}

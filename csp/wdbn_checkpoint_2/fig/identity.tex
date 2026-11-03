@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+    line width=1pt,
+]
+\begin{scope}[shift={(-1,0)}]
+
+    \node[circle, line width=1pt, draw=white, fill=black] (v1) at (0,2) {};
+    \node[above left] at (v1) {\(v_1\)};
+    
+    \node[circle, line width=1pt, draw=white, fill=black] (v2) at (2,2) {};
+    \node[above right] at (v2) {\(v_2\)};
+
+    \node[circle, line width=1pt, draw=white, fill=black] (v3) at (2,0) {};
+    \node[below right] at (v3) {\(v_3\)};
+
+    \node[circle, line width=1pt, draw=white, fill=black] (v4) at (0,0) {};
+    \node[below left] at (v4) {\(v_4\)};
+
+
+    \draw[->] (v1) -- (v2);
+    \draw[->] (v2) -- (v3);
+    \draw[->] (v3) -- (v4);
+    \draw[->] (v4) -- (v1);
+
+\end{scope}
+
+\begin{scope}[shift={(0,-2)}]
+\node[] at (-2.4,1){\textcolor{cfblue}{Różnowartościowość:}};
+
+\node[] at (0,0){\(I(v_1,\dots,v_4)\equiv \underbrace{v_1 \to v_2 \land v_2 \to v_3 \land v_3 \to v_4 \land v_4 \to v_1}_\text{wszystkie krawędzie z rdzenia} \)};
+\end{scope}
+\end{tikzpicture}

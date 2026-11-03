@@ -1,0 +1,32 @@
+\begin{tikzpicture}[scale=1.2, line width=1.2pt]
+
+% Jeśli P \cap NP-hard = \emptyset to P\neq NP
+% ----------- NP ------------
+\draw (0,0) ellipse (1.75 and 1.45);
+\node at (1.2,0) {\large NP};
+
+% ------- NP-complete -------
+\draw (0,0.75) ellipse (0.8 and 0.55);
+\node at (1.4,1.75) {\large NP-zupełne};
+\draw (1.35,1.45) -- (0.5,0.8);
+% \node at (-0.35,-0.8) {\large P};
+
+% ------------ P ------------
+\draw (0,-0.75) ellipse (0.8 and 0.55);
+\node at (0.4,-0.8) {\large P};
+
+% ----------- CSP -----------
+\begin{scope}[line width=1.6pt, rounded corners=8pt, cfblue]
+\only<1>{
+    \draw (-0.55,-1) rectangle (0,1);
+    \node at (-1.1,0) {\Large CSP};
+}
+
+\only<2>{
+    \draw (-0.55,0.4) rectangle (0,1);
+    \draw (-0.55,-1) rectangle (0,-0.4);
+    \node at (-1.1,0) {\Large CSP};
+}
+\end{scope}
+
+\end{tikzpicture}

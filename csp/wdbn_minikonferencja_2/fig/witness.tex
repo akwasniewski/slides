@@ -1,0 +1,60 @@
+\begin{tikzpicture}[
+    scale=0.85,
+    line width=1pt,
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+    arr2/.style={{Triangle[length=2mm,width=1.5mm]}-{Triangle[length=2mm,width=1.5mm]}},
+    minimum size=0.06cm,
+    inner sep 2.6pt,
+]
+
+\node[circle, fill=cfred!85, label=left:{\(u\)}]
+    (v1) at (0,0) {};
+\node[
+    circle,
+    minimum size=8pt,
+    path picture={
+        \fill[cfblue!85]
+            (path picture bounding box.south west)
+            rectangle
+            (path picture bounding box.north);
+        \fill[cfred!85]
+            (path picture bounding box.south)
+            rectangle
+            (path picture bounding box.north east);
+    },
+    label=left:{\(v\)}
+] (v2) at (0,2) {};
+\node[circle, fill=black, inner sep=2.4pt]
+    (v3) at (2,2) {};
+\node[circle, fill=black, inner sep=2.4pt]
+    (v4) at (2,0) {};
+
+\draw[arr] (v1) -- (v2);
+\draw[arr] (v2) -- (v3);
+\draw[arr] (v3) -- (v4);
+\draw[arr] (v4) -- (v1);
+\draw[arr] (v1) -- (v3);
+
+% \begin{scope}[on background layer]
+%     \fill[cfgrey, opacity=0.25, draw=cfgrey, rounded corners=20pt]
+%         ([shift={(-0.5,-0.5)}] v1.center) --
+%         ([shift={(-0.5,0.5)}] v2.center) --
+%         ([shift={(0.5,0.5)}] v3.center) --
+%         ([shift={(0.5,-0.5)}] v4.center) --
+%         cycle;
+% \end{scope}
+
+\node[circle, fill=cfblue!85, label=left:{\(w\)}]
+    (u3) at (-1,3.6) {};
+\node[circle, fill=black, inner sep=2.4pt]
+    (u4) at (0.9,4.6) {};
+\node[circle, fill=black, inner sep=2.4pt]
+    (u5) at (1.85,2.9) {};
+
+\draw[arr] (v2) -- (u3);
+\draw[arr] (u3) -- (u4);
+\draw[arr] (u4) -- (u5);
+\draw[arr] (u5) -- (v2);
+\draw[arr] (v2) -- (u4);
+
+\end{tikzpicture}

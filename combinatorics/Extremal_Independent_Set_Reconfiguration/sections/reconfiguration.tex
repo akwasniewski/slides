@@ -1,0 +1,92 @@
+\begin{frame}{Example: Token jumping reconfiguration}
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=2]
+
+% coordinates (defined once)
+\coordinate (c1) at (1,2);
+\coordinate (c2) at (3,2);
+\coordinate (c3) at (0,1);
+\coordinate (c4) at (2,1);
+\coordinate (c5) at (4,1);
+\coordinate (c6) at (1,0);
+\coordinate (c7) at (3,0);
+
+% edges (drawn once)
+\draw[line width=1.5pt, dashed] (c1)--(c2);
+\draw[line width=1.5pt, dashed] (c1)--(c3);
+\draw[line width=1.5pt, dashed] (c1)--(c4);
+\draw[line width=1.5pt, dashed] (c3)--(c6);
+\draw[line width=1.5pt, dashed] (c1)--(c6);
+\draw[line width=1.5pt, dashed] (c4)--(c6);
+\draw[line width=1.5pt, dashed] (c2)--(c4);
+\draw[line width=1.5pt, dashed] (c2)--(c5);
+\draw[line width=1.5pt, dashed] (c2)--(c7);
+\draw[line width=1.5pt, dashed] (c4)--(c7);
+\draw[line width=1.5pt, dashed] (c5)--(c7);
+\draw[line width=1.5pt, dashed] (c6)--(c7);
+
+\only<1>{
+    \node[circle,draw,fill=cfgr,minimum size=0.6cm,line width=1.5pt] at (c1) {};
+    \node[circle,draw,fill=cfblue,minimum size=0.6cm,line width=1.5pt] at (c2) {};
+    \node[circle,draw,fill=cfgr,minimum size=0.6cm,line width=1.5pt] at (c3) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (c4) {};
+    \node[circle,draw,fill=cfblue,minimum size=0.6cm,line width=1.5pt] at (c5) {};
+    \node[circle,draw,fill=cfgr,minimum size=0.6cm,line width=1.5pt] at (c6) {};
+    \node[circle,draw,fill=cfblue,minimum size=0.6cm,line width=1.5pt] at (c7) {};
+}
+
+\only<2>{
+    \node[circle,draw,fill=cfred,minimum size=0.6cm,line width=1.5pt] at (c1) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (c2) {};
+    \node[circle,draw,fill=cfred,minimum size=0.6cm,line width=1.5pt] at (c3) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (c4) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (c5) {};
+    \node[circle,draw,fill=cfred,minimum size=0.6cm,line width=1.5pt] at (c6) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (c7) {};
+}
+
+\only<3>{
+    \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v1) at (c1) {};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v2) at (c2) {};
+    \node[circle, draw=black, fill=cfred!20, minimum size=0.6cm, line width=1.5pt] (v3) at (c3) {};
+    \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v4) at (c4) {};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v5) at (c5) {};
+    \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v6) at (c6) {};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v7) at (c7) {};
+}
+
+\only<4>{
+    \node[circle, draw=black, fill=cfred!20, minimum size=0.6cm, line width=1.5pt] (v1) at (c1) {};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v2) at (c2) {};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v3) at (c3) {};
+    \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v4) at (c4) {};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v5) at (c5) {};
+    \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v6) at (c6) {};
+    \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v7) at (c7) {};
+}
+
+\only<5>{
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v1) at (c1) {};
+    \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v2) at (c2) {};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v3) at (c3) {};
+    \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v4) at (c4) {};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v5) at (c5) {};
+    \node[circle, draw=black, fill=cfred!20, minimum size=0.6cm, line width=1.5pt] (v6) at (c6) {};
+    \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v7) at (c7) {};
+}
+
+\only<6>{
+        \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v1) at (c1) {};
+        \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v2) at (c2) {};
+        \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v3) at (c3) {};
+        \node[circle, draw=black, fill=cfred!20, minimum size=0.6cm, line width=1.5pt] (v4) at (c4) {};
+        \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v5) at (c5) {};
+        \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (v6) at (c6) {};
+        \node[circle, draw=black, fill=cfred, minimum size=0.6cm, line width=1.5pt] (v7) at (c7) {};
+}
+
+\end{tikzpicture}
+\end{figure}
+\textbf{Note}: All the figures in the talk have dashed lines as non-edges in the graph, edges are not drawn for clarity.
+\end{frame}

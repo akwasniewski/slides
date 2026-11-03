@@ -1,0 +1,146 @@
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{bm, bbm}
+\usepackage{mathtools}
+\usepackage{auto-pst-pdf}
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{biblatex}
+\usepackage{hyperref}
+
+\usefonttheme{serif}
+
+\definecolor{cfred}{RGB}{181, 50, 84}
+\definecolor{cfblue}{RGB}{68, 114, 196}
+\definecolor{cfgrey}{RGB}{137, 137, 137}
+\definecolor{footergrey}{RGB}{165, 180, 180}
+
+
+\setbeamercolor{palette primary}{bg=cfred, fg=white}
+\setbeamercolor{palette secondary}{bg=cfred, fg=white}
+\setbeamercolor{palette tertiary}{bg=cfred, fg=white}
+\setbeamercolor{palette quaternary}{bg=cfred, fg=white}
+\setbeamercolor{structure}{fg=cfred}
+\setbeamercolor{section in toc}{fg=cfred}
+\setbeamercolor{subsection in head/foot}{bg=cfgrey, fg=white}
+\setbeamercolor{uppercolor}{fg=white, bg=cfred}
+\setbeamercolor{lowercolor}{fg=black, bg=white}
+\def \bblock{\begin{beamerboxesrounded}[upper=uppercolor, lower=lowercolor, shadow=true]}
+\def \eblock{\end{beamerboxesrounded}}
+
+%------------------------------------------------------------
+% Titlepage information
+
+\title[Title]{Know your gadgets}
+\subtitle{Tutor: Marcin Kozik}
+
+\author[authors]{Andrzej Kwaśniewski, Anna Szymańska}
+\date[WDBN]{Introduction to research 2025/26}
+
+%------------------------------------------------------------
+% Header and footline
+\setbeamertemplate{navigation symbols}{}
+
+\newcommand{\mytitlefootline}{%
+  \setbeamertemplate{footline}{%
+    {\raggedleft\color{cfred}\rule{0.4\paperwidth}{0.5pt}\par}
+    \vspace{0.1cm}
+    \color{footergrey}\rule{0.7\paperwidth}{0.4pt}\par
+    \vspace{0.1cm}
+
+    \nointerlineskip
+    \hbox{%
+      \hspace{0.5cm}%
+      \parbox[b]{0.465\paperwidth}{%
+        \raggedright
+        {\color{footergrey}\scriptsize\textit{Universes for Generic Programs and Proofs}\\[0.1em]
+        \scriptsize\textit{in Dependent Type Theory}}%
+      }%
+      \hfill
+      \parbox[b]{0.4\paperwidth}{%
+        \raggedleft
+        {\color{footergrey}\scriptsize\insertauthor\\[0.5em]}%
+      }%
+      \hspace{0.3cm}%
+      \raisebox{-0.5em}{\includegraphics[height=0.85cm]{images/tcs.png}}%
+      \hspace{0.5cm}%
+    }%
+    \vspace{0.25cm}%
+  }%
+}
+
+\setbeamertemplate{footline}{}
+
+\setbeamertemplate{frametitle}[default][left, leftskip=.25cm] {}
+\addtobeamertemplate{frametitle}{}{}
+
+%------------------------------------------------------------
+
+\usepackage[most]{tcolorbox}
+\usepackage{adjustbox}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usepackage{color}
+
+\definecolor{bggrey}{rgb}{0.95,0.95,0.95}
+\definecolor{icons}{HTML}{46A247}
+
+\newtcolorbox[auto counter, number within=section]{def_box}[1][]{
+  breakable,
+  enhanced,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  title=#1,
+  colbacktitle=white,
+  title style={
+    left color=cfred,
+    middle color=cfred!85!white,
+    right color=cfred!70!white,
+  },
+  overlay={
+    \draw[line width=0.5pt, cfred, rounded corners=1mm]
+      ([xshift=1pt, yshift=-1pt]frame.north west)
+        -- (frame.south west)
+        -- ++(0.4\textwidth,0);
+  }
+}
+
+%------------------------------------------------------------
+
+\newcommand{\brackets}[1]{\left[ #1 \right]}
+\newcommand{\pars}[1]{\left( #1 \right)}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\norm}[1]{\| #1 \|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\dotpr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\inl}[1]{\text{Inl} \pars{#1}}
+\newcommand{\inr}[1]{\text{Inr} \pars{#1}}
+\newcommand{\bigO}{\mathcal{O}}
+\newcommand{\eps}{\varepsilon}
+\def\empty{\varnothing}
+
+%------------------------------------------------------------
+
+% Listings styling
+\usepackage{listings}
+
+\definecolor{lightgray}{gray}{0.95}
+
+\lstset{
+  backgroundcolor=\color{lightgray},
+  basicstyle=\ttfamily\small,
+  rulecolor=\color{gray},
+  tabsize=4,
+  breaklines=true,
+  showstringspaces=false,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{orange!60!black}
+}

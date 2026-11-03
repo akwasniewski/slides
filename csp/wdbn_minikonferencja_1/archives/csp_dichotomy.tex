@@ -1,0 +1,35 @@
+\begin{tikzpicture}[scale=1.2, line width=1.2pt]
+
+% ---------- NP-hard --------
+\draw (0,1.6) ellipse (1.5 and 1.6);
+\node at (0,2.2) {\Large NP-trudne};
+
+% ----------- NP ------------
+\draw (0,0) ellipse (1.6 and 1.4);
+\node at (-1.0,-0.2) {\large NP};
+
+% ------- NP-complete -------
+\begin{scope}
+  \clip (0,1.6) ellipse (1.5 and 1.6);
+  \fill[cfred, opacity=0.4] (0,0) ellipse (1.6 and 1.4);
+\end{scope}
+
+% ------------ P ------------
+\draw (0,-0.8) ellipse (0.8 and 0.5);
+\node at (-0.35,-0.8) {\large P};
+
+% ----------- CSP -----------
+\begin{scope}[line width=1.6pt, rounded corners=8pt, cfblue]
+\only<1>{
+    \draw (0,-1.0) rectangle (0.55,1.0);
+    \node at (1.1,-0.25) {\Large CSP};
+}
+
+\only<2>{
+    \draw (0,0.3) rectangle (0.55,1.0);
+    \draw (0,-1.1) rectangle (0.55,-0.5);
+    \node at (1.1,-0.25) {\Large CSP};
+}
+\end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+    scale=1.1,
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+    arr2/.style={{Triangle[length=2mm,width=1.5mm]}-{Triangle[length=2mm,width=1.5mm]}},
+    line width=1pt,
+    inner sep=2.8pt,
+]
+
+\node[circle, fill=black] (v1) at (0,2) {};
+\node[circle, fill=cfblue!85] (v2) at (2,2) {};
+\node[circle, fill=cfblue!85, label=below:{\(u\)}] (v3) at (2,0) {};
+\node[circle, fill=black] (v4) at (0,0) {};
+\node[circle, fill=cfblue!85] (v5) at (1,1) {};
+\draw[arr] (v2) -- (v1);
+\draw[arr2] (v3) -- (v2);
+\draw[arr] (v4) -- (v3);
+\draw[arr] (v4) -- (v1);
+\draw[arr] (v2) -- (v5);
+\draw[arr] (v5) -- (v3);
+\node at (3.6,1) {\(G'=(V', E')\)};
+
+% highlight
+\begin{scope}[on background layer]
+    \fill[cfgrey!40, rounded corners=20pt]
+        ([shift={(0.5,0.8)}] v2.center) --
+        ([shift={(0.5,-0.5)}] v3.center) --
+        ([shift={(-0.8,-0.5)}] v4.center) --
+        cycle;
+\end{scope}
+
+\end{tikzpicture}

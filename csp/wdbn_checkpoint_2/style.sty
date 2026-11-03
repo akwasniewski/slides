@@ -1,0 +1,89 @@
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{bm, bbm}
+\usepackage{mathtools}
+\usepackage{auto-pst-pdf}
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{biblatex}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{libertinus}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{xcolor}
+\usetikzlibrary{tikzmark, fit, arrows.meta, shapes.geometric, shapes.misc}
+
+%------------------------------------------------------------
+
+% Titlepage information
+
+\title[Title]{Jakie relacje można zakodować w grafie?}
+\subtitle{}
+
+\author[authors]{Andrzej Kwaśniewski, Anna Szymańska}
+\date[WDBN]{Opiekun: Marcin Kozik \\Wprowadzenie do badań naukowych 2025/26}
+
+
+%------------------------------------------------------------
+% Header and footline
+
+\usefonttheme{default}  
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{footline}{}
+
+\setbeamertemplate{frametitle}[default][left, leftskip=.25cm] {}
+
+%------------------------------------------------------------
+% Colors
+\definecolor{cfgr}{RGB}{91, 140, 90}
+\definecolor{cfgrey}{RGB}{205, 202, 202}
+\definecolor{cfred}{RGB}{181, 50, 84}
+\definecolor{cfnavy}{RGB}{68, 114, 196}
+\definecolor{cfblue}{RGB}{25, 133, 161}
+\definecolor{cfyel}{RGB}{255, 210, 63}
+\definecolor{cfpink}{RGB}{255, 175, 197}
+\definecolor{cfgreen}{RGB}{49, 109, 49}
+\definecolor{cfteagreen}{RGB}{161, 197, 57}
+\definecolor{footergrey}{RGB}{165, 180, 180}
+
+\setbeamercolor{palette primary}{bg=cfred, fg=white}
+\setbeamercolor{palette secondary}{bg=cfred, fg=white}
+\setbeamercolor{palette tertiary}{bg=cfgr, fg=white}
+\setbeamercolor{palette quaternary}{bg=cfgr, fg=white}
+\setbeamercolor{structure}{fg=cfred}
+\setbeamercolor{section in toc}{fg=cfgr}
+\setbeamercolor{subsection in head/foot}{bg=cfgrey, fg=white}
+\setbeamercolor{uppercolor}{fg=white, bg=cfgr}
+\setbeamercolor{lowercolor}{fg=black, bg=white}
+
+%------------------------------------------------------------
+
+\newcommand{\brackets}[1]{\left[ #1 \right]}
+\newcommand{\pars}[1]{\left( #1 \right)}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\norm}[1]{\| #1 \|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\dotpr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\inl}[1]{\text{Inl} \pars{#1}}
+\newcommand{\inr}[1]{\text{Inr} \pars{#1}}
+
+\newcommand{\DorD}{\ensuremath{D\text{or}D}}
+\newcommand{\eqoreq}{\text{EQ-or-EQ}}
+\newcommand{\core}{\text{core}}
+\newcommand{\csp}{\text{CSP}}
+
+%------------------------------------------------------------
+
+\usepackage{enumitem}
+\setlist[itemize]{label=\textbullet, left=0.5em, itemsep=1pt, topsep=2pt}
+
+\usepackage{amssymb}  % dla \checkmark
+\usepackage{pifont}
+
+\usetikzlibrary{backgrounds}

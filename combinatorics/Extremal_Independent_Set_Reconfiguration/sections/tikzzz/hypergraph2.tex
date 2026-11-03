@@ -1,0 +1,21 @@
+\begin{tikzpicture}[scale=0.8]
+    \node[circle, draw=black, fill=white, line width=1.5pt] (p6) at (0, 1) {\footnotesize$6$};
+    \node[circle, draw=black, fill=white, line width=1.5pt] (p3) at (0, -1) {\footnotesize$3$}
+    \node[circle, draw=black, fill=white, line width=1.5pt] (p1) at (1.5, 0) {\footnotesize$1$}
+    \node[circle, draw=black, fill=white, line width=1.5pt] (p2) at (3, 0) {\footnotesize$2$}
+    \node[circle, draw=black, fill=white, line width=1.5pt] (p4) at (2.25, 1.5) 
+    {\footnotesize$4$}
+    \node[circle, draw=black, fill=white, line width=1.5pt] (p5) at (4.5, 1)    {\footnotesize$5$}
+    \node[circle, draw=black, fill=white, line width=1.5pt] (p7) at (4.5, -1) 
+    {\footnotesize$7$}
+
+    \draw[line width=1.5pt, cfblue] (p6) -- (p1);
+    \draw[line width=1.5pt, cfblue] (p6) -- (p3);
+    \draw[line width=1.5pt, cfpink] (p5) -- (p7);
+    \draw[line width=1.5pt, cfblue] (p3) -- (p1);
+    \draw[line width=1.5pt, cfgr] (p1) -- (p4);
+    \draw[line width=1.5pt, cfgr] (p2) -- (p4);
+    \draw[line width=1.5pt, cfgr] (p1) -- (p2);
+    \draw[line width=1.5pt, cfpink] (p2) -- (p5);
+    \draw[line width=1.5pt, cfpink] (p2) -- (p7);
+\end{tikzpicture}

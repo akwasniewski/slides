@@ -1,0 +1,27 @@
+\begin{tikzpicture}[
+    scale=0.5,
+    line width=1pt,
+    vertex/.style={
+        circle,
+        fill=black,
+        inner sep=2.4pt
+    },
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+]
+
+\node at (-7,-3) {\(P_3(u,v) \equiv\)};
+
+\node[vertex, label=above:{\(u\)}]
+    (p0) at (-4,1) {};
+\node[vertex, label=right:{\(x\)}]
+    (p1) at (-4,-1) {};
+\node[vertex, label=right:{\(y\)}]
+    (p2) at (-4,-3) {};
+\node[vertex, label=below:{\(v\)}]
+    (p3) at (-4,-5) {};
+
+\draw[arr] (p0) -- (p1);
+\draw[arr] (p1) -- (p2);
+\draw[arr] (p2) -- (p3);
+
+\end{tikzpicture}

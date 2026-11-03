@@ -1,0 +1,37 @@
+        \begin{tikzpicture}[scale=1]
+        
+            \node[circle, draw=black, fill=white, minimum size=0.4cm, line width=1.5pt] (v1) at (0, 2) {};
+            \node[circle, draw=black, fill=white, minimum size=0.4cm, line width=1.5pt] (v2) at (2, 2) {};
+            \node[circle, draw=black, fill=white, minimum size=0.4cm, line width=1.5pt] (v3) at (4, 2) {};
+            \node[circle, draw=black, fill=white, minimum size=0.4cm, line width=1.5pt] (v4) at (6, 2) {};
+            \node[circle, draw=black, fill=white, minimum size=0.4cm, line width=1.5pt] (v5) at (8, 2) {};
+            \node[circle, draw=black, fill=white, minimum size=0.4cm, line width=1.5pt] (v6) at (10, 2) {};
+            \node[circle, draw=black, fill=white, minimum size=0.4cm, line width=1.5pt] (v7) at (12, 2) {};
+            \draw[line width=1.5pt, dashed] (v1) -- (v2);
+            \draw[line width=1.5pt, dashed] (v2) -- (v3);
+            \draw[line width=1.5pt, dashed] (v3) -- (v4);
+            \draw[line width=1.5pt, dashed] (v4) -- (v5);
+            \draw[line width=1.5pt, dashed] (v5) -- (v6);
+            \draw[line width=1.5pt, dashed] (v6) -- (v7);
+            \onslide<3->{
+                \draw[cfblue, line width=1.5pt] ($(v1)!0.5!(v2)$) ellipse (1.3cm and 0.6cm);
+    \draw[cfblue, line width=1.5pt] ($(v2)!0.5!(v3)$) ellipse (1.3cm and 0.6cm);
+    \draw[cfblue, line width=1.5pt] ($(v3)!0.5!(v4)$) ellipse (1.3cm and 0.6cm);
+    \draw[cfblue, line width=1.5pt] ($(v4)!0.5!(v5)$) ellipse (1.3cm and 0.6cm);
+    \draw[cfblue, line width=1.5pt] ($(v5)!0.5!(v6)$) ellipse (1.3cm and 0.6cm);
+    \draw[cfblue, line width=1.5pt] ($(v6)!0.5!(v7)$) ellipse (1.3cm and 0.6cm);
+    
+            \node[circle, draw=black, fill=cfblue, minimum size=0.4cm, line width=1.5pt] (v8) at (1, 1) {};
+            \node[circle, draw=black, fill=cfblue, minimum size=0.4cm, line width=1.5pt] (v9) at (3, 1) {};
+            \node[circle, draw=black, fill=cfblue, minimum size=0.4cm, line width=1.5pt] (v10) at (5, 1) {};
+            \node[circle, draw=black, fill=cfblue, minimum size=0.4cm, line width=1.5pt] (v11) at (7, 1) {};
+            \node[circle, draw=black, fill=cfblue, minimum size=0.4cm, line width=1.5pt] (v12) at (9, 1) {};
+            \node[circle, draw=black, fill=cfblue, minimum size=0.4cm, line width=1.5pt] (v13) at (11, 1) {};
+            \draw[line width=1.5pt] (v8) -- (v9);
+            \draw[line width=1.5pt] (v9) -- (v10);
+            \draw[line width=1.5pt] (v10) -- (v11);
+            \draw[line width=1.5pt] (v11) -- (v12);
+            \draw[line width=1.5pt] (v12) -- (v13);
+            }
+  
+        \end{tikzpicture}

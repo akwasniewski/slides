@@ -1,0 +1,33 @@
+\begin{tikzpicture}[
+    scale=1.1,
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+    minimum size=0.06cm,
+    line width=1pt,
+]
+
+\begin{scope}[shift={(6,0)}]
+    \node[circle, fill=cfteagreen!85]  (v1) at (0,2) {};
+    \node[circle, fill=cfblue!85] (v2) at (2,2) {};
+    \node[circle, fill=cfteagreen!85]  (v3) at (2,0) {};
+    \node[circle, fill=cfblue!85] (v4) at (0,0) {};
+    \node[circle, fill=cfred!85]  (v5) at (1,1) {};
+    \draw[arr] (v2) -- (v1);
+    \draw[arr] (v2) -- (v3);
+    \draw[arr] (v4) -- (v3);
+    \draw[arr] (v4) -- (v1);
+    \draw[arr] (v5) -- (v2);
+    \draw[arr] (v3) -- (v5);
+    \node at (1,-1) {\(G\)};
+    \node at (3.6,1) {\(\core(G)\)};
+\end{scope}
+
+% highlight
+\begin{scope}[on background layer]
+    \fill[cfgrey!40, rounded corners=20pt]
+        ([shift={(-1,0)}] v5.center) --
+        ([shift={(0.5,1)}] v2.center) --
+        ([shift={(0.5,-1)}] v3.center) --
+        cycle;
+\end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,29 @@
+\begin{tikzpicture}[scale=1]
+
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p0) at (0, 0) {$0$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p1) at (1, 0) {$1$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p2) at (2, 0) {$2$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p3) at (3, 0) {$3$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p4) at (4, 0) {$4$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p5) at (5, 0) {$5$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p6) at (6, 0) {$6$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p7) at (7, 0) {$7$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p8) at (8, 0) {$8$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p9) at (9, 0) {$9$};
+    \node[circle, draw=black, fill=white, minimum size=0.6cm, line width=1.5pt] (p10) at (10, 0) {$10$};
+
+    \onslide<2>{
+        \draw[line width=1.5pt, bend left=30, dashed] (p0) to (p3);
+        \draw[line width=1.5pt, bend left=35, dashed] (p0) to (p6);
+        \draw[line width=1.5pt, bend left=30, dashed] (p3) to (p6);
+        \draw[line width=1.5pt, bend left=35, dashed] (p3) to (p9);
+        \draw[line width=1.5pt, bend left=30, dashed] (p6) to (p9);
+    
+        \fill[cfblue] (0, -0.5) circle (0.1);
+        \fill[cfblue] (2.9, -0.5) circle (0.1);
+        \fill[cfblue] (5.9, -0.5) circle (0.1);
+        \fill[cfpink] (3.1, -0.5) circle (0.1);
+        \fill[cfpink] (6.1, -0.5) circle (0.1);
+        \fill[cfpink] (9, -0.5) circle (0.1);
+    }
+\end{tikzpicture}

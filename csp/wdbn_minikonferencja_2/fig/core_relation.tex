@@ -1,0 +1,20 @@
+\begin{tikzpicture}[
+    scale=0.9,
+    line width=1pt,
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+    arr2/.style={{Triangle[length=2mm,width=1.5mm]}-{Triangle[length=2mm,width=1.5mm]}},
+    minimum size=0.06cm
+]
+
+\node[circle, fill=cfblue!85, inner sep=2.8pt, label=left:{\(q_1\)}]
+    (v1) at (0,0.2) {};
+\node[circle, fill=cfblue!85, inner sep=2.8pt, label=right:{\(q_2\)}]
+    (v3) at (2,0.2) {};
+\node[circle, fill=cfblue!85, inner sep=2.8pt, label=above:{\(q_3\)}]
+    (v2) at (1,1.8) {};
+
+\draw[arr] (v1) -- (v2);
+\draw[arr] (v2) -- (v3);
+\draw[arr2] (v1) -- (v3);
+
+\end{tikzpicture}

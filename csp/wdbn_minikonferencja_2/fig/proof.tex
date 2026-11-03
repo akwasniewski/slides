@@ -1,0 +1,29 @@
+\begin{tikzpicture}[
+    >=Stealth,
+    arr/.style={-{Triangle[length=3mm,width=2mm]}, line width=0.75pt},
+    node distance=1.7cm,
+]
+
+\node (G) {\(G\) gładki, \(\mathrm{al}=1\)};
+\node (Loop)[below left=0.1cm and 2cm of G] {\(G\) ma pęlte};
+
+\node (L1) [below left=1.5cm and 0.1cm of G]
+    {\(G\) silnie spójny};
+
+\node (R1) [below right=0.6cm and 0.6cm of G]
+  {\(G\) nie silnie spójny};
+\node (RL) [below left=0.6cm and 0.3cm of R1]
+  {\(n-1\) linked};
+\node (RR) [below right=0.6cm and 0.3cm of R1]
+  {nie \(n-1\) linked};
+\node (L3) [below=of L1] {Dowód indukcyjny};
+\node (L4) [below=of L3] {G nie ma pętli};
+\draw[arr] (G) -- (Loop);
+\draw[arr] (G) -- (L1);
+\draw[arr] (G) -- (R1);
+\draw[arr] (L3) -- (L4);
+\draw[arr] (L1) -- (L3);
+\draw[arr] (R1) -- (RL);
+\draw[arr] (R1) -- (RR);
+\draw[arr] (RL) -- (L3);
+\end{tikzpicture}

@@ -1,0 +1,102 @@
+%---------------------------------------------------------
+
+\begin{frame}{Teza}
+\alt<1>{
+    \textcolor{cfblue}{Twierdzenie} \\
+    Niech \(G = (V, E)\) będzie grafem takim, że
+    \begin{itemize}
+        \item \(G\) jest gładki
+    \end{itemize}
+    Albo \(G\) zawiera pętlę lub jego rdzeń jest cyklem, albo pozwala wydefiniować dowolną strukturę relacyjną.
+}{
+    \textcolor{black!40}{
+        \textcolor{cfblue}{Twierdzenie} \\
+        Niech \(G = (V, E)\) będzie grafem takim, że
+        \begin{itemize}
+            \item \(G\) jest gładki,
+        \end{itemize}
+    Albo \(G\) zawiera pętlę lub jego rdzeń jest cyklem, albo pozwala wydefiniować dowolną strukturę relacyjną.
+    }
+}
+
+\vspace{0.5em}
+
+\only<2>{
+    \textcolor{cfblue}{Lemat} \\
+    Niech \(G = (V, E)\) będzie grafem takim, że
+    \begin{itemize}
+        \item \(G\) jest gładki,
+        \item \(G\) ma \(\mathrm{al}=1\)
+    \end{itemize}
+    Albo \(G\) zawiera pętlę, albo pozwala wydefiniować dowolną strukturę relacyjną.
+}
+
+\end{frame}
+
+%---------------------------------------------------------
+
+\begin{frame}{Relacja płotkowania}
+
+\begin{columns}[c,onlytextwidth]
+  % LABELS
+  \begin{column}{0.2\textwidth}
+      
+  \end{column}
+  \begin{column}{0.15\textwidth} 
+  \vspace{-3.5em}\\
+    $F_1(u,v) \equiv$
+
+    \vspace{4em}
+
+    $F_2(u,v) \equiv$
+
+    \vspace{5em}
+
+    $F_3(u,v) \equiv$
+  \end{column}
+
+  \begin{column}{0.82\textwidth}
+    \input{fig/setup_fence1}
+
+    \input{fig/setup_fence2}
+
+    \input{fig/setup_fence3}
+  \end{column}
+\end{columns}
+
+\end{frame}
+
+%---------------------------------------------------------
+
+
+\begin{frame}{Stabilizacja płotków}
+    \begin{figure}
+        \centering
+        \only<1-3>{\input{fig/setup_stabilise1}}
+        \only<4->{\input{fig/setup_stabilise2}}
+    \end{figure}
+    Jeśli istnieje płotek \(F_n(u,v)\), to istnieje także płotek \(F_{n+1}(u,v)\).
+    \\
+    \vspace{1em}
+    \onslide<5>{
+    Od pewnego momentu relacja się ustabilizuje: \vspace{-1em}
+    \[ F_1 \subseteq F_2 \subseteq F_3 \subseteq \dots F_{m-1} \subsetneq F_m = F \]
+    }
+\end{frame}
+
+%---------------------------------------------------------
+
+\begin{frame}{al = 1}
+    Graf ma długość algebraiczną 1, jeśli ustabilizowany płotek \(F\) łączy wszystkie wierzchołki.
+    \[\mathrm{al}=1 \Longleftrightarrow \forall_{u,v\in G} \ F(u,v)\]
+\end{frame}
+
+%---------------------------------------------------------
+
+\begin{frame}{Połączoność}
+    Graf jest \emph{połączony} względem relacji \(R\), jeśli dowolną parę \(u, v \in V\) łączy ścieżka ,,góra dół''.
+    \begin{figure}
+        \centering
+        \input{fig/al1}
+    \end{figure}
+\end{frame}

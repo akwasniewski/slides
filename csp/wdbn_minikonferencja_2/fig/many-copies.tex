@@ -1,0 +1,64 @@
+\begin{tikzpicture}[
+    scale=0.9,
+    line width=1pt,
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+    arr2/.style={{Triangle[length=2mm,width=1.5mm]}-{Triangle[length=2mm,width=1.5mm]}},
+    minimum size=0.06cm
+]
+
+
+\begin{scope}[shift={(11,0)}]
+
+    \node[circle, fill=cfred!85, label=above:{\(u\)}]
+        (v1) at (0,-0.2) {};
+    \node[circle, fill=cfblue!85, label=below:{\(w\)}]
+        (v2) at (1,-1.8) {};
+    \node[circle, fill=cfblue!85, label=above:{\(v\)}]
+        (v3) at (2,-0.2) {};
+
+    \draw[arr] (v1) -- (v2);
+    \draw[arr] (v2) -- (v3);
+    \draw[arr2] (v1) -- (v3);
+
+    \node[circle, fill=cfred!85, label=left:{\(u'\)}]
+        (v4) at (3,-1.5) {};
+    \node[circle, fill=cfblue!85, label=above:{\(w'\)}]
+        (v5) at (4,0.1) {};
+    \node[circle, fill=cfblue!85, label=right:{\(v'\)}]
+        (v6) at (5,-1.5) {};
+
+    \draw[arr] (v4) -- (v5);
+    \draw[arr] (v5) -- (v6);
+    \draw[arr2] (v4) -- (v6);
+
+    \node[circle, fill=cfblue!85, label=below:{\(w''\)}]
+        (v7) at (4,-3.1) {};
+
+    \draw[arr] (v6) -- (v7);
+    \draw[arr] (v7) -- (v4);
+    \draw[arr] (v2) -- (v7);
+    \draw[arr] (v5) -- (v3);
+
+    \begin{scope}[on background layer]
+        \fill[cfgrey, opacity=0.25, draw=cfgrey, rounded corners=20pt]
+            ([shift={(-1,-0.5)}] v4.center) --
+            ([shift={(0,1)}] v5.center) --
+            ([shift={(1,-0.5)}] v6.center) --
+            cycle;
+
+        \fill[cfgrey, opacity=0.25, draw=cfgrey, rounded corners=20pt]
+            ([shift={(-1,0.5)}] v4.center) --
+            ([shift={(0,-1)}] v7.center) --
+            ([shift={(1,0.5)}] v6.center) --
+            cycle;
+
+        \fill[cfgrey, opacity=0.25, draw=cfgrey, rounded corners=20pt]
+            ([shift={(-1,0.5)}] v1.center) --
+            ([shift={(0,-1)}] v2.center) --
+            ([shift={(1,0.5)}] v3.center) --
+            cycle;
+    \end{scope}
+
+\end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,61 @@
+\begin{frame}{Just one more proof, I swear}
+    \begin{lemma}{Lemma}
+        Let \(G\) be a graph. There exists a super-graph \(G'\) of \(G\) with the same number of vertices such that \(R_3(G')\) is a path and the largest diameters of the connected components of \(R_3(G)\) and \(R_3(G')\) are the same.
+    \end{lemma}
+\end{frame}
+\begin{frame}
+    \begin{itemize}
+        \item \(P\) - diameter path
+        \item \(Z=\set{u,v,w}\): node in \(R_3(G)\) not in \(P\)
+    \end{itemize}
+We show that adding edges outside of the path doesn't change the diameter.
+\begin{proof}{Proof}
+By contradiction, assume that for any \(x \neq y \in Z\), adding edge \(xy\) to \(G\) decreases the diameter. Thus Each pair from \(Z\) must appear in some independent set within \(P\).
+
+\vspace{0.3cm}
+
+$P$ contains three independent sets:
+\begin{itemize}
+    \item $\{u, v, a\}$, $\{u, w, b\}$, $\{v, w, c\}$ 
+    \item These are neighbours of $Z$ in $\mathcal{R}_3(G)$
+    \item By shortest path property: they're consecutive $\Rightarrow a = b = c$
+\end{itemize}
+
+But then $\{u,v,a\}$, $\{v,w,a\}$, $\{u,w,a\}$ form a triangle in $\mathcal{R}_3(G)$.
+
+\textbf{Contradiction:} $P$ is an induced path.
+
+\end{proof}
+
+\end{frame}
+\begin{frame}{}
+    \begin{lemma}{Lemma}
+        Let \(G\) be a graph. There exists a super-graph \(G'\) of \(G\) with the same number of vertices such that \(R_3(G')\) is a path and the largest diameters of the connected components of \(R_3(G)\) and \(R_3(G')\) are the same.
+    \end{lemma}
+    \begin{Lemma}{Conjecture}
+        For every \(k \geq 2\) and every \(n\), there exists a graph \(G\) on \(n\) vertices maximising \(D(n,k)\) such that \(R_k(G)\) is a path.
+    \end{Lemma}
+\end{frame}
+\begin{frame}{Open problems}
+    \begin{fact}{Conjecture} 
+        \(D(n,4)=n^{3-o(1)}\) - we can find \(R_4(G)\) with super-quadratic diameter.
+    \end{fact}
+    \pause
+    \begin{fact}{Conjecture}
+        For every \(k \geq 2\) and every \(n\), there exists a graph \(G\) on \(n\) vertices maximising \(D(n,k)\) such that \(R_k(G)\) is a path.
+    \end{fact}
+    \pause
+    \begin{fact}{Question}
+        What is the asymptotic behaviour of \(\max_k D(n,k)\)?
+    \end{fact}
+    \pause
+    \begin{fact}{Question}
+        Is finding largest possible diameter of \(R_3(G)\) equivalent to \((6,3)\) problem?
+    \end{fact}
+    \vspace{1em}
+    \pause
+    \begin{figure}
+        \centering
+        \Large\textcolor{cfred}{Thanks!}
+    \end{figure}
+\end{frame}

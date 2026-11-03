@@ -1,0 +1,73 @@
+\begin{tikzpicture}[
+    scale=0.35,
+    line width=1pt,
+    every node/.style={
+        circle,
+        fill=black,
+        inner sep=2.4pt
+    },
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+]
+    % \node at (-7,-10) {\(F_3\)};
+            
+    \node[circle, fill=black, label=below:{\(u\)}]
+            (r0) at (-4,-13) {};
+    \node[circle, fill=black, label=below:{}]
+            (r1) at (2,-13) {};
+    \node[circle, fill=black, label=below:{}]
+            (r2) at (8,-13) {};
+    \node[circle, fill=black, label=below:{\(v\)}]
+            (r3) at (14,-13) {};
+    \node[circle, fill=black, label=below:{}]
+            (r4) at (-3,-11) {};
+    \node[circle, fill=black, label=below:{}]
+            (r5) at (1,-11) {};
+    \node[circle, fill=black, label=below:{}]
+            (r6) at (3,-11) {};
+    \node[circle, fill=black, label=below:{}]
+            (r7) at (7,-11) {};
+    \node[circle, fill=black, label=below:{}]
+            (r8) at (9,-11) {};
+    \node[circle, fill=black, label=below:{}]
+            (r9) at (13,-11) {};
+    \node[circle, fill=black, label=below:{}]
+            (r10) at (3,-11) {};
+    \node[circle, fill=black, label=below:{}]
+            (r11) at (-2,-9) {};
+    \node[circle, fill=black, label=below:{}]
+            (r12) at (0,-9) {};
+    \node[circle, fill=black, label=below:{}]
+            (r13) at (4,-9) {};
+    \node[circle, fill=black, label=below:{}]
+            (r14) at (6,-9) {};
+    \node[circle, fill=black, label=below:{}]
+            (r15) at (10,-9) {};
+    \node[circle, fill=black, label=below:{}]
+            (r16) at (12,-9) {};
+    \node[circle, fill=black, label=below:{}]
+            (r17) at (-1,-7) {};
+    \node[circle, fill=black, label=below:{}]
+            (r18) at (5,-7) {};
+    \node[circle, fill=black, label=below:{}]
+            (r19) at (11,-7) {};
+
+    \draw[arr] (r0) -- (r4);
+    \draw[arr] (r1) -- (r5);
+    \draw[arr] (r1) -- (r6);
+    \draw[arr] (r2) -- (r7);
+    \draw[arr] (r2) -- (r8);
+    \draw[arr] (r3) -- (r9);
+    \draw[arr] (r4) -- (r11);
+    \draw[arr] (r5) -- (r12);
+    \draw[arr] (r6) -- (r13);
+    \draw[arr] (r7) -- (r14);
+    \draw[arr] (r8) -- (r15);
+    \draw[arr] (r9) -- (r16);
+    \draw[arr] (r11) -- (r17);
+    \draw[arr] (r12) -- (r17);
+    \draw[arr] (r13) -- (r18);
+    \draw[arr] (r14) -- (r18);
+    \draw[arr] (r15) -- (r19);
+    \draw[arr] (r16) -- (r19);
+
+\end{tikzpicture}

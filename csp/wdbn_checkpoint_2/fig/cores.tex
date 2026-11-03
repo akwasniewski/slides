@@ -1,0 +1,94 @@
+% \begin{tikzpicture}[
+%     scale=0.85,
+%     line width=1pt,
+%     minimum size=0.06cm
+% ]
+
+% % pętla
+% % =====================================================================
+% \begin{scope}[shift={(0,0)}]
+
+%     \node[circle, line width=1pt, draw=white, fill=black] (v1) at (1,1) {};
+
+%     \draw[->] (v1) to [out=90, in=0, looseness=10] (v1);
+
+% \end{scope}
+
+
+% % cykl
+% % =====================================================================
+% \begin{scope}[shift={(5,0)}]
+
+%     \node[circle, line width=1pt, draw=white, fill=black] (v1) at (0,2) {};
+%     \node[circle, line width=1pt, draw=white, fill=black] (v2) at (2,2) {};
+%     \node[circle, line width=1pt, draw=white, fill=black] (v3) at (2,0) {};
+%     \node[circle, line width=1pt, draw=white, fill=black] (v4) at (0,0) {};
+
+%     \draw[->] (v1) -- (v2);
+%     \draw[->] (v2) -- (v3);
+%     \draw[->] (v3) -- (v4);
+%     \draw[->] (v4) -- (v1);
+
+% \end{scope}
+
+
+% % klika
+% % =====================================================================
+% \begin{scope}[shift={(10,0)}]
+
+%     \node[circle, line width=1pt, draw=white, fill=black] (v1) at (0,2) {};
+%     \node[circle, line width=1pt, draw=white, fill=black] (v2) at (2,2) {};
+%     \node[circle, line width=1pt, draw=white, fill=black] (v3) at (2,0) {};
+%     \node[circle, line width=1pt, draw=white, fill=black] (v4) at (0,0) {};
+
+%     \draw[<->] (v1) -- (v2);
+%     \draw[<->] (v2) -- (v3);
+%     \draw[<->] (v3) -- (v4);
+%     \draw[<->] (v4) -- (v1);
+
+%     \draw[<->] (v1) -- (v3);
+%     \draw[<->] (v2) -- (v4);
+
+% \end{scope}
+
+% \end{tikzpicture}
+
+
+\begin{tikzpicture}[
+    scale=1.1,
+    line width=1pt,
+    minimum size=0.08cm
+]
+% \usetikzlibrary{backgrounds}
+
+\begin{scope}[shift={(6,0)}]
+
+    \node[circle, draw=black, fill=cfyel!85]  (v1) at (0,2) {};
+    \node[circle, draw=black, fill=cfblue!85] (v2) at (2,2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v3) at (2,0) {};
+    \node[circle, draw=black, fill=cfblue!85] (v4) at (0,0) {};
+    \node[circle, draw=black, fill=cfred!85]  (v5) at (1,1) {};
+
+    \draw[<-] (v1) -- (v2);
+    \draw[->] (v2) -- (v3);
+    \draw[<-] (v3) -- (v4);
+    \draw[->] (v4) -- (v1);
+
+    \draw[->] (v5) -- (v2);
+    \draw[->] (v3) -- (v5);
+
+    \node at (1,-1) {\(H\)};
+    \node at (3.6,1) {\(\core(H)\)};
+
+\end{scope}
+
+% highlight
+\begin{scope}[on background layer]
+    \fill[cfgrey!40, rounded corners=20pt]
+        ([shift={(-1,0)}] v5.center) --
+        ([shift={(0.5,1)}] v2.center) --
+        ([shift={(0.5,-1)}] v3.center) --
+        cycle;
+\end{scope}
+
+\end{tikzpicture}

@@ -1,0 +1,56 @@
+\begin{tikzpicture}[
+    scale=0.65,
+    line width=1.2pt,
+    rotate=-90
+]
+
+    % Graph
+    \begin{scope}[minimum size=0.25cm]
+        \node[circle, draw=black, fill=white] (v1) at (-1,1) {};
+        \node[circle, draw=black, fill=white] (v2) at (1,1) {};
+        \node[circle, draw=black, fill=white] (v3) at (-2.4,0) {};
+        \node[circle, draw=black, fill=white] (v4) at (1,-1) {};
+        \node[circle, draw=black, fill=white] (v5) at (2.5,0) {};
+        \node[circle, draw=black, fill=white] (v6) at (-1,-1) {};
+                
+        \draw (v1) -- (v2);
+        \draw (v1) -- (v3);
+        \draw (v3) -- (v6);
+        \draw (v1) -- (v6);
+        \draw (v2) -- (v5);
+        \draw (v2) -- (v4);
+        \draw (v6) -- (v4);
+    \end{scope}
+
+
+    % Mapping
+    \begin{scope}[minimum size=1.2cm]
+        \node[circle, draw=cfgrey!80, fill=cfgrey!80] (t1) at (5,4) {};
+        \node[circle, draw=cfgrey!80, fill=cfgrey!80] (t3) at (3,2.5) {};
+        \node[circle, draw=cfgrey!80, fill=cfgrey!80] (t2) at (5,1) {};
+    \end{scope}
+
+    \begin{scope}[minimum size=0.05cm]
+        \node[circle, draw=black, fill=white] (v11) at (4.75,3.75) {};
+        \node[circle, draw=black, fill=white] (v44) at (5.25,4.25) {};
+        
+        \node[circle, draw=black, fill=white] (v55) at (3.1,2.9) {};
+        \node[circle, draw=black, fill=white] (v33) at (2.85,2.1) {};
+    
+        \node[circle, draw=black, fill=white] (v22) at (4.75,0.65) {};
+        \node[circle, draw=black, fill=white] (v66) at (5.35,1.25) {};
+    \end{scope}
+
+    \draw[draw=cfgrey, line width=6] (t1) -- (t2);
+    \draw[draw=cfgrey, line width=6] (t1) -- (t3);
+    \draw[draw=cfgrey, line width=6] (t2) -- (t3);
+
+    \draw (v11) -- (v22);
+    \draw (v11) -- (v33);
+    \draw (v33) -- (v66);
+    \draw (v11) -- (v66);
+    \draw (v22) -- (v55);
+    \draw (v22) -- (v44);
+    \draw (v66) -- (v44);
+
+\end{tikzpicture}

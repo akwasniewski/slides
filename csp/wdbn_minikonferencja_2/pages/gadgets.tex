@@ -1,0 +1,207 @@
+\begin{frame}{Gadżety}
+
+\begin{columns}
+\column{0.5\textwidth}
+    Definiujemy relację w grafie przy~pomocy:
+        \begin{itemize}
+            \item relacji krawędzi \(E\)
+            \item koniunkcji \(\land\)
+            \item równości wierzchołków \(=\)
+            \item kwantyfikatora \(\exists\)
+        \end{itemize}
+
+\column{0.5\textwidth}
+    \begin{figure}
+        \centering
+        \input{fig/gadgets_directed}
+    \end{figure}
+    \vspace{-0.5em}
+    \[ P_3(u,v) \equiv \exists_{x,y} \ E(u,x) \land E(x,y) \land E(y,v) \]
+    \vspace{-2em}
+
+\end{columns}
+
+\end{frame}
+
+% --------------------------------------------------------------
+
+\begin{frame}{Gadżety w dowodzie}
+
+    \vspace{-1em}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\linewidth]{img/gadget_gallery.pdf}
+    \end{figure}
+
+\end{frame}
+
+% --------------------------------------------------------------
+
+\begin{frame}{Rdzeń}
+
+Rdzeń grafu \(G\) to najmniejszy jego podgraf, do którego \(G\) ma homomorfizm.
+
+\vspace{1em}
+\begin{figure}
+    \centering
+    \input{fig/core}
+\end{figure}
+
+\end{frame}
+
+
+% --------------------------------------------------------------
+
+\begin{frame}{Gadżety -- szablon rdzenia}
+
+    Jeśli \((v_1, \dots, v_k) \in \core\), to \(v_1, \dots, v_k\) indukują podgraf izomorficzny z rdzeniem grafu \(G\) \linebreak dla ustalonej numeracji wierzchołków rdzenia \(q_1,\dots,q_k\).
+
+\vspace{1.5em}
+\begin{columns}
+\column{0.65\textwidth}
+    \[ \core(v_1,\dots,v_k) \equiv \bigwedge_{q_i q_j \in E} E(v_i,v_j) \]
+
+\column{0.65\textwidth}
+    \input{fig/core_relation}
+\end{columns}
+
+\end{frame}
+
+
+
+% --------------------------------------------------------------
+
+\begin{frame}{Przykład -- szablon rdzenia}
+
+\begin{columns}
+\column{0.5\textwidth}
+    \begin{figure}
+        \centering
+        \input{fig/core_example}
+    \end{figure}
+
+\column{0.5\textwidth}
+    \begin{align*}
+        \core(u,v,w)&\equiv E(u,v) \land E(v,u) \\
+        &\land E(u,w) \\ 
+        &\land E(w,v)
+    \end{align*}
+    \[ \core = \set{(u,v,w)} \]
+\end{columns}
+
+\vspace{1em}
+\onslide<2->{
+    \[ R_u(x) \equiv \exists_{v_1, v_2, v_3} \ \core(v_1, v_2, v_3) \land E(x, v_1) \]
+}
+
+\end{frame}
+
+% --------------------------------------------------------------
+
+\begin{frame}{Przykład -- szablon rdzenia}
+
+\begin{columns}
+\column{0.5\textwidth}
+        \begin{figure}
+            \centering
+            \input{fig/core_example_auto}
+        \end{figure}
+
+\column{0.5\textwidth}
+    \begin{align*}
+        \core(u,v,w)&\equiv  E(v,u) \\
+        & \land E(u,w) \\ 
+        & \land E(w,v)
+    \end{align*}
+    \begin{tikzpicture}
+    \node (a) {\(\core = \set{(u,v,w), (v,w,u),(w,v,u)}\)};
+    \node[below=0.5cm of a] (b) {\textcolor{cfred}{Przez automorfizmy nie mamy stałych.}};
+    \draw[->, thick, cfred] (a.west) to[bend right] (b.north west);
+    \end{tikzpicture}
+\end{columns}
+
+\vspace{1em}
+\onslide<2->{
+    \[ R_u(x) \equiv \exists_{v_1, v_2, v_3} \ \core(v_1, v_2, v_3) \land E(x, v_1) \]
+}
+
+\end{frame}
+
+% -----------------------------------------------------------
+
+\begin{frame}{Przykład -- wiele kopii}
+
+\begin{columns}
+\column{0.5\textwidth}
+        \begin{figure}
+        \centering
+        \input{fig/many-copies}
+    \end{figure}
+        
+\column{0.5\textwidth}
+    \begin{align*}
+        \core(u,v,w)&\equiv  E(v,u) \\
+        & \land E(u,w) \\ 
+        & \land E(w,v)
+    \end{align*}
+    \begin{tikzpicture}
+    
+    \node (a) {\(\core = \set{(u,v,w), (u',v',w'),(u',v',w'')}\)};
+    \node[below=0.5cm of a] (b) {\textcolor{cfred}{Mamy stałe w obrębie kopii rdzenia.}};
+    \draw[->, thick, cfred] ([xshift=3pt]a.south west) to[bend right] (b.west);
+    \end{tikzpicture}
+\end{columns}
+
+\vspace{1em}
+\onslide<2->{
+    \[ R_u(x) \equiv \exists_{v_1, v_2, v_3} \ \core(v_1, v_2, v_3) \land E(x, v_1) \]
+}
+
+\end{frame}
+
+% -----------------------------------------------------------
+
+\begin{frame}{Problem -- wiele kopii}
+
+    \[ \alpha(x, y) \iff \underset{\text{kopia rdzenia}}{\exists_{v_1, \dots, v_k} \ \core(v_1, \dots, v_k)} \land R(x, y, v_1) \dots \land R(x, y, v_k) \]
+
+\begin{columns}
+\column{0.35\textwidth}
+    \begin{figure}
+        \centering
+        \input{fig/witness}
+    \end{figure}
+
+\vspace{1em}
+\column{0.65\textwidth}
+    \!Przechodniość: \\[-1.25em]
+    \[ \alpha(u,v) \text{ i } \alpha(v, w) \overset{\text{?}}{\implies} \alpha(u, w) \]
+
+    \onslide<2>{
+    Domykamy przechodnio relację \(\alpha\): \\[-2.25em]
+    \begin{align*}
+        \alpha'(x,y) \equiv \exists_{z_1, \dots, z_i} \ \alpha(x, z_1)
+        \land \alpha(z_1, z_2) \land \dots \land \alpha(z_i, y)
+    \end{align*}
+    }
+\end{columns}
+
+\end{frame}
+
+% -----------------------------------------------------------
+
+\begin{frame}{Gadżety -- definiowalny podgraf}
+
+\begin{columns}
+\column{0.45\textwidth}
+    \input{fig/reduction}
+
+\column{0.45\textwidth}
+    Definiujemy gadżetowo \(G'\) podgraf \(G=(V,E):\)
+    \begin{align*}
+        &V'(x) \equiv \exists_{v_1, v_2, v_3} \ \core(v_1, v_2, v_3) \land E(x, v_1) \\
+        &E'(x,y) \equiv V'(x) \land V'(y) \land E(x,y)
+    \end{align*}
+\end{columns}
+
+\end{frame}

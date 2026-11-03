@@ -1,0 +1,108 @@
+
+\begin{frame}{Przykład konstrukcji}
+
+\begin{columns}
+\column{0.35\textwidth}
+    \begin{figure}[H]
+        \centering
+        \input{fig/example_graph}
+    \end{figure}
+    \uncover<5>{
+    \begin{figure}[H]
+        \centering
+        \input{fig/example_graph_R}
+    \end{figure}
+    }
+
+\pause
+\column{0.65\textwidth}
+    \begin{figure}[H]
+        \centering
+        \input{fig/example_relation}
+    \end{figure}
+\end{columns}
+
+\end{frame}
+
+%---------------------------------------------------------
+
+\begin{frame}{Przykład konstrukcji}
+
+\begin{columns}
+\column{0.55\textwidth}
+    Dla \(D = \set{0,1}\) \only<1-2>{konstruujemy relację}: \\
+    \only<1-2>{
+    \( \DorD(u,v) \iff u \in D \lor v \in D \)
+    }
+    \only<3-12>{
+    \( \DorD(u,v) \subseteq u \in D \lor v \in D \)
+    }
+    \only<13-14>{
+    \( \DorD(u,v) \supseteq u \in D \lor v \in D \)
+    }
+
+    \vspace{0.5em}
+    \uncover<2->{
+    \begin{figure}[H]
+        \centering
+        \input{fig/example_gadget}
+    \end{figure}
+    }
+
+\column{0.45\textwidth}
+    \begin{figure}[H]
+        \hspace{3em}
+        \input{fig/example_graph}
+    \end{figure}
+    \begin{figure}[H]
+        \hspace{3em}
+        \input{fig/example_graph_R}
+    \end{figure}
+\end{columns}
+
+\end{frame}
+
+%---------------------------------------------------------
+
+\begin{frame}{Przykład konstrukcji}
+
+\begin{columns}
+\column{0.55\textwidth}
+    \vspace{2.5em}
+    \begin{figure}[H]
+        \centering
+        \input{fig/example_gadget_ppdef}
+    \end{figure}
+
+\column{0.45\textwidth}
+    \vspace{1em}
+    \begin{figure}[H]
+        \hspace{3em}
+        \input{fig/example_graph}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \input{fig/example_ppdef}
+    \end{figure}
+\end{columns}
+
+\end{frame}
+
+%---------------------------------------------------------
+
+\begin{frame}{Przykład konstrukcji}
+
+    Korzystając z relacji \(\DorD(u,v)\), definiujemy:
+    \[ \textcolor{cfblue}{\eqoreq(a,b,c,d)} \equiv (a=b \lor c=d) \]
+
+    \pause
+    To wystarcza, żeby wyrazić problem NAE-SAT, który jest NP-zupełny.
+    \begin{align*} 
+        \textcolor{cfred}{\text{NAE-SAT}(u,v,w)} & \iff \neg\:(u = v = w) \\
+        & \iff u \neq v \lor v \neq w \\
+        & \iff \exists_{v'} \ v \neq v' \land (u=v' \lor v'=w) \\
+        & \iff \exists_{v'} \ v \neq v' \land \textcolor{cfblue}{\eqoreq(u, v', v', w)}
+    \end{align*}
+
+\end{frame}
+ 

@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+    line width=1.2pt,
+]
+\node[fill=cfgrey!40, rounded corners=20pt, minimum width=3.2cm, minimum height=3.7cm] (box) at (1,0.45) {};
+
+    \node[circle, draw=black, fill=cfblue!85] (v1) at (0,0.2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v2) at (1,1.8) {};
+    \node[circle, draw=black, fill=cfred!85]  (v3) at (2,0.2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v4) at (1,-1) {};
+
+    \draw[->] (v1) -- (v2);
+    \draw[->] (v2) -- (v3);
+    \draw[->] (v3) -- (v1);
+    \draw[->] (v4) -- (v3);
+
+    \node[circle, draw=black, fill=black] (v5) at (5,-2) {};
+    \node[circle, draw=black, fill=black] (v6) at (7,-1) {};
+    \node[circle, draw=black, fill=cfpink] (v7) at (5,0) {};
+    \node[circle, draw=black, fill=black] (v8) at (7,1) {};
+
+\draw[->, cfgrey!80, line width=2pt] 
+    (box.east) to[out=-30, in=210] 
+    node[midway, below] {hom} 
+    (v7);
+
+    \draw[->] (v5) -- (v6);
+    \draw[->] (v8) -- (v7);
+    \draw[->] (v6) -- (v8);
+    \draw[->] (v7) -- (v5);
+    \draw[->, cfpink] (v7) to[out=60, in=120, looseness=8] (v7);
+\end{tikzpicture}

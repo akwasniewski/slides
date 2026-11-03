@@ -1,0 +1,38 @@
+\begin{tikzpicture}[scale=0.5]
+
+% % Draw the large ellipse containing sets (now vertical)
+\node[ellipse, draw, thick, minimum width=50, minimum height=130pt] (G) at (3,0) {};
+\node at (5.5,0) {$G$};
+
+% Draw subset B (solid curve)
+\draw[thick] (3,1) to[out=0,in=270] (4,2.5) to[out=90,in=0] (2.5,2.5) to[out=180,in=90] (2,2) to[out=270,in=180] cycle;
+\node at (3,2) {$A$};
+
+% % Draw subset A (dashed curve)
+\draw[thick] (3.5,-3) to[out=0,in=270] (3.5,-1.5) to[out=90,in=0] (2.5,-1.5) to[out=180,in=90] (2.3,-2.5) to[out=270,in=180] cycle;
+\node at (3,-2.3) {$B$};% \node at (3,-0.2) {$A$};
+
+% % Draw points on the vertical line
+\foreach \i in {1,2,3,4,5,6,7,8,9} {
+    \fill (0,\i-5) circle (3pt);
+}
+
+% Add labels for specific points
+\node[left] at (0,4) {$x_1$};
+\node[left] at (0,3) {$x_2$};
+\node[left] at (0,2) {$x_3$};
+\node[left] at (-0.3,0) {$\vdots$};
+\node[left] at (0,-2) {$x_{6k}$};
+\node[left] at (0,-4) {$x_{6k+2}$};
+
+% % Draw vertical dashed line through points
+\draw[] (0,4.5) -- (0,-4.5);
+
+\draw[] (0,2) -- (2.5,2.5);
+\draw[] (0,2) -- (3,1);
+
+% Draw dashed connections from x_6k to B (two lines to edges)
+\draw[] (0,-2) -- (2.3,-2.7);
+\draw[] (0,-2) -- (2.5,-1.5);
+
+\end{tikzpicture}

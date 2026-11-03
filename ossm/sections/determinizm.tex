@@ -1,0 +1,42 @@
+\begin{frame}{Strategia deterministyczna}
+    Gracze mogą ustalić strategię. Ich strategia to para funkcji 
+    \[f,g:\set{0,1} \to \set{0,1}\]
+    Alicja używa funkcji \(f\), Bartosz funkcji \(g\) zatem:
+    \[f(x)=a \qquad \quad g(y)=b\]
+    Warunek końcowy to:
+    \[x\cdot y=f(x)+g(y) \mod{2}\]
+\end{frame}
+\begin{frame}{Optymalna strategia deterministyczna}
+    Warunek końcowy to:
+    \[x\cdot y=f(x)+g(y) \mod{2}\]
+    Mamy 4 możliwe wejścia
+\only<1>{
+\begin{align*}
+    (0,0): \qquad f(0)+g(0)=0\\
+    (0,1): \qquad f(0)+g(1)=0\\
+    (1,0): \qquad f(1)+g(0)=0\\
+    (1,1): \qquad f(1)+g(1)=1
+\end{align*}
+}
+\only<2>{
+\[
+\begin{array}{rcl}
+(0,0): & f(0)+g(0)=0 & \\
+(0,1): & f(0)+g(1)=0 & \\
+(1,0): & f(1)+g(0)=0 & \\
+(1,1): & f(1)+g(1)=1 & \\
+\end{array}
+\;\left.\vphantom{\begin{array}{c}
+(0,0)\\(0,1)\\(1,0)\\(1,1)
+\end{array}}\right|\;
+\begin{array}{c}
+\\
+\displaystyle +\\
+\\
+\end{array}
+\]
+}
+\onslide<2>{
+\[2[f(0)+f(1)+g(0)+g(1)]=1\]
+}
+\end{frame}

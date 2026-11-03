@@ -1,0 +1,183 @@
+\begin{frame}
+    \begin{theorem}{Upper bound for k=3}
+        \[D(n,3)=\Omega(n^2/e^{O(\sqrt{\log n})})\]
+    \end{theorem}
+    \begin{heading}{Outline of the proof:}
+    \begin{itemize}
+        \item We will construct a graph whose reconfiguration graph is the disjoint union of \(n/e^{o(\sqrt{\log n})}\) paths of linear length
+        \item We prove that we can add not many vertices to this graph to connect it and make the diameter sum of the components.
+    \end{itemize}
+    \end{heading}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{AP-Free}
+    Set of integers is 3-AP free if it does not contain arithmetic progression of length 3, \(s_1<s_2<s_3\) such that:
+    \[s_2-s_1=s_3-s_2\]
+    If \(S\) is AP free then \(4S+1\) is as well.\\
+    \pause
+    \begin{theorem}{Theorem}
+        There exists 3-AP subset of \(n\) of size \(n/e^{o(\sqrt{\log n})}\). \framemark
+    \end{theorem}
+    There is 3-AP subset of [\(1,\dots,n\)] only containing values where \(v=1 \text{ mod } 4\) of~size~\(n/e^{o(\sqrt{\log n})}\) (odd 3-AP-free sequence)
+\framereference{A.~Behrend, \emph{On sets of integers which contain no three terms in arithmetical progression}, Proceedings of the National Academy of Sciences, 32(12):331--332, 1946.}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}
+\begin{lemma}{Lemma}
+    Let \(n\) be a prime number and \(S\) be an odd 3 AP free sequence where maximum integer is at most \(n/8\). Then, there exists a graph on \(n-1\) vertices whose reconfiguration graph is the disjoint union of \(|S|\) paths of length \(n-3\).
+\end{lemma}
+\onslide<2>{
+    We start from a clique on \(n\) vertices, and remove edges \((i,i+s)\), \((i+2s)\).
+}
+\begin{figure}
+    \centering
+    \input{sections/tikzzz/3apfree}
+\end{figure}
+\pause
+ \(n\) is prime, thus each \(s\) gives us an induced cycle.
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}
+    \begin{heading}{\(R_3(G)\) only contains vertices of the form \((i, i+s, i+2s)\)}
+        Consider independent set \(\set{a,b,c}\) : \ \(a<b<c\), where
+        \[b-a=x \qquad c-b=y \qquad c-a=z\]\\
+        \(\{x,y,z\} \in \ S \cup 2S\) thus they are either 1 or 2 mod 4.\\
+        but \(z=x+y\) thus \(x,y \in S, \ z \in 2S\)  \\
+        \pause
+        \[x=s \qquad y=s' \qquad z=2s''\]\\
+        This would mean that \(2s''=s+s'\), but \(S\) is 3AP-Free thus \(s=s'=s''\).
+    \end{heading}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{}
+\begin{heading}{Cycles are induced - There is no edge connecting the cycles.}
+
+    Sets in each cycle contains vertices 
+    \(\set{i,i+s, i+2s}\).\\
+    
+    \vspace{1em}
+    
+    Consider two sets from different cycles 
+    
+    \vspace{-1em}
+    
+    \[I=\set{a,a+s,a+2s}, I'=\set{a',a'+s', a'+2s'}\]
+    If \(I \cap I'=\set{x,y}\) then 
+    \[x-y \text{ mod n } \in \set{\pm s, \pm 2s} \cap \set{\pm s', \pm 2s'}\]
+    not possible as \(s,s' < n/8\) and are \(1 \text{ mod } 4\).
+    \vspace{-0.5em}
+    \begin{figure}
+        \centering
+        \input{sections/tikzzz/3apfree2}
+    \end{figure}
+    \end{heading}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{}
+    We have shown that we can obtain a graph which is a union of \(|S|\) cycles of length \(n\).\\
+    \pause
+    \vspace{1em}
+    Now, we remove vertex \(0\) from the graph, each cycle becomes a path. \\
+    \pause
+    \vspace{1em}
+    Every cycle contained two sets containing \(0\), thus length of the paths is \(n-3\).
+    \pause
+    \begin{lemma}{Lemma}
+    Let \(n\) be a prime number and \(S\) be an odd 3 AP free sequence where maximum integer is at most \(n/8\). Then, there exists a graph on \(n-1\) vertices whose reconfiguration graph is the disjoint union of \(|S|\) paths of length \(n-3\).
+    \end{lemma}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{}
+    \begin{lemma}{Lemma}
+        Let \(n\) be a prime number and \(S\) be an odd 3 AP free sequence where maximum integer is at most \(n/8\). Then, there exists a graph on \(n-1\) vertices whose reconfiguration graph is the disjoint union of \(|S|\) paths of length \(n-3\).
+    \end{lemma}
+    \begin{theorem}{Theorem}
+        There exists 3-AP subset of \(n\) of size \(n/e^{o(\sqrt{\log n})}\).
+    \end{theorem}   
+    \pause
+    \begin{lemma}{Lemma}
+        For a prime number \(n\) there exists a graph on \(n-1\) vertices whose configuration graph is the disjoint union of \(O(n/e^{o(\sqrt{\log n})})\) paths of length \(n-3\).
+    \end{lemma}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{}
+    \begin{lemma}{Gluing Lemma}
+        Let \(k \geq 3\). Let \(G\) be a graph on \(n\) vertices whose \(k\)-configuration graph contains \(r\) connected components. Then, there exists a graph on at most \(n+(3k-2)\cdot (r-1)\) vertices whose configuration graph had diameter at least \((4k-2)(r-1)+\sum d_i\)
+    \end{lemma}
+    \begin{heading}{Proof overview}
+        \begin{itemize}
+            \item We connect disjoint paths \(i, \ i+1\) by adding \(3k-2\)  vertices to connect last set in \(i\) with first set in \(i+1\).
+  
+        \end{itemize}
+    \end{heading}
+\end{frame}
+
+%--------------------------------------------
+
+\input{sections/gluing}
+
+%--------------------------------------------
+
+% \begin{frame}{}
+%     We now have \((r-1) \cdot (3k-2)\) vertices.\\
+%     Vertices connected paths of length \(n-3\) in configuration graph \\
+%     Each connection adds \(4k-2\) vertices\\
+%     Configuration graph has now diameter
+%     \vspace{-1em}
+%     \[(4k-2)(r-1)+\sum d_i\]
+%     \begin{columns}
+%     \begin{column}{0.6\textwidth}
+%         We can use a shortcut to skip \(b_1\) altogether.\\
+%         Symmetrically we can do the same on the other side skipping \(a_3\).\\
+%         \only<7>{
+%         Thus we reduced each connection by 2.\\
+%         Finally we obtain:
+%             \[(4k-4)(r-1)+\sum d_i\]
+%         }
+%     \end{column}
+%     \begin{column}{0.4\textwidth}
+%     \begin{figure}
+%         \centering
+%         \input{sections/tikzzz/3shortcut}
+%     \end{figure}
+%     \end{column}
+%     \end{columns}
+
+% \end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{What did we prove?}
+    \begin{lemma}{Gluing Lemma}
+        Let \(k \geq 3\). Let \(G\) be a graph on \(n\) vertices whose \(k\)-configuration graph contains \(r\) connected components. Then, there exists a graph on at most \(n+(3k-2)\cdot (r-1)\) vertices whose configuration graph had diameter at least \((4k-2)(r-1)+\sum d_i\)
+    \end{lemma}
+
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{Recap}
+    \begin{theorem}{Upper bound for k=3}
+        \[D(n,3)=\Omega(n^2/e^{O(\sqrt{\log n})})\]
+    \end{theorem}
+    \begin{heading}{Summary of the proof:}
+    \begin{itemize}
+        \item We construct a graph whose reconfiguration graph is the disjoint union of \(n/e^{o(\sqrt{\log n})}\) paths of linear length by using 3-AP free sets.
+        \item We proved that we can add not many vertices to this graph to connect it and make the diameter sum of the components.
+    \end{itemize}
+    \end{heading}
+\end{frame}

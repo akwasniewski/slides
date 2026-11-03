@@ -1,0 +1,51 @@
+\begin{tikzpicture}[scale=2]
+    \coordinate (v1) at (1,2);
+    \coordinate (v2) at (3,2);
+    \coordinate (v3) at (0,1);
+    \coordinate (v4) at (2,1);
+    \coordinate (v5) at (4,1);
+    \coordinate (v6) at (1,0);
+    \coordinate (v7) at (3,0);
+
+    \coordinate (r1) at (1.3, 1);
+    \coordinate (r2) at (0.5, 1);
+    \coordinate (r3) at (2, 1.6);
+    \coordinate (r4) at (2.6, 1);
+    \coordinate (r5) at (3.5, 1);
+    \coordinate(r6) at (2, 0.3);
+    
+    \draw[line width=1.5pt, dashed] (v1) -- (v2);
+    \draw[line width=1.5pt, dashed] (v1) -- (v3);
+    \draw[line width=1.5pt, dashed] (v1) -- (v4);
+    \draw[line width=1.5pt, dashed] (v3) -- (v6);
+    \draw[line width=1.5pt, dashed] (v1) -- (v6);
+    \draw[line width=1.5pt, dashed] (v4) -- (v6);
+    \draw[line width=1.5pt, dashed] (v2) -- (v4);
+    \draw[line width=1.5pt, dashed] (v2) -- (v5);
+    \draw[line width=1.5pt, dashed] (v2) -- (v7);
+    \draw[line width=1.5pt, dashed] (v4) -- (v7);
+    \draw[line width=1.5pt, dashed] (v5) -- (v7);
+    \draw[line width=1.5pt, dashed] (v6) -- (v7);
+
+    \draw[line width=1.5pt, cfblue] (r1) -- (r2);
+    \draw[line width=1.5pt, cfblue] (r1) -- (r3);
+    \draw[line width=1.5pt, cfblue] (r1) -- (r6);
+    \draw[line width=1.5pt, cfblue] (r3) -- (r4);
+    \draw[line width=1.5pt, cfblue] (r4) -- (r5);
+    \draw[line width=1.5pt, cfblue] (r4) -- (r6);
+
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (v1) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (v2) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (v3) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (v4) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (v5) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (v6) {};
+    \node[circle,draw,fill=white,minimum size=0.6cm,line width=1.5pt] at (v7) {};
+
+    \node[circle, draw=cfblue, fill=cfred, minimum size=0.3cm, line width=1.5pt] at (r1) {};
+    \node[circle, draw=cfblue, fill=cfred, minimum size=0.3cm, line width=1.5pt] at (r2) {};
+    \node[circle, draw=cfblue, fill=cfblue, minimum size=0.3cm, line width=1.5pt] at (r3) {};
+    \node[circle, draw=cfblue, fill=cfred, minimum size=0.3cm, line width=1.5pt] at (r4) {};
+    \node[circle, draw=cfblue, fill=cfred, minimum size=0.3cm, line width=1.5pt] at (r5) {};
+    \node[circle, draw=cfblue, fill=cfred, minimum size=0.3cm, line width=1.5pt] at (r6) {};
+\end{tikzpicture}

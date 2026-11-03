@@ -1,0 +1,26 @@
+\begin{tikzpicture}[
+    line width=1.2pt,
+]
+\node[fill=cfgrey!40, rounded corners=20pt, minimum width=3.2cm, minimum height=3.7cm] (box) at (1,0.45) {};
+
+    \node[circle, draw=black, fill=cfblue!85] (v1) at (0,0.2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v2) at (1,1.8) {};
+    \node[circle, draw=black, fill=cfred!85]  (v3) at (2,0.2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v4) at (1,-1) {};
+
+    \draw[->] (v1) -- (v2);
+    \draw[->] (v2) -- (v3);
+    \draw[->] (v3) -- (v1);
+    \draw[->] (v4) -- (v3);
+
+    \node[circle, draw=black, fill=cfblue!85] (v5) at (5,-1) {};
+    \node[circle, draw=black, fill=cfred!85] (v6) at (7,0) {};
+    \node[circle, draw=black, fill=cfyel!85] (v7) at (5.3,1) {};
+
+    \draw[->] (v5) -- (v6);
+    \draw[->] (v7) -- (v5);
+    \draw[<-] (v7) -- (v6);
+
+\draw[->, cfgrey!80, line width=2pt] (box.east) to[out=-45, in=180] node[midway, below] {hom}  (5,0);
+
+\end{tikzpicture}

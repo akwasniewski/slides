@@ -1,0 +1,59 @@
+
+\begin{tikzpicture}[
+    scale=0.5,
+    line width=1.2pt
+]
+
+            
+    \node[circle, draw=black, fill=white, label=below:{\(u\)}]
+            (q0) at (4,-4) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (q1) at (8,-4) {};
+    \node[circle, draw=black, fill=white, label=below:{\(v\)}]
+            (q2) at (12,-4) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (q3) at (5,-2) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (q4) at (7,-2) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (q5) at (9,-2) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (q6) at (11,-2) {};
+    \node[circle, draw=black, fill=white, label=left:{}]
+        (q7) at (6,0) {};
+    \node[circle, draw=black, fill=white, label=left:{}]
+        (q8) at (10,0) {}; 
+    
+        
+    \draw[->] (q0) -- (q3);
+    \draw[->] (q3) -- (q7);
+    \draw[->] (q4) -- (q7);
+    \draw[->] (q1) -- (q4);
+    \draw[->] (q1) -- (q5);
+    \draw[->] (q2) -- (q6);
+    \draw[->] (q5) -- (q8);
+    \draw[->] (q6) -- (q8);
+
+
+\onslide<2->{
+    \node[circle, draw=cfnavy, fill=white, label=below:{}]
+        (q9) at (6,2) {};  
+    \node[circle, draw=cfnavy, fill=white, label=below:{}]
+        (q10) at (10,2) {}; 
+    \draw[->] (q7) -- (q9);
+    \draw[->] (q8) -- (q10);
+}
+
+\onslide<3>{
+    \node[circle, draw=cfnavy, fill=white, label=below:{}]
+        (q11) at (12,-2) {};  
+    \node[circle, draw=cfnavy, fill=white, label=below:{}]
+        (q12) at (12,0) {};
+    \node[circle, draw=cfnavy, fill=white, label=below:{}]
+        (q13) at (12,2) {};
+    \draw[->] (q2) -- (q11);
+    \draw[->] (q11) -- (q12);
+    \draw[->] (q12) -- (q13);
+}
+    
+\end{tikzpicture}

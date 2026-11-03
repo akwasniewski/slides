@@ -1,0 +1,59 @@
+\begin{tikzpicture}[
+    scale=0.65,
+    arr/.style={-{Triangle[length=3mm,width=2mm]}},
+    line width=1pt,
+    rotate=-90
+]
+
+    % Graph
+    \begin{scope}[minimum size=0.25cm, line width=0.75pt]
+        \node[circle, draw=black, fill=cfblue!80] (v1) at (-1,1) {};
+        \node[circle, draw=black, fill=cfteagreen!80] (v2) at (1,1) {};
+        \node[circle, draw=black, fill=cfred!80] (v3) at (-2.4,0) {};
+        \node[circle, draw=black, fill=cfblue!80] (v4) at (1,-1) {};
+        \node[circle, draw=black, fill=cfred!80] (v5) at (2.5,0) {};
+        \node[circle, draw=black, fill=cfteagreen!80] (v6) at (-1,-1) {};
+                
+    \end{scope}
+
+        \draw (v1) -- (v2);
+        \draw (v1) -- (v3);
+        \draw (v3) -- (v6);
+        \draw (v1) -- (v6);
+        \draw (v2) -- (v5);
+        \draw (v2) -- (v4);
+        \draw (v6) -- (v4);
+
+    % Mapping
+    \begin{scope}[minimum size=1.2cm, xshift=1cm, line width=0pt]
+        \node[circle, fill=cfgrey!80] (t1) at (5,4) {};
+        \node[circle, fill=cfgrey!80] (t3) at (3,2.5) {};
+        \node[circle, fill=cfgrey!80] (t2) at (5,1) {};
+    \end{scope}
+
+    \begin{scope}[minimum size=0.05cm, xshift=1cm, line width=0.75pt]
+        \node[circle, draw=black, fill=cfblue!80] (v11) at (4.75,3.75) {};
+        \node[circle, draw=black, fill=cfblue!80] (v44) at (5.25,4.25) {};
+
+        \node[circle, draw=black, fill=cfred!80] (v55) at (3.1,2.9) {};
+        \node[circle, draw=black, fill=cfred!80] (v33) at (2.85,2.1) {};
+
+        \node[circle, draw=black, fill=cfteagreen!80] (v22) at (4.75,0.65) {};
+        \node[circle, draw=black, fill=cfteagreen!80] (v66) at (5.35,1.25) {};
+    \end{scope}
+
+    \draw[draw=cfgrey, line width=6] (t1) -- (t2);
+    \draw[draw=cfgrey, line width=6] (t1) -- (t3);
+    \draw[draw=cfgrey, line width=6] (t2) -- (t3);
+
+    \draw (v11) -- (v22);
+    \draw (v11) -- (v33);
+    \draw (v33) -- (v66);
+    \draw (v11) -- (v66);
+    \draw (v22) -- (v55);
+    \draw (v22) -- (v44);
+    \draw (v66) -- (v44);
+
+    \draw[arr, line width=2pt, cfgrey] (0, 2) to[bend left=25] (3, 4);
+
+\end{tikzpicture}

@@ -1,0 +1,43 @@
+\documentclass[aspectratio=169]{beamer}
+\newif\ifdraft
+\draftfalse
+\usepackage{style}
+\addbibresource{references.bib}
+\title[Title]{Erdős--Szekeres theorem for multidimensional arrays}
+\subtitle{ Matija Bucić · Benny Sudakov · Tuan Tran}
+
+% \subtitle{Subtitle}
+
+\author{Andrzej Antoni Kwaśniewski \\ 
+Advisor: Krystian Gajdzica}
+\date[]{Combinatorics 8 V 2026}
+\begin{document}
+\onehalfspacing
+%---------------------------------------------------------
+\mysimplefootline
+
+\frame{\titlepage}
+
+%---------------------------------------------------------
+\section{Preliminaries}
+\input{sections/preliminaries}
+\section{Monotone arrays}
+\input{sections/monotone}
+\section{Lext-monotone arrays}
+\input{sections/lex}
+\section{Conclusions}
+\input{sections/conclusions}
+%---------------------------------------------------------
+\begin{frame}{Sources}
+\label{references}
+    \begin{itemize}
+        \item Matija Bucić, Benny Sudakov,  Tuan Tran --  \href{https://arxiv.org/pdf/2301.02020}{\textit{Erdős Szekeres theorem for multidimensional arrays}}, 2022. \\
+    \end{itemize}
+  \centering
+  \Large \textbf{Thank you!}
+\end{frame}
+
+%---------------------------------------------------------
+
+
+\end{document}

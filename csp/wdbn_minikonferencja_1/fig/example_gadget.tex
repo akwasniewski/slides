@@ -1,0 +1,101 @@
+\begin{tikzpicture}[
+    scale=1,
+    line width=1.2pt,
+    minimum size=0.02cm
+]
+
+    % Gadżet
+    \node at (-1.6,0) {\large \(\DorD(u,v) \equiv\)};
+    \node[circle, draw=black, label=below:{\(0\)}]
+            (x0) at (0,0) {};
+    \node[circle, draw=black] (x1) at (1,0) {};
+    \node[circle, draw=black] (x2) at (2,0) {};
+    \node[circle, draw=black] (x3) at (3,0) {};
+    \node[circle, draw=black, label=below:{\(1\)}]
+            (x4) at (4,0) {};
+
+    \node[circle, draw=black] (x11) at (1,1) {};
+    \node[circle, draw=black] (x12) at (1,2) {};
+    \node[circle, draw=black, fill=cfblue!50] (u) at (1,3) {\(u\)};
+
+    \node[circle, draw=black] (x31) at (3,1) {};
+    \node[circle, draw=black] (x32) at (3,2) {};
+    \node[circle, draw=black, fill=cfblue!50] (v) at (3,3) {\(v\)};
+
+    \draw[->] (x0) -- (x1);
+    \draw[->] (x1) -- (x2);
+    \draw[->] (x2) -- (x3);
+    \draw[->] (x3) -- (x4);
+
+    \draw[draw=cfred, line width=1.5]
+      (u) -- node[midway, right] {\(R\)} (x12);
+    \draw[->] (x12) -- (x11);
+    \draw[->] (x11) -- (x1);
+
+    \draw[draw=cfred, line width=1.5]
+      (v) -- node[midway, right] {\(R\)} (x32);
+    \draw[->] (x32) -- (x31);
+    \draw[->] (x31) -- (x3);
+
+\uncover<2-9>{
+    \node[label=below:{\(\set{0,1}\)}] at (2,0) {};
+}
+
+\begin{scope}[cfred]
+\uncover<4>{
+    \node[label=below:{\(\set{1,2}\)}] at (1,0) {};
+}
+
+\uncover<5-8>{
+    \node[label=below:{\(2\)}] at (1,0) {};
+}
+
+\uncover<6-8>{
+    \node[label=left:{\(0\ \)}] at (1,1) {};
+}
+
+\uncover<7-8>{
+    \node[label=left:{\(1\ \)}] at (1,2) {};
+}
+
+\uncover<8>{
+    \node[label=left:{\(\set{0,1}\ \)}] at (1,3) {};
+}
+
+\uncover<9-12>{
+    \node[label=below:{\(1\)}] at (1,0) {};
+}
+
+\uncover<10-12>{
+    \node[label=below:{\(0\)}] at (2,0) {};
+}
+
+\uncover<11-12>{
+    \node[label=below:{\(2\)}] at (3,0) {};
+}
+
+\uncover<12>{
+    \node[label=left:{\(0\ \)}] at (3,1) {};
+    \node[label=left:{\(1\ \)}] at (3,2) {};
+    \node[label=left:{\(\set{0,1}\ \)}] at (3,3) {};
+}
+
+\uncover<13-14>{
+    \node[label=left:{\(\set{0,1}\ \)}] at (1,3) {};
+    \node[label=left:{\(\set{0,1}\ \)}] at (3,3) {};
+}
+
+\uncover<14>{
+    \node[label=below:{\(2\ \)}] at (1,0) {};
+    \node[label=below:{\(1\ \)}] at (2,0) {};
+    \node[label=below:{\(0\ \)}] at (3,0) {};
+
+    \node[label=left:{\(0\ \)}] at (1,1) {};
+    \node[label=left:{\(1\ \)}] at (1,2) {};
+
+    \node[label=left:{\(1\ \)}] at (3,1) {};
+    \node[label=left:{\(0\ \)}] at (3,2) {};
+}
+\end{scope}
+
+\end{tikzpicture}

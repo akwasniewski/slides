@@ -1,0 +1,82 @@
+\begin{tikzpicture}[
+    scale=0.8,
+    line width=1.2pt,
+    minimum size=0.02cm
+]
+
+\uncover<2->{
+    \node[circle, draw=black] (x0) at (0,0) {};
+    \node[circle, draw=black] (x1) at (0.5,0.75) {};
+    \node[circle, draw=black] (x2) at (1,1.5) {};
+    \node[circle, draw=black] (x3) at (1.5,0.75) {};
+    \node[circle, draw=black] (x4) at (2,0) {};
+
+    \draw[->] (x0) -- (x1);
+    \draw[->] (x1) -- (x2);
+    \draw[->] (x3) -- (x2);
+    \draw[->] (x4) -- (x3);
+}
+\uncover<2>{
+    \node[circle, draw=black] (x5) at (2.5,0.75) {};
+    \node[circle, draw=black] (x6) at (3,1.5) {};
+    \node[circle, draw=black] (x7) at (3.5,0.75) {};
+    \node[circle, draw=black] (x8) at (4,0) {};
+
+    \draw[->] (x4) -- (x5);
+    \draw[->] (x5) -- (x6);
+    \draw[->] (x7) -- (x6);
+    \draw[->] (x8) -- (x7);
+}
+
+\uncover<3->{
+    \node[circle, draw=cfgrey] (x5) at (2.5,0.75) {};
+    \node[circle, draw=cfgrey] (x6) at (3,1.5) {};
+    \node[circle, draw=cfgrey] (x7) at (3.5,0.75) {};
+    \node[circle, draw=cfgrey] (x8) at (4,0) {};
+
+    \draw[->, cfgrey] (x4) -- (x5);
+    \draw[->, cfgrey] (x5) -- (x6);
+    \draw[->, cfgrey] (x7) -- (x6);
+    \draw[->, cfgrey] (x8) -- (x7);
+}
+ 
+\uncover<4->{
+    \begin{scope}[shift={(-2,-3)}]
+        \node[circle, draw=black, label=below:{\(0\)}] (x0) at (0,0) {};
+        \node[circle, draw=black, label=left:{\(2\)}] (x1) at (0.5,0.75) {};
+        \node[circle, draw=black, label=above:{\(1\)}] (x2) at (1,1.5) {};
+        \node[circle, draw=black, label=right:{\(2\)}] (x3) at (1.5,0.75) {};
+        \node[circle, draw=black, label=below:{\(0\)}] (x4) at (2,0) {};
+
+        \draw[->] (x0) -- (x1);
+        \draw[->] (x1) -- (x2);
+        \draw[->] (x3) -- (x2);
+        \draw[->] (x4) -- (x3);
+    \end{scope}
+    \begin{scope}[shift={(1.25,-3)}]
+        \node[circle, draw=black, label=below:{\(0\)}] (x0) at (0,0) {};
+        \node[circle, draw=black, label=left: {\(2\)}] (x1) at (0.5,0.75) {};
+        \node[circle, draw=black, label=above:{\(1\)}] (x2) at (1,1.5) {};
+        \node[circle, draw=black, label=right:{\(0\)}] (x3) at (1.5,0.75) {};
+        \node[circle, draw=black, label=below:{\(1\)}] (x4) at (2,0) {};
+
+        \draw[->] (x0) -- (x1);
+        \draw[->] (x1) -- (x2);
+        \draw[->] (x3) -- (x2);
+        \draw[->] (x4) -- (x3);
+    \end{scope}
+    \begin{scope}[shift={(4.5,-3)}]
+        \node[circle, draw=black, label=below:{\(0\)}] (x0) at (0,0) {};
+        \node[circle, draw=black, label=left: {\(1\)}] (x1) at (0.5,0.75) {};
+        \node[circle, draw=black, label=above:{\(0\)}] (x2) at (1,1.5) {};
+        \node[circle, draw=black, label=right:{\(1\)}] (x3) at (1.5,0.75) {};
+        \node[circle, draw=black, label=below:{\(2\)}] (x4) at (2,0) {};
+
+        \draw[->] (x0) -- (x1);
+        \draw[->] (x1) -- (x2);
+        \draw[->] (x3) -- (x2);
+        \draw[->] (x4) -- (x3);
+    \end{scope}
+}
+
+\end{tikzpicture}

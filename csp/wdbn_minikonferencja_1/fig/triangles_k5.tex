@@ -1,0 +1,40 @@
+\begin{tikzpicture}[scale=1, line width=1.2pt]
+
+\node[circle, draw=black, fill=white, minimum size=0.05cm] (v0) at (0,2)     {\(0\)};
+\node[circle, draw=black, fill=white, minimum size=0.05cm] (v1) at (1.9,0.6) {\(1\)};
+\node[circle, draw=black, fill=white, minimum size=0.05cm] (v2) at (1.2,-1.6){\(2\)};
+\node[circle, draw=black, fill=white, minimum size=0.05cm] (v3) at (-1.2,-1.6){\(3\)};
+\node[circle, draw=black, fill=white, minimum size=0.05cm] (v4) at (-1.9,0.6){\(4\)};
+
+% Edges incident to v0
+\only<1>{
+    \draw[color=black] (v0) -- (v1);
+    \draw[color=black] (v0) -- (v2);
+    \draw[color=black] (v0) -- (v3);
+    \draw[color=black] (v0) -- (v4);
+}
+\only<2>{
+    \draw[color=black] (v0) -- (v1);
+    \draw[color=cfred, ultra thick] (v0) -- (v2);
+    \draw[color=cfblue, ultra thick] (v0) -- (v3);
+    \draw[color=black] (v0) -- (v4);
+}
+\only<3>{
+    \draw[color=cfteagreen, ultra thick] (v0) -- (v1);
+    \draw[color=cfred, ultra thick] (v0) -- (v2);
+    \draw[color=cfblue, ultra thick] (v0) -- (v3);
+    \draw[color=cfpink, ultra thick] (v0) -- (v4);
+}
+% Edges incident to v1
+\draw (v1) -- (v2);
+\draw (v1) -- (v3);
+\draw (v1) -- (v4);
+
+% Edges incident to v2
+\draw (v2) -- (v3);
+\draw (v2) -- (v4);
+
+% Edge incident to v3
+\draw (v3) -- (v4);
+
+\end{tikzpicture}

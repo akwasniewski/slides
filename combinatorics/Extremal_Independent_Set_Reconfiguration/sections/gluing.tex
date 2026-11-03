@@ -1,0 +1,63 @@
+\begin{frame}{}
+\begin{columns}
+    \begin{column}{0.8\textwidth}
+        \begin{heading}{Symbols}
+            \begin{itemize}
+                \item \(B=\set{b_1,b_2,b_3}\) - last independent set in path \(i\)
+                \item \(A=\set{a_1,a_2,a_3}\) - first independent set in path \(i+1\)
+                \item \(b_1\) - last vertex modified to obtain \(B\) in path \(i\)
+                \item \(a_3\) - first vertex modified in path \(i+1\)
+            \end{itemize}
+        \end{heading}
+        \onslide<2->{
+        \begin{heading}{Construction}
+        \begin{itemize}
+            \item we add \(3k-2\) new vertices \(x_i\) and connect them with everything
+            \onslide<3->{
+            \item remove vertices \((x_i,\ x_j)\) for \(|i-j|<k\)
+            }
+            \onslide<4->{
+            \item remove vertices \((x_i,b_j)\), \((x_{3k-2-i}, a_{k-j})\) for \(j>i\)
+            }
+        \end{itemize}
+        \end{heading}
+        }
+    \end{column}
+    \begin{column}{0.3\textwidth}
+        \begin{figure}
+            \centering
+            \input{sections/tikzzz/3constr}
+        \end{figure}
+    \end{column}
+\end{columns}
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}{}
+\begin{columns}
+    \begin{column}{0.8\textwidth}
+        \begin{heading}{Construction}
+        \begin{itemize}
+            \item we add \(3k-2\) new vertices \(x_i\) and connect them with everything
+            \item remove vertices \((x_i,\ x_j)\) for \(|i-j|<k\)
+            \item remove vertices \((x_i,b_j)\), \((x_{3k-2-i}, a_{k-j})\) for \(j>i\)
+        \end{itemize}
+        \end{heading}
+        \begin{heading}{Conclusion}
+            We now have \((r-1) \cdot (3k-2)\) vertices.\\
+            Vertices connected paths of length \(n-3\) in configuration graph \\
+            Each connection adds \(4k-2\) vertices\\
+            Configuration graph has now diameter
+            \vspace{-1em}
+            \[(4k-2)(r-1)+\sum d_i\]
+        \end{heading}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+        \begin{figure}
+            \centering
+            \input{sections/tikzzz/gluingfinal}
+        \end{figure}
+    \end{column}
+\end{columns}
+\end{frame}

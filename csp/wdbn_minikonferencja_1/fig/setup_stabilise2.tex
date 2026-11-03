@@ -1,0 +1,74 @@
+
+\begin{tikzpicture}[
+    scale=0.5,
+    line width=1.2pt
+]
+
+            
+    \node[circle, draw=black, fill=white, label=below:{\(u\)}]
+            (r0) at (-4,-13) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (r1) at (2,-13) {};
+    \node[circle, draw=black, fill=white, label=below:{\(v\)}]
+            (r2) at (8,-13) {};
+    \node[circle, draw=black, fill=white, label=below:{\(v\)}]
+            (r3) at (14,-13) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (r4) at (-3,-11) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (r5) at (1,-11) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (r6) at (3,-11) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (r7) at (7,-11) {};
+    \node[circle, draw=cfpink, fill=white, label=right:{\(r_4\)}]
+            (r8) at (9,-11) {};
+    \node[circle, draw=cfpink, fill=white, label=right:{\(r_4\)}]
+            (r9) at (13,-11) {};
+    \node[circle, draw=black, fill=white, label=below:{}]
+            (r10) at (3,-11) {};
+    \node[circle, draw=cfgr, fill=white, label=left:{\(r_1\)}]
+            (r11) at (-2,-9) {};
+    \node[circle, draw=cfgr, fill=white, label=right:{\(r_1\)}]
+            (r12) at (0,-9) {};
+    \node[circle, draw=cfred, fill=white, label=left:{\(r_2\)}]
+            (r13) at (4,-9) {};
+    \node[circle, draw=cfred, fill=white, label=right:{\(r_2\)}]
+            (r14) at (6,-9) {};
+    \node[circle, draw=cfyel, fill=white, label=left:{\(r_3\)}]
+            (r15) at (10,-9) {};
+    \node[circle, draw=cfyel, fill=white, label=right:{\(r_3\)}]
+            (r16) at (12,-9) {};
+    \node[circle, draw=cfnavy, fill=white, label=below:{}]
+            (r17) at (-1,-7) {};
+    \node[circle, draw=cfnavy, fill=white, label=below:{}]
+            (r18) at (5,-7) {};
+    \node[circle, draw=cfnavy, fill=white, label=below:{}]
+            (r19) at (11,-7) {};
+
+    \draw[->] (r0) -- (r4);
+    \draw[->] (r1) -- (r5);
+    \draw[->] (r1) -- (r6);
+    \draw[->] (r2) -- (r7);
+    \draw[->] (r2) -- (r8);
+    \draw[->] (r3) -- (r9);
+    \draw[->] (r4) -- (r11);
+    \draw[->] (r5) -- (r12);
+    \draw[->] (r6) -- (r13);
+    \draw[->] (r7) -- (r14);
+    \draw[->] (r8) -- (r15);
+    \draw[->] (r9) -- (r16);
+    \draw[->] (r11) -- (r17);
+    \draw[->] (r12) -- (r17);
+    \draw[->] (r13) -- (r18);
+    \draw[->] (r14) -- (r18);
+    \draw[->] (r15) -- (r19);
+    \draw[->] (r16) -- (r19);
+
+    % \draw[dashed] (r2) -- (r3) node[midway, above]{};
+    % \draw[dashed] (r8) -- (r9) node[midway, above]{};
+    % \draw[dashed] (r15) -- (r16) node[midway, above]{};
+    % \draw[dashed] (r11) -- (r12) node[midway, above]{};
+    % \draw[dashed] (r13) -- (r14) node[midway, above]{};
+    
+\end{tikzpicture}

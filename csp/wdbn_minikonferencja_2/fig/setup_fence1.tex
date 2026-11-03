@@ -1,0 +1,26 @@
+\begin{tikzpicture}[
+    scale=0.5,
+    line width=1pt,
+    every node/.style={
+        circle,
+        fill=black,
+        inner sep=2.4pt
+    },
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+]
+
+    % \node at (-3,-5.5) {\(F_1\)};
+    
+    \node[circle, fill=black, label=below:{\(u\)}]
+            (p0) at (-4,-4) {};
+
+    \node[circle, fill=black, label=below:{\(v\)}]
+            (p1) at (-2,-4) {};
+
+    \node[circle, fill=black]
+        (p2) at (-3,-2) {};
+    
+
+    \draw[arr] (p0) -- (p2);
+    \draw[arr] (p1) -- (p2);
+\end{tikzpicture}

@@ -1,0 +1,103 @@
+\begin{tikzpicture}[
+    scale=0.9,
+    line width=1pt,
+    minimum size=0.08cm
+]
+% \usetikzlibrary{backgrounds}
+
+% graf G
+% =====================================================================
+\begin{scope}[shift={(0,0)}]
+
+    \node[circle, draw=black, fill=cfblue!85] (v1) at (-0.3,1.2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v2) at (1,2.2) {};
+    \node[circle, draw=black, fill=cfblue!85] (v3) at (2.3,1.2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v4) at (1.7,-0.2) {};
+    \node[circle, draw=black, fill=cfred!85]  (v5) at (0.3,-0.2) {};
+    \node[circle, draw=black, fill=cfred!85]  (v6) at (1,0.9) {};
+
+    \draw[->] (v1) -- (v2);
+    \draw[<-] (v2) -- (v3);
+    \draw[->] (v3) -- (v4);
+    \draw[->] (v4) -- (v5);
+    \draw[->] (v5) -- (v1);
+
+    \draw[<-] (v1) -- (v6);
+    \draw[->] (v4) -- (v6);
+
+    \node at (1,-1) {\(G\)};
+
+\end{scope}
+
+% G -> H
+\draw[->, line width=2pt, cfgrey] (3,1) to (5,1);
+\node[gray] at (4,1.5) {hom};
+
+
+% graf H
+% =====================================================================
+\begin{scope}[shift={(6,0)}]
+
+    \node[circle, draw=black, fill=cfyel!85]  (v1) at (0,2) {};
+    \node[circle, draw=black, fill=cfblue!85] (v2) at (2,2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v3) at (2,0) {};
+    \node[circle, draw=black, fill=cfblue!85] (v4) at (0,0) {};
+    \node[circle, draw=black, fill=cfred!85]  (v5) at (1,1) {};
+
+    \draw[<-] (v1) -- (v2);
+    \draw[->] (v2) -- (v3);
+    \draw[<-] (v3) -- (v4);
+    \draw[->] (v4) -- (v1);
+
+    \draw[->] (v5) -- (v2);
+    \draw[->] (v3) -- (v5);
+
+    \node at (1,-1) {\(H\)};
+
+\end{scope}
+
+% highlight
+\begin{scope}[on background layer]
+    \fill[cfgrey!40, rounded corners=20pt]
+        ([shift={(-1,0)}] v5.center) --
+        ([shift={(0.5,1)}] v2.center) --
+        ([shift={(0.5,-1)}] v3.center) --
+        cycle;
+\end{scope}
+
+
+% graf core(H)
+% =====================================================================
+\begin{scope}[shift={(11,0)}]
+
+    \node[circle, draw=black, fill=cfblue!85] (v1) at (0,0.2) {};
+    \node[circle, draw=black, fill=cfyel!85]  (v2) at (1,1.8) {};
+    \node[circle, draw=black, fill=cfred!85]  (v3) at (2,0.2) {};
+
+    \draw[->] (v1) -- (v2);
+    \draw[->] (v2) -- (v3);
+    \draw[->] (v3) -- (v1);
+
+    \node at (1,-1) {\(\core(H)\)};
+
+\end{scope}
+
+% highlight
+\begin{scope}[on background layer]
+    \fill[cfgrey!40, rounded corners=20pt]
+        ([shift={(-1,-0.5)}] v1.center) --
+        ([shift={(0,1)}] v2.center) --
+        ([shift={(1,-0.5)}] v3.center) --
+        cycle;
+\end{scope}
+
+
+% H -> core(H)
+\draw[->, line width=2pt, cfgrey] (8.6,3) to[bend left=25] (11,3);
+\node[gray] at (9.8,3.7) {hom};
+
+% core(H) -> H
+\draw[<-, line width=2pt, cfgrey] (8.6,-1.5) to[bend right=25] (11,-1.5);
+\node[gray] at (9.8,-2.15) {hom};
+
+\end{tikzpicture}

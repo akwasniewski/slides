@@ -1,0 +1,248 @@
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{bm, bbm}
+\usepackage{mathtools}
+\usepackage{auto-pst-pdf}
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{biblatex}
+\usepackage{hyperref}
+\usepackage{fontspec}
+
+\usepackage{libertinus}
+
+%------------------------------------------------------------
+% Colors
+\definecolor{cfgr}{RGB}{91, 140, 90}
+\definecolor{cfgrey}{RGB}{137, 137, 137}
+\definecolor{cfred}{RGB}{181, 50, 84}
+\definecolor{cfnavy}{RGB}{68, 114, 196}
+\definecolor{cfblue}{RGB}{25, 133, 161}
+\definecolor{cfyel}{RGB}{255, 210, 63}
+\definecolor{cfyel}{RGB}{255, 210, 63}
+\definecolor{cfpink}{RGB}{255, 175, 197}
+\definecolor{footergrey}{RGB}{165, 180, 180}
+
+\setbeamercolor{palette primary}{bg=cfred, fg=white}
+\setbeamercolor{palette secondary}{bg=cfred, fg=white}
+\setbeamercolor{palette tertiary}{bg=cfgr, fg=white}
+\setbeamercolor{palette quaternary}{bg=cfgr, fg=white}
+\setbeamercolor{structure}{fg=cfred}
+\setbeamercolor{section in toc}{fg=cfgr}
+\setbeamercolor{subsection in head/foot}{bg=cfgrey, fg=white}
+\setbeamercolor{uppercolor}{fg=white, bg=cfgr}
+\setbeamercolor{lowercolor}{fg=black, bg=white}
+\def \bblock{\begin{beamerboxesrounded}[upper=uppercolor, lower=lowercolor, shadow=true]}
+\def \eblock{\end{beamerboxesrounded}}
+
+
+%------------------------------------------------------------
+% Headings
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\newtcolorbox{coloredblock}[2]{%
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=#1,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={2pt}{0pt}{#1},
+  left=8pt,
+  right=4pt,
+  top=4pt,
+  bottom=4pt,
+  before skip=1em,
+  after skip=1em,
+  fonttitle=\bfseries,
+  coltitle=#1,
+  title={#2}
+}
+
+\renewenvironment{theorem}[1]
+  {\begin{coloredblock}{cfnavy}{#1}\itshape}
+  {\end{coloredblock}}
+
+\renewenvironment{proof}[1]
+  {\begin{coloredblock}{cfpink}{#1}\itshape}
+  {\end{coloredblock}}
+  
+\renewenvironment{lemma}[1]
+  {\begin{coloredblock}{cfblue}{#1}\itshape}
+  {\end{coloredblock}}
+
+\renewenvironment{example}[1]
+  {\begin{coloredblock}{cfyel}{#1}}
+  {\end{coloredblock}}
+
+\newenvironment{heading}[1] { \noindent \textcolor{cfred}{\textbf{#1}}\par } { \par }
+
+\renewenvironment{fact}[1] { 
+\textcolor{cfgr}{\textbf{#1}} } { \par}
+
+
+
+
+
+%------------------------------------------------------------
+% Header and footline
+
+\usefonttheme{default}  
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+% \useoutertheme[subsection=false]{miniframes} %<<<<<<<<<<<<<<<<
+\setbeamercolor{section in head/foot}{fg=white, bg=cfred} %<<<<<<<<<<<<<<<<
+
+\newcommand{\mysimplefootline}{%
+  \setbeamertemplate{footline}{%
+    \leavevmode%
+    \rlap{\color{cfred}\rule[-1.2ex]{\paperwidth}{3.8ex}}%
+    \hbox to \paperwidth{%
+      \hspace{0.4cm}%
+      {\color{white}\scriptsize\insertauthor}%
+      \hfill
+      \raisebox{-0.3ex}{\includegraphics[height=3ex]{images/tcs.png}}%
+      \hfill
+      {\color{white}\scriptsize Uniwersytet Jagielloński}%
+      \hspace{0.4cm}%
+    }%
+  }%
+}
+
+% \setbeamertemplate{footline}{}
+
+\setbeamertemplate{frametitle}[default][left, leftskip=.25cm] {}
+\addtobeamertemplate{title page}{}{%
+  \vspace{1em}
+  \begin{center}
+    \includegraphics[height=1cm]{images/uj-logo.png}
+  \end{center}
+}
+
+\newcounter{frameref} % counter for frame references
+
+% command to place a reference mark in the text
+\newcommand{\framemark}{%
+  \stepcounter{frameref}%
+  {\scriptsize\textsuperscript{\color{cfgrey}\theframeref}}%
+}
+
+% command to display the reference at the end of the frame
+\newcommand{\framereference}[2][]{%
+  \ifx\\#1\\%
+    \edef\marknum{\theframeref}%
+  \else
+    \edef\marknum{#1}%
+  \fi
+  \vspace{0.5em}
+  \begin{flushright}
+    {\scriptsize\color{cfgrey}\textsuperscript{\marknum}\parbox{0.6\textwidth}{#2}}%
+  \end{flushright}
+  \vspace{0.5em}
+}
+
+
+%------------------------------------------------------------
+
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,fit,arrows.meta,shapes.geometric, shapes.misc}
+\usepackage{circuitikz}
+\usepackage{xcolor}
+
+\definecolor{bggrey}{rgb}{0.95,0.95,0.95}
+\definecolor{icons}{HTML}{46A247}
+
+% \newtcolorbox{def_box}[1][]{%
+%     enhanced,
+%     boxrule=0.5pt,
+%     colback=white,
+%     colframe=cfgr,
+%     attach boxed title to top left={xshift=0cm, yshift*=0mm-\tcboxedtitleheight},
+%     varwidth boxed title*=-3cm,
+%     boxed title style={frame code={%
+%         \path[left color=cfgr, right color=cfgr, middle color=cfgr]
+%         (frame.north west) [sharp corners] -- 
+%         (frame.north east) [rounded corners=1mm] -- 
+%         (frame.south east) [sharp corners] -- 
+%         (frame.south west) [rounded corners=1mm] -- 
+%         cycle;
+%         },interior engine=empty,
+%     },
+%     width=\textwidth,
+%     arc is curved,
+%     arc = 1mm,
+%     % fonttitle=\bfseries, 
+%     title={#1}
+% }
+
+\newtcolorbox[auto counter, number within=section]{def_box}[1][]{
+  breakable,
+  enhanced,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  title=#1,
+  colbacktitle=white,
+  title style={
+    left color=cfgr,
+    middle color=cfgr!85!white,
+    right color=cfgr!70!white
+  },
+  overlay={
+    \draw[line width=0.5pt, cfgr, rounded corners=1mm]
+      ([xshift=1pt, yshift=-1pt]frame.north west)
+        -- (frame.south west)
+        -- ++(0.4\textwidth,0);
+  }
+}
+
+%------------------------------------------------------------
+
+\newcommand{\brackets}[1]{\left[ #1 \right]}
+\newcommand{\pars}[1]{\left( #1 \right)}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\norm}[1]{\| #1 \|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\dotpr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\inl}[1]{\text{Inl} \pars{#1}}
+\newcommand{\inr}[1]{\text{Inr} \pars{#1}}
+
+%------------------------------------------------------------
+
+% \newcommand{\birdimage}{\reflectbox{\includegraphics[height=0.4cm]{images/bird.png}}}
+
+% \setbeamertemplate{footline}{
+%     \begin{tikzpicture}[remember picture, overlay]
+%         \def\barwidth{\paperwidth}
+%         \def\barheight{0.3cm}
+        
+%         \node[anchor=south west] at ({\barwidth*\insertframenumber/\inserttotalframenumber},0) {\birdimage};
+%     \end{tikzpicture}
+% }
+%----------
+
+\newcommand{\skipindraft}[2][]{%
+    \ifdraft
+   \colorbox{gray!30}{%
+                \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+                    \textbf{Note:} #1%
+                }%
+            }%
+    \else
+        #2%
+    \fi
+}
+
+
+
+
+\usepackage{enumitem}
+\usepackage{braket}
+\setlist[itemize]{label=\textbullet, left=0.5em, itemsep=1pt, topsep=2pt}
+

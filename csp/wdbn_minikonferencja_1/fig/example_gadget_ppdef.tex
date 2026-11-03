@@ -1,0 +1,58 @@
+\begin{tikzpicture}[
+    scale=1,
+    line width=1.2pt,
+    minimum size=0.02cm
+]
+
+% Podświetlenie pp-def
+\uncover<2>{
+    \draw[rounded corners=5pt, draw=cfgrey!50, fill=cfgrey!50]
+      (0.5,1.7) rectangle (1.6,3.5);
+}
+
+\uncover<3>{
+    \draw[rounded corners=5pt, draw=cfgrey!50, fill=cfgrey!50]
+      (-0.3,-0.8) rectangle (0.3,0.4);
+}
+
+\uncover<4>{
+    \draw[rounded corners=5pt, draw=cfgrey!50, fill=cfgrey!50]
+      (1.45,-0.8) rectangle (2.55,0.4);
+}
+
+
+    % Gadżet
+    \node at (-1.6,0) {\large \(\DorD(u,v) \equiv\)};
+    \node[circle, draw=black, fill=white, label=below:{\(0\)}]
+            (x0) at (0,0) {};
+    \node[circle, draw=black, fill=white] (x1) at (1,0) {};
+    \node[circle, draw=black, fill=white, label=below:{\(\set{0,1}\)}]
+            (x2) at (2,0) {};
+    \node[circle, draw=black, fill=white] (x3) at (3,0) {};
+    \node[circle, draw=black, fill=white, label=below:{\(1\)}]
+            (x4) at (4,0) {};
+
+    \node[circle, draw=black, fill=white] (x11) at (1,1) {};
+    \node[circle, draw=black, fill=white] (x12) at (1,2) {};
+    \node[circle, draw=black, fill=cfblue!50] (u) at (1,3) {\(u\)};
+
+    \node[circle, draw=black, fill=white] (x31) at (3,1) {};
+    \node[circle, draw=black, fill=white] (x32) at (3,2) {};
+    \node[circle, draw=black, fill=cfblue!50] (v) at (3,3) {\(v\)};
+
+    \draw[->] (x0) -- (x1);
+    \draw[->] (x1) -- (x2);
+    \draw[->] (x2) -- (x3);
+    \draw[->] (x3) -- (x4);
+
+    \draw[draw=cfred, line width=1.5]
+      (u) -- node[midway, right] {\(R\)} (x12);
+    \draw[->] (x12) -- (x11);
+    \draw[->] (x11) -- (x1);
+
+    \draw[draw=cfred, line width=1.5]
+      (v) -- node[midway, right] {\(R\)} (x32);
+    \draw[->] (x32) -- (x31);
+    \draw[->] (x31) -- (x3);
+
+\end{tikzpicture}

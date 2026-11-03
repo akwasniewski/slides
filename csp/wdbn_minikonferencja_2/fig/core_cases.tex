@@ -1,0 +1,52 @@
+\begin{tikzpicture}[
+    scale=0.85,
+    line width=1pt,
+    arr/.style={-{Triangle[length=2mm,width=1.5mm]}},
+    arr2/.style={{Triangle[length=2mm,width=1.5mm]}-{Triangle[length=2mm,width=1.5mm]}},
+    minimum size=0.06cm
+]
+
+% kilka kopii
+% ====================================================================
+\begin{scope}[shift={(0,0)}]
+    \node[circle, fill=cfteagreen!85]  (v1) at (0,2) {};
+    \node[circle, fill=cfblue!85] (v2) at (2,2) {};
+    \node[circle, fill=cfteagreen!85]  (v3) at (2,0) {};
+    \node[circle, fill=cfblue!85] (v4) at (0,0) {};
+    \node[circle, fill=cfred!85]  (v5) at (1,1) {};
+
+    \draw[arr] (v1) -- (v2);
+    \draw[arr] (v3) -- (v4);
+    \draw[arr] (v1) -- (v4);
+    \draw[arr] (v3) -- (v2);
+    \draw[arr] (v2) -- (v5);
+    \draw[arr2] (v3) -- (v5);
+    \draw[arr] (v4) -- (v5);
+
+    \node at (1.2,-0.8) {kilka kopii rdzenia};
+
+\end{scope}
+
+% 1 rdzeń
+% ====================================================================
+\begin{scope}[shift={(6,0)}]
+
+    \node[circle, fill=cfteagreen!85]  (v1) at (0,2) {};
+    \node[circle, fill=cfblue!85] (v2) at (2,2) {};
+    \node[circle, fill=cfteagreen!85]  (v3) at (2,0) {};
+    \node[circle, fill=cfblue!85] (v4) at (0,0) {};
+    \node[circle, fill=cfred!85]  (v5) at (1,1) {};
+
+    \draw[arr] (v1) -- (v2);
+    \draw[arr] (v3) -- (v4);
+    \draw[arr] (v1) -- (v4);
+    \draw[arr] (v3) -- (v2);
+    \draw[arr] (v5) -- (v3);
+    \draw[arr] (v4) -- (v5);
+
+    \node at (1.2,-0.8) {rdzeń z automorfizmami};
+
+\end{scope}
+
+
+\end{tikzpicture}

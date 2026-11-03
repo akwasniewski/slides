@@ -1,0 +1,268 @@
+\begin{tikzpicture}[scale=0.85]
+\coordinate (a0) at (2,0);
+\coordinate (a1) at (1,0);
+\coordinate (a2) at (0,0);
+
+\coordinate (b0) at (2,8);
+\coordinate (b1) at (1,8);
+\coordinate (b2) at (0,8);
+
+\coordinate (x1) at (3,1);
+\coordinate (x2) at (3,2);
+\coordinate (x3) at (3,3);
+\coordinate (x4) at (3,4);
+\coordinate (x5) at (3,5);
+\coordinate (x6) at (3,6);
+\coordinate (x7) at (3,7);
+\coordinate (x8) at (3,8);
+
+\draw[line width=1.5pt, dashed] (a0) to (a1);
+\draw[line width=1.5pt, dashed] (a1) to (a2);
+\draw[line width=1.5pt, bend left=90, dashed] (a0) to (a2);
+
+\draw[line width=1.5pt, dashed] (b0) to (b1);
+\draw[line width=1.5pt, dashed] (b1) to (b2);
+\draw[line width=1.5pt, bend right=90, dashed] (b0) to (b2);
+
+\only<3->{
+    \draw[line width=1.5pt, dashed] (x1) to (x2);
+    \draw[line width=1.5pt, dashed] (x2) to (x3);
+    \draw[line width=1.5pt, dashed] (x3) to (x4);
+    \draw[line width=1.5pt, dashed] (x4) to (x5);
+    \draw[line width=1.5pt, dashed] (x5) to (x6);
+    \draw[line width=1.5pt, dashed] (x6) to (x7);
+
+    \draw[line width=1.5pt, bend right=90, dashed] (x1) to (x3);
+    \draw[line width=1.5pt, bend left=90, dashed] (x2) to (x4);
+    \draw[line width=1.5pt, bend right=90, dashed] (x3) to (x5);
+    \draw[line width=1.5pt, bend left=90, dashed] (x4) to (x6);
+    \draw[line width=1.5pt, bend right=90, dashed] (x5) to (x7);
+}
+\only<4->{
+    \draw[line width=1.5pt, dashed] (a0) to (x1);
+    \draw[line width=1.5pt, bend left=40, dashed] (a0) to (x2);
+    \draw[line width=1.5pt, bend left=30, dashed] (a1) to (x1);
+
+    \draw[line width=1.5pt, dashed] (b0) to (x7);
+    \draw[line width=1.5pt, bend right=40, dashed] (b0) to (x6);
+    \draw[line width=1.5pt, bend right=30,dashed] (b1) to (x7);
+}
+
+\only<1>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+}
+
+\only<2-4>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+
+\only<5>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+
+\only<6>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\only<7>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\only<8>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\only<9>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\only<10>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\only<11>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\only<12>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\only<13>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\only<14>{
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\only<15>{
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (a2)  {$a_{3}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (a1) {$a_{2}$};
+    \node[circle, draw=black, fill=cfred, line width=1.5pt, font=\footnotesize] at (a0)  {$a_{1}$};
+
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b2) {$b_1$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b1) {$b_2$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (b0) {$b_3$};
+    
+    \node[circle, draw=black, fill=cfred!20, line width=1.5pt, font=\footnotesize] at (x1) {$x_{7}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x2) {$x_{6}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x3) {$x_{5}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x4) {$x_{4}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x5) {$x_{3}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x6) {$x_{2}$};
+    \node[circle, draw=black, fill=white, line width=1.5pt, font=\footnotesize] at (x7) {$x_{1}$};
+}
+\end{tikzpicture}
+
