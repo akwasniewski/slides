@@ -1,0 +1,68 @@
+\begin{frame}{Temporary example: shift-chain drawing options}
+\begin{columns}[T]
+  \begin{column}{0.58\textwidth}
+    \textbf{Vertex colours and mixed bars}
+    \par\medskip
+    % The mandatory argument is the number of vertex columns.
+    % bars lists the columns AFTER which a separator is drawn.
+    % /dashed changes just that bar; the others keep the global bar style.
+    \begin{shiftchain}[
+      column sep=6mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      label font=\scriptsize,
+      bars={3,6/dashed,8},
+      % Labels sit beneath the bars, including individually dashed bars.
+      bar labels={3/$x_1$,6/$y_2$,8/$x_3$},
+      bar style={cfnavy,line width=0.6pt}
+    ]{10}
+      % Vertex colours apply to these columns in subsequent rows.
+      \shiftvertexcolor{1,2,3,7,8}{cfred}
+      \shiftvertexcolor{4,5,6,9,10}{cfblue}
+      % An optional label AFTER the vertex list names the edge on the left.
+      \shiftedge{1,2,3,5}[$e_1$]
+      \shiftedge{1,2,4,6}[$e_2$]
+      % An explicit vertex/colour overrides the column colour.
+      \shiftedge{1,3,4,6/cfyel}
+      \shiftedge{2,3,4,7}
+      \shiftedge{2,4,5,8}
+      % Changing a vertex colour here affects only subsequent rows.
+      \shiftvertexcolor{7,8}{cfgr}
+      \shiftedge{3,4,6,9}
+      \shiftedge{4,5,6,9}
+      \shiftedge{5,6,7,10/cfpink}
+    \end{shiftchain}
+    \par\smallskip
+    {\scriptsize Bars follow columns 3, 6 (dashed), and 8. Yellow and pink
+    dots override the vertex colours.}
+  \end{column}
+  \begin{column}{0.40\textwidth}
+    \textbf{Row colours and solid bars}
+    \par\medskip
+    % Options and vertex colours are local to each environment.
+    % Labels can be hidden; TikZ options can scale the whole diagram.
+    \begin{shiftchain}[
+      labels=false,
+      column sep=5mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=cfgr,
+      bars={2,4},
+      bar style={solid,cfgrey},
+      tikz options={scale=1.1}
+    ]{6}
+      \shiftedge{1,2,3,4}              % Default: green.
+      \shiftedge[cfred]{1,2,3,5}[$f$] % Whole row: red, with an edge label.
+      \shiftedge[cfblue]{1,3,4,5/cfyel}% Blue row, one yellow dot.
+      \shiftvertexcolor{3}{cfpink}    % Column colour overrides row colour.
+      \shiftedge[cfblue]{2,3,4,6}
+      \shiftedge{3,4,5,6}             % Default green, column 3 stays pink.
+    \end{shiftchain}
+    \par\smallskip
+    {\scriptsize Colour priority:\par
+    explicit dot $>$ vertex $>$ row $>$ default.\par\medskip
+    See this frame's source for copyable examples.}
+  \end{column}
+\end{columns}
+\end{frame}

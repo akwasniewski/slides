@@ -1,0 +1,316 @@
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+\else
+  \usepackage{fontspec}
+\fi
+\usepackage{polski}
+\renewcommand{\today}{%
+  \ifcase\month\or January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi
+  \space\number\day, \number\year}
+\usepackage{bm, bbm}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{lmodern}
+\usepackage{hyperref}
+
+\usefonttheme{professionalfonts}
+\usepackage{libertinus}
+
+\definecolor{cfgr}{RGB}{91, 140, 90}
+\definecolor{cfgrey}{RGB}{137, 137, 137}
+\definecolor{cfred}{RGB}{181, 50, 84}
+\definecolor{cfnavy}{RGB}{68, 114, 196}
+\definecolor{cfblue}{RGB}{25, 133, 161}
+\definecolor{cfyel}{RGB}{255, 210, 63}
+\definecolor{cfpink}{RGB}{255, 175, 197}
+\definecolor{footergrey}{RGB}{165, 180, 180}
+
+\setbeamercolor{palette primary}{bg=cfred, fg=white}
+\setbeamercolor{palette secondary}{bg=cfred, fg=white}
+\setbeamercolor{palette tertiary}{bg=cfgr, fg=white}
+\setbeamercolor{palette quaternary}{bg=cfgr, fg=white}
+\setbeamercolor{structure}{fg=cfred}
+\setbeamercolor{section in toc}{fg=cfgr}
+\setbeamercolor{subsection in head/foot}{bg=cfgrey, fg=white}
+\setbeamercolor{uppercolor}{fg=white, bg=cfgr}
+\setbeamercolor{lowercolor}{fg=black, bg=white}
+\def \bblock{\begin{beamerboxesrounded}[upper=uppercolor, lower=lowercolor, shadow=true]}
+\def \eblock{\end{beamerboxesrounded}}
+
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\newtcolorbox{coloredblock}[2]{%
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=#1,
+  boxrule=0pt,
+  frame hidden,
+  borderline west={2pt}{0pt}{#1},
+  left=8pt,
+  right=4pt,
+  top=4pt,
+  bottom=4pt,
+  before skip=1em,
+  after skip=1em,
+  fonttitle=\bfseries,
+  coltitle=#1,
+  title={#2}
+}
+
+\renewenvironment{theorem}[1]
+  {\begin{coloredblock}{cfnavy}{#1}\itshape}
+  {\end{coloredblock}}
+
+\renewenvironment{proof}[1]
+  {\begin{coloredblock}{cfpink}{#1}\itshape}
+  {\end{coloredblock}}
+  
+\renewenvironment{lemma}[1]
+  {\begin{coloredblock}{cfblue}{#1}\itshape}
+  {\end{coloredblock}}
+
+\renewenvironment{example}[1]
+  {\begin{coloredblock}{cfyel}{#1}}
+  {\end{coloredblock}}
+
+\newenvironment{heading}[1] { \noindent \textcolor{cfred}{\textbf{#1}}\par } { \par }
+
+\newenvironment{hheading}[1]
+  {\begin{coloredblock}{cfred}{#1}\itshape}
+  {\end{coloredblock}}
+  
+\renewenvironment{fact}[1] { 
+\textcolor{cfgr}{\textbf{#1}} } { \par}
+
+\newenvironment{ffact}[1]
+  {\begin{coloredblock}{cfgr}{#1}}
+  {\end{coloredblock}}
+
+\usefonttheme{default}  
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+\setbeamercolor{section in head/foot}{fg=white, bg=cfred} %<<<<<<<<<<<<<<<<
+
+\newcommand{\mysimplefootline}{%
+  \setbeamertemplate{footline}{%
+    \leavevmode%
+    \rlap{\color{cfred}\rule[-1.2ex]{\paperwidth}{3.8ex}}%
+\hbox to \paperwidth{%
+  \rlap{%
+    \begin{minipage}[c]{\paperwidth}
+      \centering
+      \raisebox{0.3ex}{\includegraphics[height=3ex]{images/tcs.png}}%
+    \end{minipage}%
+  }%
+  \hspace{0.4cm}%
+  \begin{minipage}[c]{\dimexpr0.45\paperwidth-0.4cm\relax}
+    {\color{white}\scriptsize \insertshortauthor}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[c]{\dimexpr0.45\paperwidth-0.4cm\relax}
+    {\color{white}\scriptsize \insertshorttitle}
+  \end{minipage}%
+  \hspace{0.4cm}%
+}
+  }%
+}
+
+\setbeamertemplate{frametitle}[default][left, leftskip=.25cm] {}
+\addtobeamertemplate{title page}{}{%
+  \vspace{1em}
+  \begin{center}
+    \includegraphics[height=1cm]{images/uj-logo.png}
+  \end{center}
+}
+
+\newcounter{frameref} % counter for frame references
+
+\newcommand{\framemark}{%
+  \stepcounter{frameref}%
+  {\scriptsize\textsuperscript{\color{cfgrey}\theframeref}}%
+}
+
+\newcommand{\framereference}[2][]{%
+  \ifx\\#1\\%
+    \edef\marknum{\theframeref}%
+  \else
+    \edef\marknum{#1}%
+  \fi
+  \vspace{0.5em}
+  \begin{flushright}
+    {\scriptsize\color{cfgrey}\textsuperscript{\marknum}\parbox{0.6\textwidth}{#2}}%
+  \end{flushright}
+  \vspace{0.5em}
+}
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark,fit,arrows.meta,shapes.geometric, shapes.misc}
+\usepackage{xcolor}
+
+% Shift-chain diagrams: columns are vertices, rows are edges (as in the paper).
+% Usage (Figure 1a):
+%   \begin{shiftchain}{6}
+%     \shiftedge{1,2,3,4/gray}
+%     \shiftedge{1,2,3,5/gray}
+%     \shiftedge{1,3,4,5/gray}
+%     \shiftedge{2,3,4,6/gray}
+%     \shiftedge{3,4,5,6/gray}
+%   \end{shiftchain}
+% \shiftvertexcolor{1,3}{cfred} colours those columns in subsequent rows.
+% \shiftedge[cfblue]{1,2,4,6/cfred} sets a row's default colour; vertex
+% colours override it, and an explicit vertex/colour overrides both.
+% An optional label AFTER the vertex list labels the row on the left:
+% \shiftedge{1,2,3,4}[$e_1$] or \shiftedge[cfblue]{2,3,4,5}[$e_2$].
+% Options: column sep, row sep, dot radius, dot color, labels=true/false,
+% label font, and tikz options (e.g. tikz options={scale=1.2}).
+% bars={2,4} draws vertical bars after columns 2 and 4, spanning the dot rows.
+% bar style={dashed} makes them dashed; any TikZ drawing options are allowed,
+% e.g. \begin{shiftchain}[bars={2,4},bar style={dashed,cfred}]{6}.
+% A /style suffix overrides an individual bar: bars={2,4/dashed,6}.
+% Use /solid to override a globally dashed bar style.
+% bar labels={2/$x_1$,4/$y_2$} puts labels below the corresponding bars.
+% Labels use label font; labels=false hides only the vertex column numbers.
+\pgfkeys{
+  /shiftchain/.is family,
+  /shiftchain,
+  column sep/.store in=\shiftchain@columnsep,
+  row sep/.store in=\shiftchain@rowsep,
+  dot radius/.store in=\shiftchain@radius,
+  dot color/.store in=\shiftchain@color,
+  labels/.is choice,
+  labels/true/.code={\def\shiftchain@labels{1}},
+  labels/false/.code={\def\shiftchain@labels{0}},
+  label font/.store in=\shiftchain@labelfont,
+  bars/.store in=\shiftchain@bars,
+  bar style/.store in=\shiftchain@barstyle,
+  bar labels/.store in=\shiftchain@barlabels,
+  tikz options/.store in=\shiftchain@tikzoptions
+}
+\newcount\shiftchain@row
+\newenvironment{shiftchain}[2][]{%
+  \pgfkeys{/shiftchain/.cd,
+    column sep=5mm, row sep=5mm, dot radius=1.2pt,
+    dot color=black, labels=true, label font=\small,
+    bars={}, bar style={}, bar labels={},
+    tikz options={},#1}%
+  \shiftchain@row=0\relax
+  \begin{tikzpicture}[x=\shiftchain@columnsep,y=\shiftchain@rowsep,
+    baseline=(current bounding box.center),
+    every node/.style={font=\shiftchain@labelfont},
+    style/.expand once=\shiftchain@tikzoptions]
+    \ifnum\shiftchain@labels=1\relax
+      \foreach \shiftchain@vertex in {1,...,#2} {%
+        \node[inner sep=0pt] at (\shiftchain@vertex,0)
+          {$\shiftchain@vertex$};%
+      }%
+    \fi
+}{%
+  \ifnum\shiftchain@row>0\relax
+    \ifx\shiftchain@bars\@empty\else
+      \foreach \shiftchain@entry in \shiftchain@bars {%
+        \expandafter\shiftchain@drawbar\shiftchain@entry//\@nil
+      }%
+    \fi
+    \ifx\shiftchain@barlabels\@empty\else
+      \foreach \shiftchain@entry in \shiftchain@barlabels {%
+        \expandafter\shiftchain@drawbarlabel\shiftchain@entry//\@nil
+      }%
+    \fi
+  \fi
+  \end{tikzpicture}%
+}
+\def\shiftchain@drawbar#1/#2/#3\@nil{%
+  \draw[black,solid,line width=0.4pt,
+    style/.expand once=\shiftchain@barstyle,#2]
+    ({#1+0.5},-0.5)
+    -- ({#1+0.5},{-\the\shiftchain@row-0.5});%
+}
+\def\shiftchain@drawbarlabel#1/#2/#3\@nil{%
+  \node[anchor=north,inner xsep=0pt,inner ysep=2pt]
+    at ({#1+0.5},{-\the\shiftchain@row-0.5}) {#2};%
+}
+\newcommand{\shiftvertexcolor}[2]{%
+  \@for\shiftchain@vertex:=#1\do{%
+    \expandafter\def\csname shiftchain@vertexcolor@\shiftchain@vertex\endcsname{#2}%
+  }%
+}
+\NewDocumentCommand{\shiftedge}{O{\shiftchain@color} m o}{%
+  \advance\shiftchain@row by 1\relax
+  \def\shiftchain@rowcolor{#1}%
+  \foreach \shiftchain@entry in {#2} {%
+    \expandafter\shiftchain@dot\shiftchain@entry//\@nil
+  }%
+  \IfValueT{#3}{%
+    \node[anchor=east,inner xsep=2pt,inner ysep=0pt]
+      at (0.5,-\the\shiftchain@row) {#3};%
+  }%
+}
+\def\shiftchain@dot#1/#2/#3\@nil{%
+  \def\shiftchain@dotcolor{#2}%
+  \ifx\shiftchain@dotcolor\@empty
+    \ifcsname shiftchain@vertexcolor@#1\endcsname
+      \expandafter\let\expandafter\shiftchain@dotcolor
+        \csname shiftchain@vertexcolor@#1\endcsname
+    \else
+      \let\shiftchain@dotcolor\shiftchain@rowcolor
+    \fi
+  \fi
+  \fill[\shiftchain@dotcolor] (#1,-\the\shiftchain@row)
+    circle[radius=\shiftchain@radius];%
+}
+
+\definecolor{bggrey}{rgb}{0.95,0.95,0.95}
+\definecolor{icons}{HTML}{46A247}
+
+\newtcolorbox[auto counter, number within=section]{def_box}[1][]{
+  breakable,
+  enhanced,
+  colback=white,
+  colframe=white,
+  boxrule=0pt,
+  title=#1,
+  colbacktitle=white,
+  title style={
+    left color=cfgr,
+    middle color=cfgr!85!white,
+    right color=cfgr!70!white
+  },
+  overlay={
+    \draw[line width=0.5pt, cfgr, rounded corners=1mm]
+      ([xshift=1pt, yshift=-1pt]frame.north west)
+        -- (frame.south west)
+        -- ++(0.4\textwidth,0);
+  }
+}
+
+\newcommand{\brackets}[1]{\left[ #1 \right]}
+\newcommand{\pars}[1]{\left( #1 \right)}
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\norm}[1]{\| #1 \|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\dotpr}[1]{\left\langle #1 \right\rangle}
+\newcommand{\inl}[1]{\text{Inl} \pars{#1}}
+\newcommand{\inr}[1]{\text{Inr} \pars{#1}}
+
+\newcommand{\skipindraft}[2][]{%
+    \ifdraft
+   \colorbox{gray!30}{%
+                \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
+                    \textbf{Note:} #1%
+                }%
+            }%
+    \else
+        #2%
+    \fi
+}
+
+\usepackage{enumitem}
+\usepackage{braket}
+\setlist[itemize]{label=\textbullet, left=0.5em, itemsep=1pt, topsep=2pt}

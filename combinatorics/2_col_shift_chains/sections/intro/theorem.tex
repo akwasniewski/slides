@@ -1,0 +1,57 @@
+\begin{frame}
+\begin{theorem}{Theorem (Smith, 2026)}
+  All shift-chains of uniformity at least 4 are properly 2-colourable
+\end{theorem}
+\end{frame}
+\begin{frame}
+  \begin{lemma}{Lemma}
+  If every \(r_0\)-shift-chain is \(k\) colourable, then for \(r>r_0\), every \(r\)-shift-chain is \(k\) colourable 
+\end{lemma}
+\begin{proof}{Proof}
+  \centering
+  We can just colour the first \(r_0\) vertices with \(k\) colours and colour the rest arbitrarily.
+
+  \medskip
+
+  \only<1>{
+ \begin{shiftchain}[
+      column sep=5mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      tikz options={scale=1.1}
+    ]{7}
+
+      \shiftvertexcolor{1,3,5}{cfred}
+
+      \shiftvertexcolor{2,4}{cfblue}
+      \shiftedge{1,2,3,4,6,7}
+      \shiftedge{1,2,3,5,6,7}
+      \shiftedge{1,3,4,5,6,7}
+
+  \end{shiftchain}
+}
+  \only<2->{
+ \begin{shiftchain}[
+      column sep=5mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      tikz options={scale=1.1}
+    ]{7}
+
+      \shiftvertexcolor{1,3,5}{cfred}
+
+      \shiftvertexcolor{2,4}{cfnavy}
+
+      \shiftvertexcolor{6,7}{cfblue}
+      \shiftedge{1,2,3,4,6,7}
+      \shiftedge{1,2,3,5,6,7}
+      \shiftedge{1,3,4,5,6,7}
+
+  \end{shiftchain}
+}
+\end{proof}
+\end{frame}
+
+

@@ -1,0 +1,23 @@
+\begin{frame}{}
+
+  \begin{fact}{Stage X:} 
+  We first colour greedily, in ascending order. Adding a switch \((i,j)\) only if colouring \(j\) the same colour as \(i\) would result in a monochromatic edge with no switches. 
+
+\end{fact}
+  \onslide<12->{
+  \begin{fact}{Stage Y:} 
+Stage X guarantees all monochromatic edges to be \((3,4)\) edges. We go right to left and for all \((3,4)\) edges push the first switch contained in it to before the third vertex.
+\end{fact}
+  }
+  \onslide<15->{
+  \begin{fact}{Stage X:} 
+Stage Y guarantees all monochromatic edges to be \((2,3)\) edges. We go left to right and add a third switch immediately after the third vertex.
+\end{fact}
+  }
+\medskip 
+
+\input{sections/intro/x_animation}
+
+\input{sections/intro/y_animation}
+\input{sections/intro/z_animation}
+\end{frame}

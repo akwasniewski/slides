@@ -1,0 +1,163 @@
+\begin{frame}{What is a 2-colouring?}
+  A 2-colouring \(c\) is uniquely defined by a set of switches \(x_i\):
+
+\medskip
+\center{
+
+\only<1>{
+ \begin{shiftchain}[
+      column sep=5mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      tikz options={scale=1.1},
+      bars={0,1,2,4,5},
+      bar labels={0/$x_0$,1/$x_1$,2/$x_2$, 4/$x_3$,5/$x_4$},
+    ]{5}
+
+      \shiftvertexcolor{1,3,4}{cfred}
+
+      \shiftvertexcolor{2,5}{cfblue}
+      \shiftedge{1,2,3,4}[$\vec{e}$]
+      \shiftedge{1,2,3,5}[$\vec{f}$]
+      \shiftedge{1,3,4,5}[$\vec{g}$]
+
+  \end{shiftchain}
+}
+
+\only<2->{
+ \begin{shiftchain}[
+      column sep=5mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      tikz options={scale=1.1},
+      bars={1,2,4},
+      bar labels={1/$x_1$,2/$x_2$, 4/$x_3$},
+    ]{5}
+
+      \shiftvertexcolor{1,3,4}{cfred}
+
+      \shiftvertexcolor{2,5}{cfblue}
+      \shiftedge{1,2,3,4}[$e_1$]
+      \shiftedge{1,2,3,5}[$e_2$]
+      \shiftedge{1,3,4,5}[$e_3$]
+
+
+
+  \end{shiftchain}
+}
+}
+
+\medskip
+\pause 
+We associate each switch with the pair of vertices which it seperates
+\vspace{-1.5em}
+\begin{align*}
+  x_1 := (1,2) \qquad x_2:=(2,3) \qquad x_3:=(4,5)
+\end{align*}
+\pause
+Given an \((i,j)\) switch and vertex \(u\), we say that vertex \(u<x\) if \(u\leq i\),\\similarly \(u>x\) if \(u \geq j\) 
+\pause
+
+\medskip
+Edge \(\vec{e}\) contains switch \(x\) if \(e_i<x<e_{i+1}\)
+\end{frame}
+\begin{frame}{What is a 2-colouring?}
+  A 2-colouring \(c\) is uniquely defined by a set of switches \(x_i\):
+
+\medskip
+  \center{
+ \begin{shiftchain}[
+      column sep=5mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      tikz options={scale=1.1},
+      bars={1,2,4},
+      bar labels={1/$x_1$,2/$x_2$, 4/$x_3$},
+    ]{5}
+
+      \shiftvertexcolor{1,3,4}{cfred}
+
+      \shiftvertexcolor{2,5}{cfblue}
+      \shiftedge{1,2,3,4}[$e_1$]
+      \shiftedge{1,2,3,5}[$e_2$]
+      \shiftedge{1,3,4,5}[$e_3$]
+
+
+
+  \end{shiftchain}
+}
+
+
+  \medskip 
+
+  We associate each switch with the pair of vertices which it seperates
+\vspace{-1.5em}
+\begin{align*}
+  x_1 := (1,2) \qquad x_2:=(2,3) \qquad x_3:=(4,5)
+\end{align*}
+The switch set \(S_c(\vec{e})\) of  \(\vec{e}\) in \(c\) is the set of switches contained in \(\vec{e}\). 
+\pause 
+
+\(|S_C(\vec{e})|\) is the switch count of \(\vec{e}\)
+\pause 
+
+Colouring \(c\) is \(k\)-well spread if every edge has switch count \(1\leq |S_c(\vec{e})| \leq k\)
+\end{frame}
+\begin{frame}{}
+  \center{
+  \only<1>{
+ \begin{shiftchain}[
+      column sep=5mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      tikz options={scale=1.1},
+      bars={1,2},
+      bar labels={1/$x_1$,2/$x_2$},
+    ]{5}
+
+      \shiftvertexcolor{1,3,4,5}{cfred}
+
+      \shiftvertexcolor{2}{cfblue}
+      \shiftedge{1,2,3,4}[$e_1$]
+      \shiftedge{1,2,3,5}[$e_2$]
+      \shiftedge{1,3,4,5}[$e_3$]
+
+
+
+  \end{shiftchain}
+}
+}
+\only<2->{
+ \begin{shiftchain}[
+      column sep=5mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      tikz options={scale=1.1},
+      bars={1,2},
+      bar labels={1/$x_1$,2/$x_2$},
+    ]{5}
+
+      \shiftvertexcolor{1,3,4,5}{cfred}
+
+      \shiftvertexcolor{2}{cfblue}
+      \shiftedge{1,2,3,4}[$e_1$]
+      \shiftedge{1,2,3,5}[$e_2$]
+      \shiftedge{1,3,4,5}[$e_3$]
+      \shiftedge{1,3,4,5}[$e_4$]
+
+
+  \end{shiftchain}
+}
+
+  We say that a switch \(x\) is at position \((i,j)\)in an edge if \(i<x<j\). 
+
+  \pause 
+  An edge is monochromatic iff the number of switches is even at all positions.
+
+
+\end{frame}

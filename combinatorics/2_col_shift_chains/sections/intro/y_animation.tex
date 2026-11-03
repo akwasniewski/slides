@@ -1,0 +1,76 @@
+ \only<12>{
+    \begin{shiftchain}[
+      column sep=6mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      label font=\scriptsize,
+      bars={3,6,9},
+      % Labels sit beneath the bars, including individually dashed bars.
+      bar labels={3/$x_1$, 6/$x_2$, 9/$y_3$},
+    ]{10}
+      % Vertex colours apply to these columns in subsequent rows.
+    \shiftvertexcolor{1,2,3,7,8,9}{cfred}
+      \shiftvertexcolor{4,5,6,10}{cfnavy}
+
+      % \shiftvertexcolor{7}{cfblue}
+      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
+      \shiftedge{1,2,3,4}
+      \shiftedge{2,3,6,7}
+      \shiftedge{4,5,6,7}
+      \shiftedge{4,5,6,10}
+      \shiftedge{7,8,9,10}
+    \end{shiftchain}
+}
+ \only<13>{
+    \begin{shiftchain}[
+      column sep=6mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      label font=\scriptsize,
+      bars={3,5,6/dashed,9},
+      % Labels sit beneath the bars, including individually dashed bars.
+      bar labels={3/$x_1$, 5/$y_2$, 6/$x_2$, 9/$y_3$},
+    ]{10}
+      % Vertex colours apply to these columns in subsequent rows.
+    \shiftvertexcolor{1,2,3,7,8,9}{cfred}
+      \shiftvertexcolor{4,5,10}{cfnavy}
+
+      \shiftvertexcolor{6}{cfpink}
+      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
+      \shiftedge{1,2,3,4}
+      \shiftedge{2,3,6,7}
+      \shiftedge{4,5,6,7}
+      \shiftedge{4,5,6,10}
+      \shiftedge{7,8,9,10}
+    \end{shiftchain}
+}
+
+
+ \only<14>{
+    \begin{shiftchain}[
+      column sep=6mm,
+      row sep=4mm,
+      dot radius=1.8pt,
+      dot color=black,
+      label font=\scriptsize,
+      bars={3,5,6/dashed,9},
+      % Labels sit beneath the bars, including individually dashed bars.
+      bar labels={3/$x_1$, 5/$y_2$, 6/$x_2$, 9/$y_3$},
+    ]{10}
+      % Vertex colours apply to these columns in subsequent rows.
+    \shiftvertexcolor{1,2,3,6,7,8,9}{cfred}
+      \shiftvertexcolor{4,5,10}{cfnavy}
+
+      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
+      \shiftedge{1,2,3,4}
+      \shiftedge{2,3,6,7}
+      \shiftedge{4,5,6,7}
+      \shiftedge{4,5,6,10}
+      \shiftedge{7,8,9,10}
+    \end{shiftchain}
+}
+
+
+
