@@ -1,0 +1,109 @@
+% Lemma 3.1 of Smith, reordered to make the positional claim the first step.
+\begin{frame}{X1: every edge contains one or two switches}
+  \medskip
+
+  \begin{center}
+    \only<1>{
+    \begin{shiftchain}[
+      column sep=6mm, row sep=5mm, dot radius=2pt,
+      label font=\scriptsize,
+      bars={1,12},
+    ]{12}
+
+    \shiftvertexcolor{2,5,8,12}{cfred}
+      \shiftedge{2,5,8,12}[$\vec f$]
+
+    \end{shiftchain}
+    }
+
+    \only<2>{
+    \begin{shiftchain}[
+      column sep=6mm, row sep=5mm, dot radius=2pt,
+      label font=\scriptsize,
+      bars={1,11},
+    ]{12}
+
+    \shiftvertexcolor{2,5,8}{cfred}
+      \shiftedge{2,5,8,12/cfnavy}[$\vec f$]
+
+    \end{shiftchain}
+  }
+  \end{center}
+  At least 1 switch \only<2>{by greedy colouring design}
+\end{frame}
+
+\begin{frame}{X2: the second switch is immediately before $f_4$}
+  \begin{center}
+  \begin{overlayarea}{\textwidth}{2.5cm}
+    \centering
+    \only<1>{
+      \begin{shiftchain}[
+        column sep=6mm, row sep=6mm, dot radius=2pt,
+        label font=\scriptsize,
+        bars={4}, bar labels={4/$x_i$},
+      ]{12}
+        \shiftedge{2/cfred,5/cfnavy,8/cfnavy,12/cfgrey}[$\vec f$]
+      \end{shiftchain}
+    }
+    \only<2-3>{
+      \begin{shiftchain}[
+        column sep=6mm, row sep=6mm, dot radius=2pt,
+        label font=\scriptsize,
+        bars={4,10}, bar labels={4/$x_i$,10/$x_{i+1}$},
+      ]{12}
+        \shiftedge{2/cfred,5/cfnavy,8/cfnavy,12/cfred}[$\vec f$]
+        \shiftedge{6/cfnavy,7/cfnavy,9/cfnavy,11/cfred}[$\vec e$]
+      \end{shiftchain}
+    }
+    \only<4>{
+      \begin{shiftchain}[
+        column sep=6mm, row sep=6mm, dot radius=2pt,
+        label font=\scriptsize,
+        bars={4,11}, bar labels={4/$x_i$,11/$x_{i+1}$},
+      ]{12}
+        \shiftedge{2/cfred,5/cfnavy,8/cfnavy,12/cfred}[$\vec f$]
+        \shiftedge{6/cfnavy,7/cfnavy,9/cfnavy,12/cfred}[$\vec e$]
+      \end{shiftchain}
+    }
+  \end{overlayarea}
+  \end{center}
+  \begin{itemize}
+    \item<1-> The first switch $x_i$ lies inside $\vec f$.
+    \item<2-> $x_i<e_1$: without $x_{i+1}=e_4^-$, $\vec e$ is all blue.
+    \item<3-> Comparability gives $f_1<e_1\Rightarrow f_4\le e_4$;
+      a tentative $e_4<f_4$ is impossible.
+    \item<4-> $x_{i+1}=e_4^-<f_4\Rightarrow e_4\le f_4$.
+      Thus $e_4=f_4$ and $x_{i+1}=f_4^-$: no third switch.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{X3: monochromatic edges are $(3,4)$-edges}
+  \begin{center}
+    \begin{shiftchain}[
+      column sep=6mm, row sep=6mm, dot radius=2pt,
+      label font=\scriptsize,
+      bars={7,11}, bar labels={7/$x_i$,11/$x_{i+1}$},
+    ]{12}
+      \shiftedge{2/cfred,4/cfred,6/cfred,12/cfred}[$\vec f$]
+    \end{shiftchain}
+  \end{center}
+  \medskip
+
+  Every monochromatic edge has even number of switches in every gap.
+  \pause
+  \par\smallskip
+  By X1, it has at most 2 switches, thus monochromatic $\vec f$ has two switches in the same gap.
+  \pause
+  \par\smallskip
+  By X2, $x_{i+1}=f_4^-$, that gap is $(3,4)$.
+\end{frame}
+
+\begin{frame}{Stage X: conclusions}
+  \begin{itemize}
+    \item \textbf{(X1)} Every edge $\vec f$ has one or two switches:
+      $1\le |S_{c_0}(\vec f)|\le 2$.
+    \item \textbf{(X2)} If $\vec f$ contains $x_i$ and $x_{i+1}$,
+      then $x_{i+1}=f_4^-$.
+    \item \textbf{(X3)} Every monochromatic edge in $c_0$ is a $(3,4)$-edge.
+  \end{itemize}
+\end{frame}
