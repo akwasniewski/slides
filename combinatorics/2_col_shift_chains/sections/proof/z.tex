@@ -9,7 +9,7 @@
     \begin{shiftchain}[
       column sep=6mm,
       row sep=4mm,
-      dot radius=1.8pt,
+      dot radius=3.0pt,
       dot color=black,
       label font=\scriptsize,
       bars={3,5,9},
@@ -32,7 +32,7 @@
     \begin{shiftchain}[
       column sep=6mm,
       row sep=4mm,
-      dot radius=1.8pt,
+      dot radius=3.0pt,
       dot color=black,
       label font=\scriptsize,
       bars={3,5,6/dashed,9},
@@ -56,7 +56,7 @@
     \begin{shiftchain}[
       column sep=6mm,
       row sep=4mm,
-      dot radius=1.8pt,
+      dot radius=3.0pt,
       dot color=black,
       label font=\scriptsize,
       bars={3,5,6,9},
@@ -84,26 +84,42 @@
 \end{frame}
 
 \begin{frame}[t]{Z1--Z2: base case at $\hat c_0=c_Y$}
+  \small\setstretch{1.05}
   \claimreminder{\Yone}
-  We prove Z1--Z4 for every $\hat c_t$ by induction.
-  \begin{itemize}
-    \item<1-> \textbf{Z1:} $\hat c_t$ is 3-well-spread.
-      At $t=0$, this is Y1.
-    \item<2-> \textbf{Z2:} $M(\hat c_t)\subsetneq M(\hat c_{t-1})$
-      for $t\geq1$. There is no step to check at $t=0$.
-  \end{itemize}
+  \begin{lemma}{Claim}\Zone\Ztwo\end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> At $t=0$, Y1 gives one or two switches per edge, hence at most three.
+      \item<2-> Z2 concerns $t\geq1$: there is no insertion to check yet.
+    \end{itemize}
+\only<1->{\begin{center}
+\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
+bars={4,8},bar labels={4/$y_{j-1}$,8/$y_j$}]{13}
+\shiftedge{1/cfred,2/cfred,3/cfred,6/cfnavy}[$1\text{ switch}$]
+\shiftedge{2/cfred,3/cfred,10/cfred,12/cfred}[$2\text{ switches}$]
+\end{shiftchain}
+\par\smallskip{\scriptsize Initial edge patterns already satisfy the bound of three.}
+\end{center}}
+  \end{proof}
 \end{frame}
 
 \begin{frame}[t]{Z3--Z4: base case at $\hat c_0=c_Y$}
+  \small\setstretch{1.05}
   \claimreminder{\Ysix}
-  \begin{itemize}
-    \item<1-> \textbf{Z3:} Every monochromatic edge in $\hat c_t$
-      is a $(2,3)$-edge, with $z<\vec f$ for all $z\in Z(t)$.
-      At $t=0$, this is Y6 and $Z(0)=\varnothing$.
-    \item<2-> \textbf{Z4:} For each $z\in Z(t)$, some $j\in[s]$
-      and $v\in[n]$ satisfy $y_j=v^-$ and $z=v^+\leq x_j$.
-      At $t=0$, $Z(0)=\varnothing$.
-  \end{itemize}
+  \begin{lemma}{Claim}\Zthree\Zfour\end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> Y6 gives the $(2,3)$ pattern for every remaining monochromatic edge.
+      \item<2-> $Z(0)=\varnothing$: both assertions about inserted switches hold vacuously.
+    \end{itemize}
+\only<1->{\begin{center}
+\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
+bars={4,8},bar labels={4/$y_{j-1}$,8/$y_j$}]{13}
+\shiftedge{1/cfred,3/cfred,9/cfred,12/cfred}[$\vec f$]
+\end{shiftchain}
+\par\smallskip{\scriptsize Two $Y$-bars in the middle gap; no $Z$-bars yet.}
+\end{center}}
+  \end{proof}
 \end{frame}
 % Inductive step of Lemma 3.3 in Smith.
 \begin{frame}[t]{Z1--Z4: insert the next switch}
@@ -114,7 +130,7 @@
   \begin{center}
     \only<1>{
       \begin{shiftchain}[
-        column sep=6mm, row sep=5mm, dot radius=2pt,
+        column sep=6mm, row sep=5mm, dot radius=3.0pt,
         label font=\scriptsize,
         bars={0,5,7,11},
         bar labels={0/$y_{i-2}$,5/$y_{i-1}$,7/$y_i$,11/$y_{i+1}$},
@@ -124,7 +140,7 @@
     }
     \only<2->{
       \begin{shiftchain}[
-        column sep=6mm, row sep=5mm, dot radius=2pt,
+        column sep=6mm, row sep=5mm, dot radius=3.0pt,
         label font=\scriptsize,
         bars={0,5,7,8,11},
         bar labels={0/$y_{i-2}$,5/$y_{i-1}$,7/$y_i$,8/$\hat z$,11/$y_{i+1}$},
@@ -141,92 +157,176 @@
 \end{frame}
 
 \begin{frame}[t]{Z1: every edge has at most three switches}
+  \small\setstretch{1.05}
   \claimreminder{\Yone\Zfour\Zthree\Ytwo\Xtwo}
-  \begin{itemize}
-    \item<1-> Adding $\hat z$ cannot remove a switch.
-      If $\vec f$ gained a fourth, it contains $\hat z$ and
-      an older $z\in Z(t)$, since Y1 gives at most two $Y$-switches.
-    \item<2-> By Z4, $z=v^+\leq x_j$ with $y_j=v^-$.
-      Z3 gives $z<e_1<y_{i-1}$; hence $j\leq i-2$ and
-      $f_1<z\leq x_{i-2}$.
-    \item<3-> Also $x_{i-1}<y_i<\hat z<f_4$ by Y2.
-      Thus $\vec f$ contains $x_{i-2},x_{i-1}$.
-      X2 forces $x_{i-1}=f_4^-$, but
-      $x_{i-1}<\hat z\leq f_4^-$.
-  \end{itemize}
-  \onslide<3->{So Z1 holds for $\hat c_{t+1}$.}
+  \begin{lemma}{Claim}\Zone\end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> A fourth switch would require an older $z\in Z(t)$ as well as $\hat z$: Y1 allows at most two $Y$-bars.
+      \item<2-> Z4 and Z3 give $z=v^+\leq x_j$, $y_j=v^-$, and $z<e_1<y_{i-1}$. Thus $j\leq i-2$.
+      \item<3-> $f_1<z\leq x_{i-2}<x_{i-1}<y_i<\hat z<f_4$. X2 forces $x_{i-1}=f_4^-$, impossible with $\hat z$ between them.
+    \end{itemize}
+\only<2->{\begin{center}
+\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
+bars={3,5/dashed,7,9/dashed,11,12},bar labels={3/$z$,5/\raisebox{-3.5mm}{$x_{i-2}$},9/$x_{i-1}$,12/$\hat z$}]{16}
+\shiftedge{3/cfred,6/cfnavy,10/cfred,16/cfred}[$\vec f\text{ (hypothetical)}$]
+\end{shiftchain}
+\par\smallskip{\scriptsize Solid bars: four proposed switches. Dashed bars: the two $X$-positions forced inside $\vec f$.}
+\end{center}}
+  \end{proof}
 \end{frame}
 
 \begin{frame}[t]{Z2: a new monochromatic edge has two switches}
-  \claimreminder{\Zone\Zthree}
-  \begin{itemize}
-    \item<1-> The chosen $\vec e$ is no longer monochromatic:
-      $\hat z=e_3^+$ separates $e_3$ from $e_4$.
-    \item<2-> Suppose a new monochromatic $\vec f$ appears.
-      By Z1 it has exactly two switches in one gap;
-      one is $\hat z$.
-    \item<3-> Every old $z\in Z(t)$ lies before $e_1$.
-      By the interval property, the other switch can only be
-      $y_i$ or $y_{i+1}$.
-  \end{itemize}
+  \small\setstretch{1.05}
+  \claimreminder{\Yone\Zone\Zthree}
+  \begin{lemma}{Claim}\Ztwo\end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> The chosen $\vec e$ is repaired: $\hat z=e_3^+$ separates its last two vertices.
+      \item<2-> A new monochromatic $\vec f$ would have exactly two switches in one gap: Z1 bounds the count, Y1 excludes zero.
+      \item<3-> One switch is $\hat z$. Its only possible partner is a neighbour, $y_i$ or $y_{i+1}$; all older $z$ lie before $e_1$.
+    \end{itemize}
+\only<1->{\begin{center}
+\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
+bars={4,7,8,12},bar labels={4/$y_{i-1}$,7/$y_i$,8/\raisebox{-3.5mm}{$\hat z$},12/$y_{i+1}$}]{14}
+\shiftedge{1/cfred,3/cfred,8/cfred,11/cfnavy}[$\vec e$]
+\end{shiftchain}
+\par\smallskip{\scriptsize $\{y_i,\hat z\}\qquad\text{or}\qquad\{\hat z,y_{i+1}\}$: the two cases to exclude.}
+\end{center}}
+  \end{proof}
 \end{frame}
 
-\begin{frame}[t]{Z2: the pair $y_i,\hat z$ is impossible}
+\begin{frame}[t]{Z2: $y_i,\hat z$ cannot lie in the last gap}
+  \small\setstretch{1.05}
   \claimreminder{\Yfive}
-  Suppose $S_{\hat c_{t+1}}(\vec f)=\{y_i,\hat z\}$.
-  \begin{itemize}
-    \item<1-> If the pair lies in $(f_3,f_4)$, then
-      $f_3<y_i<e_3$ gives $\vec f<\vec e$.
-      Hence $f_1\leq e_1<y_{i-1}<f_4$:
-      $\vec f$ also contains $y_{i-1}$.
-    \item<2-> If the pair lies in $(f_1,f_2)$ or $(f_2,f_3)$,
-      then $g_3=e_3<\hat z<f_3$ gives $\vec g<\vec f$.
-      Hence $y_{i+1}<g_4\leq f_4$:
-      $\vec f$ also contains $y_{i+1}$.
-  \end{itemize}
+  \begin{lemma}{Claim}No new monochromatic edge has switch pair $\{y_i,\hat z\}$ in $(f_3,f_4)$.\end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> $f_3<y_i<e_3$ forces $\vec f<\vec e$, hence $f_1\leq e_1$.
+      \item<2-> But $f_1\leq e_1<y_{i-1}<\hat z<f_4$: a third switch $y_{i-1}$ lies in $\vec f$.
+    \end{itemize}
+\only<1->{\begin{center}
+\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
+bars={7,9,10,15},bar labels={7/$y_{i-1}$,9/\raisebox{-3.5mm}{$y_i$},10/$\hat z$,15/$y_{i+1}$}]{16}
+\shiftedge{1/cfred,3/cfred,5/cfred,12/cfnavy}[$\vec f$]
+\shiftedge{4/cfred,6/cfred,10/cfred,14/cfnavy}[$\vec e$]
+\end{shiftchain}
+\par\smallskip{\scriptsize The forced extra bar changes the colour of $f_4$.}
+\end{center}}
+  \end{proof}
+\end{frame}
+
+\begin{frame}[t]{Z2: $y_i,\hat z$ cannot lie in an earlier gap}
+  \small\setstretch{1.05}
+  \claimreminder{\Yfive}
+  \begin{lemma}{Claim}No new monochromatic edge has switch pair $\{y_i,\hat z\}$ in $(f_1,f_2)$ or $(f_2,f_3)$.\end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> The witness has $g_3=e_3<\hat z<f_3$, so $\vec g<\vec f$.
+      \item<2-> Then $y_{i+1}<g_4\leq f_4$: a third switch $y_{i+1}$ lies in $\vec f$.
+    \end{itemize}
+\only<1->{\begin{center}
+\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
+bars={7,9,10,14},bar labels={7/$y_{i-1}$,9/\raisebox{-3.5mm}{$y_i$},10/$\hat z$,14/$y_{i+1}$}]{16}
+\shiftedge{4/cfred,6/cfred,10/cfred,16/cfred}[$\vec g$]
+\shiftedge{8/cfnavy,9/cfnavy,12/cfnavy,16/cfred}[$\vec f$]
+\end{shiftchain}
+\par\smallskip{\scriptsize Middle-gap case shown; both earlier gaps force the witness endpoint past $y_{i+1}$.}
+\end{center}}
+  \end{proof}
 \end{frame}
 
 \begin{frame}[t]{Z2: the pair $\hat z,y_{i+1}$ is impossible}
+  \small\setstretch{1.05}
   \claimreminder{\Yfive\Ythree}
-  Suppose $S_{\hat c_{t+1}}(\vec f)=\{\hat z,y_{i+1}\}$.
-  \begin{itemize}
-    \item<1-> Since $y_i=e_3^-<e_3^+=\hat z$ and $y_i$ is outside
-      $\vec f$, we have $y_i<f_1<\hat z$, so $f_1=e_3$.
-    \item<2-> Thus $\hat z=f_1^+<f_2$.
-      The two switches must both lie in $(f_1,f_2)$,
-      so $y_{i+1}<f_2$.
-    \item<3-> But $f_1<\hat z=e_3^+\leq x_i$ by Y5,
-      and Y3 gives $f_2<y_{i+1}$, a contradiction.
-  \end{itemize}
-  \onslide<3->{No new monochromatic edge appears, proving Z2.}
+  \begin{lemma}{Claim}
+    No new monochromatic edge has switch pair $\{\hat z,y_{i+1}\}$.
+  \end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> $y_i=e_3^-<f_1<\hat z=e_3^+$ forces $f_1=e_3$.
+      \item<2-> Both switches must lie in the first gap: $y_{i+1}<f_2$.
+      \item<3-> Y5 gives $f_1<\hat z\leq x_i$; Y3 gives
+        $f_2<y_{i+1}$, a contradiction.
+    \end{itemize}
+    \smallskip
+    {\centering
+      % Short labels keep the adjacent walls around f_1 distinct.
+      \begin{shiftchain}[
+        column sep=5mm, row sep=5mm, dot radius=3.0pt,
+        labels=false, label font=\scriptsize,
+        bars={5,6,9/dashed,12},
+        bar labels={5/$y_i$,6/\raisebox{-3mm}{$\hat z$},9/$x_i$,12/$y_{i+1}$},
+      ]{16}
+        \shiftedge{6/cfnavy,14/cfnavy,15/cfnavy,16/cfnavy}[$\vec f$]
+        \node[anchor=south] at (6,-0.45) {$f_1=e_3$};
+        \node[anchor=south] at (14,-0.45) {$f_2$};
+      \end{shiftchain}\par
+    }
+  \end{proof}
 \end{frame}
 
-\begin{frame}[t]{Z3--Z4: the remaining edges and new switch}
-  \claimreminder{\Ztwo\Zthree\Zfour\Yfive}
-  \begin{itemize}
-    \item<1-> \textbf{Z3:} By Z2, any monochromatic $\vec f$ in
-      $\hat c_{t+1}$ was already monochromatic in $\hat c_t$,
-      hence is a $(2,3)$-edge.
-    \item<2-> It cannot contain $\hat z$: that would give three
-      switches, so it could not be monochromatic.
-      By minimality $\vec e<\vec f$, so
-      $\hat z<e_4\leq f_4$; since $\hat z$ is outside $\vec f$,
-      it must lie before $f_1$.
-    \item<3-> \textbf{Z4:} Y5 gives $y_i=e_3^-$ and
-      $\hat z=e_3^+\leq x_i$; all older switches keep their witnesses.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[t]{Stage Z: a proper 2-colouring}
+\begin{frame}[t]{Z3: every surviving edge starts after the new switch}
+  \small\setstretch{1.05}
   \claimreminder{\Ztwo\Zthree}
-  \begin{itemize}
-    \item<1-> Each step adds a distinct wall $\hat z$;
-      there are at most $n-1$, so the process terminates.
-    \item<2-> At termination no $(2,3)$-edge remains.
-    \item<3-> Z3 says every monochromatic edge would be a
-      $(2,3)$-edge. Therefore none remain:
-      $c_{Y\cup Z}$ is a proper 2-colouring.
-  \end{itemize}
+  \begin{lemma}{Claim}\Zthree\end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> By Z2, a surviving monochromatic $\vec f$ was already a $(2,3)$-edge.
+      \item<2-> It cannot contain $\hat z$: three switches cannot leave all four vertices the same colour.
+      \item<3-> Minimality gives $\vec e<\vec f$, so $\hat z<e_4\leq f_4$. Being outside $\vec f$, the new switch must lie before $f_1$.
+    \end{itemize}
+\only<1->{\begin{center}
+\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
+bars={3,5,6,10,12},bar labels={3/$y_{i-1}$,5/\raisebox{-3.5mm}{$y_i$},6/$\hat z$,10/$y_{i+1}$,12/\raisebox{-3.5mm}{$y_{i+2}$}}]{16}
+\shiftedge{1/cfred,2/cfred,6/cfred,9/cfnavy}[$\vec e$]
+\shiftedge{7/cfnavy,9/cfnavy,13/cfnavy,16/cfnavy}[$\vec f$]
+\end{shiftchain}
+\par\smallskip{\scriptsize The repaired edge has two colours; the surviving $(2,3)$-edge lies to its right.}
+\end{center}}
+  \end{proof}
+\end{frame}
+
+\begin{frame}[t]{Z4: the new switch brackets the third vertex}
+  \small\setstretch{1.05}
+  \claimreminder{\Yfive\Zfour}
+  \begin{lemma}{Claim}\Zfour\end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> Y5 gives $y_i=e_3^-<x_i$. The next wall is $e_3^+$, hence $\hat z=e_3^+\leq x_i$.
+      \item<2-> Take $v=e_3$ and $j=i$. Every older inserted switch keeps its witness.
+    \end{itemize}
+\only<1->{\begin{center}
+\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
+bars={4,7,8,11/dashed},bar labels={4/$y_{i-1}$,7/$y_i=v^-$,8/\raisebox{-3.5mm}{$\hat z=v^+$},11/$x_i$}]{16}
+\shiftedge{1/cfred,3/cfred,8/cfred,14/cfnavy}[$\vec e$]
+\end{shiftchain}
+\par\smallskip{\scriptsize The two adjacent walls bracket $v=e_3$; the right wall is still at or before $x_i$.}
+\end{center}}
+  \end{proof}
+\end{frame}
+
+\begin{frame}[t]{Z1--Z4: termination gives a proper 2-colouring}
+  \small\setstretch{1.05}
+  \claimreminder{\Ztwo\Zthree}
+  \begin{lemma}{Claim}$c_{Y\cup Z}$ is a proper 2-colouring.\end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> Each step inserts a distinct wall, so at most $n-1$ insertions are possible.
+      \item<2-> At termination no $(2,3)$-edge remains. By Z3, no monochromatic edge remains.
+    \end{itemize}
+\only<2->{\begin{center}
+\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
+bars={3,5,6,9},bar labels={3/$y_1$,5/\raisebox{-3.5mm}{$y_2$},6/$z$,9/$y_3$}]{10}
+\shiftedge{1/cfred,2/cfred,3/cfred,4/cfnavy}[$\vec e_1$]
+\shiftedge{2/cfred,3/cfred,6/cfred,7/cfnavy}[$\vec e_2$]
+\shiftedge{4/cfnavy,5/cfnavy,6/cfred,7/cfnavy}[$\vec e_3$]
+\shiftedge{4/cfnavy,5/cfnavy,6/cfred,10/cfred}[$\vec e_4$]
+\shiftedge{7/cfnavy,8/cfnavy,9/cfnavy,10/cfred}[$\vec e_5$]
+\end{shiftchain}
+\par\smallskip{\scriptsize The opening example after Stage Z: every row contains both colours.}
+\end{center}}
+  \end{proof}
 \end{frame}
 
 \begin{frame}[t]{Theorem: every $r\geq4$ shift-chain is 2-colourable}

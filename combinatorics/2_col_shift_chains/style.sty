@@ -27,7 +27,6 @@
 \definecolor{cfblue}{RGB}{25, 133, 161}
 \definecolor{cfyel}{RGB}{255, 210, 63}
 \definecolor{cfpink}{RGB}{255, 175, 197}
-\definecolor{footergrey}{RGB}{165, 180, 180}
 
 \setbeamercolor{palette primary}{bg=cfred, fg=white}
 \setbeamercolor{palette secondary}{bg=cfred, fg=white}
@@ -129,31 +128,7 @@
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{caption}[numbered]
 
-\setbeamercolor{section in head/foot}{fg=white, bg=cfred} %<<<<<<<<<<<<<<<<
-
-\newcommand{\mysimplefootline}{%
-  \setbeamertemplate{footline}{%
-    \leavevmode%
-    \rlap{\color{cfred}\rule[-1.2ex]{\paperwidth}{3.8ex}}%
-\hbox to \paperwidth{%
-  \rlap{%
-    \begin{minipage}[c]{\paperwidth}
-      \centering
-      \raisebox{0.3ex}{\includegraphics[height=3ex]{images/tcs.png}}%
-    \end{minipage}%
-  }%
-  \hspace{0.4cm}%
-  \begin{minipage}[c]{\dimexpr0.45\paperwidth-0.4cm\relax}
-    {\color{white}\scriptsize \insertshortauthor}
-  \end{minipage}%
-  \hfill
-  \begin{minipage}[c]{\dimexpr0.45\paperwidth-0.4cm\relax}
-    {\color{white}\scriptsize \insertshorttitle}
-  \end{minipage}%
-  \hspace{0.4cm}%
-}
-  }%
-}
+\setbeamertemplate{footline}{}
 
 \setbeamertemplate{frametitle}[default][left, leftskip=.25cm] {}
 \addtobeamertemplate{title page}{}{%
@@ -229,7 +204,7 @@
 \newcount\shiftchain@row
 \newenvironment{shiftchain}[2][]{%
   \pgfkeys{/shiftchain/.cd,
-    column sep=5mm, row sep=5mm, dot radius=1.2pt,
+    column sep=5mm, row sep=5mm, dot radius=3.0pt,
     dot color=black, labels=true, label font=\small,
     bars={}, bar style={}, bar labels={},
     tikz options={},#1}%
@@ -260,7 +235,7 @@
   \end{tikzpicture}%
 }
 \def\shiftchain@drawbar#1/#2/#3\@nil{%
-  \draw[black,solid,line width=0.4pt,
+  \draw[black,solid,line width=0.6pt,
     style/.expand once=\shiftchain@barstyle,#2]
     ({#1+0.5},-0.5)
     -- ({#1+0.5},{-\the\shiftchain@row-0.5});%
