@@ -1,4 +1,5 @@
-\begin{frame}{Stage Z: insert a switch after $e_3$}
+\begin{frame}[t]{Stage Z: insert a switch after $e_3$}
+  \claimreminder{\Ysix}
   Process the remaining $(2,3)$-edges left to right.
   Insert $z=e_3^+$ after the third vertex.
 
@@ -82,7 +83,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Z1--Z2: base case at $\hat c_0=c_Y$}
+\begin{frame}[t]{Z1--Z2: base case at $\hat c_0=c_Y$}
+  \claimreminder{\Yone}
   We prove Z1--Z4 for every $\hat c_t$ by induction.
   \begin{itemize}
     \item<1-> \textbf{Z1:} $\hat c_t$ is 3-well-spread.
@@ -92,7 +94,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Z3--Z4: base case at $\hat c_0=c_Y$}
+\begin{frame}[t]{Z3--Z4: base case at $\hat c_0=c_Y$}
+  \claimreminder{\Ysix}
   \begin{itemize}
     \item<1-> \textbf{Z3:} Every monochromatic edge in $\hat c_t$
       is a $(2,3)$-edge, with $z<\vec f$ for all $z\in Z(t)$.
@@ -103,8 +106,9 @@
   \end{itemize}
 \end{frame}
 % Inductive step of Lemma 3.3 in Smith.
-\begin{frame}{Z1--Z4: insert the next switch}
-  Assume Z1--Z4 for $\hat c_t$.
+\begin{frame}[t]{Z1--Z4: insert the next switch}
+  \claimreminder{\Yfive}
+  At time $t$, we have $\hat c_t$.
   Choose a minimal $(2,3)$-edge $\vec e$ and set $\hat z=e_3^+$.
 
   \begin{center}
@@ -136,7 +140,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Z1: every edge has at most three switches}
+\begin{frame}[t]{Z1: every edge has at most three switches}
+  \claimreminder{\Yone\Zfour\Zthree\Ytwo\Xtwo}
   \begin{itemize}
     \item<1-> Adding $\hat z$ cannot remove a switch.
       If $\vec f$ gained a fourth, it contains $\hat z$ and
@@ -152,7 +157,8 @@
   \onslide<3->{So Z1 holds for $\hat c_{t+1}$.}
 \end{frame}
 
-\begin{frame}{Z2: a new monochromatic edge has two switches}
+\begin{frame}[t]{Z2: a new monochromatic edge has two switches}
+  \claimreminder{\Zone\Zthree}
   \begin{itemize}
     \item<1-> The chosen $\vec e$ is no longer monochromatic:
       $\hat z=e_3^+$ separates $e_3$ from $e_4$.
@@ -165,7 +171,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Z2: the pair $y_i,\hat z$ is impossible}
+\begin{frame}[t]{Z2: the pair $y_i,\hat z$ is impossible}
+  \claimreminder{\Yfive}
   Suppose $S_{\hat c_{t+1}}(\vec f)=\{y_i,\hat z\}$.
   \begin{itemize}
     \item<1-> If the pair lies in $(f_3,f_4)$, then
@@ -179,7 +186,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Z2: the pair $\hat z,y_{i+1}$ is impossible}
+\begin{frame}[t]{Z2: the pair $\hat z,y_{i+1}$ is impossible}
+  \claimreminder{\Yfive\Ythree}
   Suppose $S_{\hat c_{t+1}}(\vec f)=\{\hat z,y_{i+1}\}$.
   \begin{itemize}
     \item<1-> Since $y_i=e_3^-<e_3^+=\hat z$ and $y_i$ is outside
@@ -193,7 +201,8 @@
   \onslide<3->{No new monochromatic edge appears, proving Z2.}
 \end{frame}
 
-\begin{frame}{Z3--Z4: the remaining edges and new switch}
+\begin{frame}[t]{Z3--Z4: the remaining edges and new switch}
+  \claimreminder{\Ztwo\Zthree\Zfour\Yfive}
   \begin{itemize}
     \item<1-> \textbf{Z3:} By Z2, any monochromatic $\vec f$ in
       $\hat c_{t+1}$ was already monochromatic in $\hat c_t$,
@@ -208,7 +217,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Stage Z: a proper 2-colouring}
+\begin{frame}[t]{Stage Z: a proper 2-colouring}
+  \claimreminder{\Ztwo\Zthree}
   \begin{itemize}
     \item<1-> Each step adds a distinct wall $\hat z$;
       there are at most $n-1$, so the process terminates.
@@ -219,7 +229,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Theorem: every $r\geq4$ shift-chain is 2-colourable}
+\begin{frame}[t]{Theorem: every $r\geq4$ shift-chain is 2-colourable}
+  \claimreminder{\Xone\Xthree\Ysix\Ztwo}
   \begin{itemize}
     \item<1-> \textbf{X:} Every edge has one or two switches;
       monochromatic edges are $(3,4)$-edges.

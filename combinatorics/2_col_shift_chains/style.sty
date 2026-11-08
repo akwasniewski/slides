@@ -74,6 +74,40 @@
   {\begin{coloredblock}{cfblue}{#1}\itshape}
   {\end{coloredblock}}
 
+\newenvironment{claim}
+  {\begin{tcolorbox}[
+     enhanced, blanker, borderline={.5pt}{0pt}{cfnavy},
+     arc=0pt, left=4pt, right=4pt, top=2pt, bottom=2pt,
+     before skip=3pt, after skip=3pt, fontupper=\scriptsize
+   ]}
+  {\end{tcolorbox}}
+
+% Persistent references to claims already established on earlier frames.
+\newcommand{\claimreminder}[1]{%
+  \noindent\hfill\begin{minipage}{.9\linewidth}%
+    \begin{tcolorbox}[
+      enhanced, blanker, borderline={.5pt}{0pt}{cfnavy},
+      arc=0pt,
+      left=4pt, right=4pt, top=2pt, bottom=2pt,
+      before skip=0pt, after skip=0pt,
+      fontupper=\scriptsize
+    ]#1\end{tcolorbox}%
+  \end{minipage}\par%
+}
+\newcommand{\Xone}{\textbf{X1.} Every edge $\vec f$ has one or two switches in $c_0$: $1\le |S_{c_0}(\vec f)|\le 2$.\par}
+\newcommand{\Xtwo}{\textbf{X2.} If $\vec f$ contains $x_j,x_{j+1}$, then $x_{j+1}=f_4^-$.\par}
+\newcommand{\Xthree}{\textbf{X3.} Every monochromatic edge in $c_0$ is a $(3,4)$-edge.\par}
+\newcommand{\Yone}{\textbf{Y1.} $c_t$ is 2-well-spread: every edge has one or two switches.\par}
+\newcommand{\Ytwo}{\textbf{Y2.} $x_{j-1}<y_j(t)\leq x_j$ for $j\in[s]$.\par}
+\newcommand{\Ythree}{\textbf{Y3.} For $\vec f\in E(H)$ and $j\in[s]$, $f_1<x_j\Rightarrow f_2<y_{j+1}(t)$.\par}
+\newcommand{\Yfour}{\textbf{Y4.} There are no $(1,2)$-edges in $c_t$.\par}
+\newcommand{\Yfive}{\textbf{Y5.} If $\vec f$ is a $(2,3)$-edge with switches $y_{j-1}(t),y_j(t)$ for $j\in[2,s]$, then $f_3^-=y_j(t)<x_j$, and some $\vec g\in E(H)$ has $y_j(t)=g_3^-$ and $y_{j+1}(t)<g_4$.\par}
+\newcommand{\Ysix}{\textbf{Y6.} Every monochromatic edge in $c_Y$ is a $(2,3)$-edge.\par}
+\newcommand{\Zone}{\textbf{Z1.} $\hat c_t$ is 3-well-spread: every edge has at most three switches.\par}
+\newcommand{\Ztwo}{\textbf{Z2.} $M(\hat c_t)\subsetneq M(\hat c_{t-1})$ for $t\geq1$.\par}
+\newcommand{\Zthree}{\textbf{Z3.} Every monochromatic edge in $\hat c_t$ is a $(2,3)$-edge, with $z<\vec f$ for all $z\in Z(t)$.\par}
+\newcommand{\Zfour}{\textbf{Z4.} For each $z\in Z(t)$, some $j\in[s]$ and $v\in[n]$ satisfy $y_j=v^-$ and $z=v^+\leq x_j$.\par}
+
 \renewenvironment{example}[1]
   {\begin{coloredblock}{cfyel}{#1}}
   {\end{coloredblock}}

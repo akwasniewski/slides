@@ -1,6 +1,7 @@
-\begin{frame}{Stage Y: move the first switch before $f_3$}
+\begin{frame}[t]{Stage Y: recap}
+  \claimreminder{\Xthree}
   Stage X leaves only $(3,4)$-edges monochromatic.
-  Process them right to left, moving the first switch in each edge
+  We process them right to left, moving the first switch in each edge
   to just before its third vertex.
 
   \begin{center}
@@ -53,58 +54,62 @@
         \shiftedge{7,8,9,10}
       \end{shiftchain}
     }
+
   \end{center}
 
-  \begin{itemize}
-    \item<1-> A $(3,4)$-edge has two switches after its third vertex.
-    \item<2-> Move $x_2$ to $y_2=f_3^-$.
-    \item<3-> Recolour the crossed vertex to obtain the next colouring.
-  \end{itemize}
 \end{frame}
 
-\begin{frame}{Y1--Y3: base case at $c_0$}
-  We prove Y1--Y5 for every $c_t$ by induction; Y6 holds when the process stops.
+\begin{frame}[t]{Y1, Y4: base case from X1 and X3}
+  \claimreminder{\Xone\Xthree}
+  We prove Y1--Y5 by induction on $t$.
 
-  \begin{itemize}
-    \item<1-> \textbf{Y1:} $c_t$ is 2-well-spread.
-      At $t=0$, this is X1.
-    \item<2-> \textbf{Y2:} $x_{j-1}<y_j(t)\leq x_j$ for $j\in[s]$.
-      At $t=0$, $y_j(0)=x_j$.
-    \item<3-> \textbf{Y3:} $f_1<x_j\Rightarrow f_2<y_{j+1}(t)$
-      for $\vec f\in E(H)$ and $j\in[s]$.
-      At $t=0$, otherwise $x_j,x_{j+1}$ lie in $(f_1,f_2)$;
-      X2 forces $x_{j+1}=f_4^->f_2$, a contradiction.
-  \end{itemize}
+  \begin{lemma}{Claim}
+    \Yone\Yfour
+  \end{lemma}
 
-  \only<3->{
-    \begin{center}
-      \begin{shiftchain}[
-        column sep=6mm, row sep=5mm, dot radius=2pt,
-        label font=\scriptsize,
-        bars={3,6}, bar labels={3/$x_j$,6/$x_{j+1}$},
-      ]{12}
-        \shiftedge{2/cfred,8/cfred,10/cfred,12/cfred}[$\vec f$]
-      \end{shiftchain}
-    \end{center}
-  }
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> X1 gives Y1 at $t=0$.
+      \item<2-> X3 gives Y4 at $t=0$.
+    \end{itemize}
+  \end{proof}
 \end{frame}
 
-\begin{frame}{Y4--Y5: base case at $c_0$; Y6: terminal claim}
-  \begin{itemize}
-    \item<1-> \textbf{Y4:} There are no $(1,2)$-edges in $c_t$.
-      At $t=0$, X3 allows only $(3,4)$-edges.
-    \item<2-> \textbf{Y5:} If $\vec f$ is a $(2,3)$-edge in $c_t$
-      with switches $y_{j-1}(t),y_j(t)$ for $j\in[2,s]$, then
-      $f_3^-=y_j(t)<x_j$, and some $\vec g\in E(H)$ satisfies
-      $y_j(t)=g_3^-$ and $y_{j+1}(t)<g_4$.
-      At $t=0$, X3 gives no $(2,3)$-edges.
-    \item<3-> \textbf{Y6:} At termination, every monochromatic edge
-      in $c_Y$ is a $(2,3)$-edge.
-  \end{itemize}
+\begin{frame}[t]{Y2--Y3: base case from switch positions}
+  \claimreminder{\Xtwo}
+
+  \begin{lemma}{Claim}
+    \Ytwo\Ythree
+  \end{lemma}
+
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> Y2 holds at $t=0$ since $y_j(0)=x_j$.
+      \item<2-> For Y3, suppose $f_1<x_j$ but
+        $f_2\geq y_{j+1}(0)=x_{j+1}$.
+      \item<3-> Then $\vec f$ contains $x_j,x_{j+1}$; X2 gives
+        $x_{j+1}=f_4^->f_2$, a contradiction.
+    \end{itemize}
+  \end{proof}
+\end{frame}
+
+\begin{frame}[t]{Y5: base case from X3}
+  \claimreminder{\Xthree}
+
+  \begin{lemma}{Claim}
+    \Yfive
+  \end{lemma}
+
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> X3 gives no $(2,3)$-edges at $t=0$,
+        so Y5 holds vacuously.
+    \end{itemize}
+  \end{proof}
 \end{frame}
 % Inductive step of Lemma 3.2 in Smith.
 \begin{frame}{Y1--Y5: one Stage Y step}
-  Assume Y1--Y5 for $c_t$. Choose a maximal $(3,4)$-edge $\vec e$.
+  At time $t$, choose a maximal $(3,4)$-edge $\vec e$.
   Move only $y_i(t)$, setting $y_i(t+1)=e_3^-$.
 
   \begin{center}
@@ -136,18 +141,52 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Y1--Y5: the moved edge starts after $x_{i-1}$}
-  \begin{itemize}
-    \item<1-> Claim: $x_{i-1}<e_1$ (automatic if $i=1$).
-    \item<2-> Otherwise $e_1<x_{i-1}$; Y2 gives
-      $x_i<y_{i+1}(t)<e_4$.
-    \item<3-> Thus $\vec e$ contains $x_{i-1},x_i$.
-      X2 forces $x_i=e_4^-$, contradicting
-      $x_i<y_{i+1}(t)<e_4$.
-  \end{itemize}
+\begin{frame}[t]{Y1--Y5: the moved edge starts after $x_{i-1}$}
+  \claimreminder{\Ytwo\Xtwo}
+
+  \begin{lemma}{Claim}
+    $x_{i-1}<e_1$ (automatic for $i=1$).
+  \end{lemma}
+
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> For $i\geq2$, suppose $e_1<x_{i-1}$.
+      \item<2-> Y2 gives $x_i<y_{i+1}(t)<e_4$,
+        so $\vec e$ contains $x_{i-1},x_i$.
+      \item<3-> X2 forces $x_i=e_4^-$, contradicting
+        $x_i<y_{i+1}(t)<e_4$.
+    \end{itemize}
+  \end{proof}
+
+  \begin{center}
+    \only<2>{
+      \begin{shiftchain}[
+        column sep=6mm, row sep=5mm, dot radius=2pt,
+        labels=false, label font=\scriptsize,
+        bars={3/dashed,9,11/dashed,13},
+        bar labels={3/$x_{i-1}$,9/$y_i$,11/$x_i$,13/$y_{i+1}$},
+      ]{16}
+        \shiftedge{2/cfred,5/cfred,8/cfred,16/cfred}[$\vec e$]
+      \end{shiftchain}
+    }
+    \only<3->{
+      \begin{shiftchain}[
+        column sep=6mm, row sep=5mm, dot radius=2pt,
+        labels=false, label font=\scriptsize,
+        bars={3/dashed,9,11/dashed,13,15/densely dotted},
+        bar labels={3/$x_{i-1}$,9/$y_i$,11/$x_i$,13/$y_{i+1}$,15/$e_4^-$},
+      ]{16}
+        \shiftedge{2/cfred,5/cfred,8/cfred,16/cfred}[$\vec e$]
+      \end{shiftchain}
+    }
+  \end{center}
 \end{frame}
 
-\begin{frame}{Y1: no edge loses its last switch}
+\begin{frame}[t]{Y1: no edge loses its last switch}
+  \begin{lemma}{Claim}
+    \Yone
+  \end{lemma}
+  \begin{proof}{Proof}
   \begin{itemize}
     \item<1-> Suppose $\vec f$ has no switch in $c_{t+1}$.
       Since Y1 holds in $c_t$, its only old switch was $y_i(t)$.
@@ -157,6 +196,7 @@
       Thus $e_1<f_1$ and $f_4<e_4$: $\vec e,\vec f$
       are incomparable.
   \end{itemize}
+  \end{proof}
   \only<3->{
     \begin{center}
       \begin{shiftchain}[
@@ -172,21 +212,44 @@
   }
 \end{frame}
 
-\begin{frame}{Y1: no edge gains a third switch}
+\begin{frame}[t]{Y1: no edge gains a third switch}
+  \claimreminder{\Ytwo\Xtwo\textbf{Auxiliary claim.} $x_{i-1}<e_1$.}
+  \begin{lemma}{Claim}
+    \Yone
+  \end{lemma}
+  \begin{proof}{Proof}
+  \small
   \begin{itemize}
     \item<1-> Suppose $\vec f$ has three switches in $c_{t+1}$.
-      The only new one is $y_i(t+1)=e_3^-$.
-    \item<2-> Switches inside an edge form an interval, so the other two
-      are $y_{i-2}(t),y_{i-1}(t)$ (so $i\geq3$), and
-      $f_1<y_{i-2}(t)\leq x_{i-2}$.
-    \item<3-> From $x_{i-1}<e_1<e_3\leq f_4$, $\vec f$ contains
-      $x_{i-2},x_{i-1}$. X2 would give $x_{i-1}=f_4^-$,
-      although $x_{i-1}<e_1<f_4^-$.
+      The new one is $y_i(t+1)=e_3^-$.
+    \item<2-> We go right to left, thus old switches are
+      $y_{i-2},y_{i-1}$; Y2 gives $f_1<y_{i-2}\leq x_{i-2}<y_{i-1}\leq x_{i-1}$.
+    \item<3-> Since $x_{i-1}<e_1<e_3\leq f_4$, $\vec f$ contains
+      $x_{i-2},x_{i-1}$. X2 gives $x_{i-1}=f_4^->e_1$:
+      a contradiction.
   \end{itemize}
-  \onslide<3->{Hence every edge still has one or two switches.}
+  \only<2->{
+    \begin{center}
+      \begin{shiftchain}[
+        column sep=5mm, row sep=3mm, dot radius=1.7pt,
+        labels=false, label font=\tiny,
+        bars={2,3/dashed,5,6/dashed,9,12/dashed,13},
+        bar labels={3/$x_{i-2}$,6/$x_{i-1}$,9/$e_3^-=f_4^-$},
+      ]{14}
+        \shiftedge{1/cfred,4/cfnavy,7/cfred,10/cfnavy}[$\vec f$]
+        \shiftedge{7/cfred,8/cfred,10/cfnavy,14/cfred}[$\vec e$]
+      \end{shiftchain}
+    \end{center}
+  }
+  \end{proof}
 \end{frame}
 
-\begin{frame}{Y2--Y3: positions survive the move}
+\begin{frame}[t]{Y2--Y3: positions survive the move}
+  \claimreminder{\textbf{Auxiliary claim.} $x_{i-1}<e_1$.}
+  \begin{lemma}{Claim}
+    \Ytwo\Ythree
+  \end{lemma}
+  \begin{proof}{Proof}
   \begin{itemize}
     \item<1-> \textbf{Y2:} Only $y_i$ changes. By the auxiliary claim,
       \[
@@ -197,9 +260,15 @@
       $\vec f<\vec e$.
     \item<3-> Therefore $f_2\leq e_2<y_i(t+1)$.
   \end{itemize}
+  \end{proof}
 \end{frame}
 
-\begin{frame}{Y4: no $(1,2)$-edge appears}
+\begin{frame}[t]{Y4: no $(1,2)$-edge appears}
+  \claimreminder{\Yone}
+  \begin{lemma}{Claim}
+    \Yfour
+  \end{lemma}
+  \begin{proof}{Proof}
   \begin{itemize}
     \item<1-> Suppose $\vec f$ has two switches
       $y_j(t+1),y_{j+1}(t+1)$ in $(f_1,f_2)$.
@@ -213,6 +282,7 @@
       \]
       So $f_1<e_1$ but $e_2<f_2$, contradicting comparability.
   \end{itemize}
+  \end{proof}
   \only<3->{
     \begin{center}
       \begin{shiftchain}[
@@ -228,8 +298,13 @@
   }
 \end{frame}
 
-\begin{frame}{Y5: old $(2,3)$-edges keep their witness}
+\begin{frame}[t]{Y5: old $(2,3)$-edges keep their witness}
+  \claimreminder{\Yone}
+  \begin{lemma}{Claim}
+    \Yfive
+  \end{lemma}
   Let $\vec f$ be a $(2,3)$-edge in $c_{t+1}$.
+  \begin{proof}{Proof}
   \begin{itemize}
     \item<1-> If $\vec f$ misses $y_i(t+1)$, it has the same two
       switches as at time $t$: otherwise it would lose $y_i(t)$,
@@ -239,13 +314,19 @@
     \item<3-> These switch values remain, except $y_{j+1}$ may move
       left. Hence $y_{j+1}(t+1)\leq y_{j+1}(t)<g_4$.
   \end{itemize}
+  \end{proof}
 \end{frame}
 
-\begin{frame}{Y5: a new $(2,3)$-edge uses $y_{i-1},y_i$}
+\begin{frame}[t]{Y5: a new $(2,3)$-edge uses $y_{i-1},y_i$}
+  \claimreminder{\Yone\Ytwo}
+  \begin{lemma}{Claim}
+    \Yfive
+  \end{lemma}
   If $\vec f$ contains $y_i(t+1)$, the other switch is adjacent
   by Y1 and the interval property. First suppose
   $S_{c_{t+1}}(\vec f)=
     \{y_{i-1}(t+1),y_i(t+1)\}$.
+  \begin{proof}{Proof}
   \begin{itemize}
     \item<1-> Since $f_4<y_{i+1}(t+1)<e_4$,
       comparability gives $\vec f<\vec e$, so $f_3\leq e_3$.
@@ -255,11 +336,17 @@
       Take $\vec g=\vec e$: $y_i(t+1)=g_3^-$ and
       $y_{i+1}(t+1)<g_4$.
   \end{itemize}
+  \end{proof}
 \end{frame}
 
-\begin{frame}{Y5: a new $(2,3)$-edge uses $y_i,y_{i+1}$}
+\begin{frame}[t]{Y5: a new $(2,3)$-edge uses $y_i,y_{i+1}$}
+  \claimreminder{\Yone}
+  \begin{lemma}{Claim}
+    \Yfive
+  \end{lemma}
   Suppose $S_{c_{t+1}}(\vec f)=
     \{y_i(t+1),y_{i+1}(t+1)\}$.
+  \begin{proof}{Proof}
   \begin{itemize}
     \item<1-> Since
       $f_2<y_i(t+1)<y_i(t)<y_{i+1}(t)=y_{i+1}(t+1)<f_3$,
@@ -270,36 +357,50 @@
       Its equality $f_3^-=y_{i+1}(t)<x_{i+1}$ and witness
       $y_{i+1}(t)=g_3^-$, $y_{i+2}(t)<g_4$ persist at $t+1$.
   \end{itemize}
+  \end{proof}
 \end{frame}
 
-\begin{frame}{Y6: chosen $(3,4)$-edges move left}
+\begin{frame}[t]{Y6: chosen $(3,4)$-edges move left}
+  \claimreminder{\Yone}
+  \begin{lemma}{Claim}
+    \Ysix
+  \end{lemma}
   Let $\vec e=\vec e(t)$ be the chosen maximal edge.
-  \begin{itemize}
-    \item<1-> Suppose the next chosen edge $\vec f$ satisfies
-      $\vec f>\vec e$. It must be new: $\vec e$ was maximal in $c_t$.
-    \item<2-> Since $y_i(t+1)=e_3^-<e_3\leq f_3$ and $\vec f$ is a
-      $(3,4)$-edge in $c_{t+1}$, $y_i(t+1)$ is outside $\vec f$.
-    \item<3-> If $y_i(t)$ was also outside $\vec f$, then $\vec f$
-      was already a $(3,4)$-edge in $c_t$.
-      If it was inside, removing it leaves at most one switch by Y1.
-      Both contradict the choice of $\vec f$.
-  \end{itemize}
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> Suppose the next chosen edge $\vec f$ satisfies
+        $\vec f>\vec e$. It must be new: $\vec e$ was maximal in $c_t$.
+      \item<2-> Since $y_i(t+1)=e_3^-<e_3\leq f_3$ and $\vec f$ is a
+        $(3,4)$-edge in $c_{t+1}$, $y_i(t+1)$ is outside $\vec f$.
+      \item<3-> If $y_i(t)$ was also outside $\vec f$, then $\vec f$
+        was already a $(3,4)$-edge in $c_t$.
+        If it was inside, removing it leaves at most one switch by Y1.
+        Both contradict the choice of $\vec f$.
+    \end{itemize}
+  \end{proof}
   \onslide<3->{Thus $\vec e(t+1)<\vec e(t)$.}
 \end{frame}
 
-\begin{frame}{Y6: termination leaves only $(2,3)$-edges}
-  \begin{itemize}
-    \item<1-> The indices $i(t)$ are non-increasing:
-      $i(t+1)>i(t)$ would put
-      $e_4(t)<y_{i(t)+2}(t+1)
-       \leq y_{i(t+1)+1}(t+1)<e_4(t+1)$,
-      contradicting the preceding frame.
-    \item<2-> Each move decreases one switch, and the moved indices
-      never increase. Their positions form a strictly descending
-      sequence of walls, so there are fewer than $n$ moves.
-    \item<3-> At termination no $(3,4)$-edge remains.
-      By Y1 and Y4, a monochromatic edge can only be a
-      $(2,3)$-edge. This is Y6.
-  \end{itemize}
+\begin{frame}[t]{Y6: termination leaves only $(2,3)$-edges}
+  \claimreminder{\Yone\Yfour}
+  \begin{lemma}{Claim}
+    \Ysix
+  \end{lemma}
+
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> The indices $i(t)$ are non-increasing:
+        $i(t+1)>i(t)$ would put
+        $e_4(t)<y_{i(t)+2}(t+1)
+         \leq y_{i(t+1)+1}(t+1)<e_4(t+1)$,
+        contradicting the preceding frame.
+      \item<2-> Each move decreases one switch, and the moved indices
+        never increase. Their positions form a strictly descending
+        sequence of walls, so there are fewer than $n$ moves.
+      \item<3-> At termination no $(3,4)$-edge remains.
+        By Y1 and Y4, a monochromatic edge can only be a
+        $(2,3)$-edge.
+    \end{itemize}
+  \end{proof}
 \end{frame}
 

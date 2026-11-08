@@ -11,8 +11,6 @@
       dot radius=1.8pt,
       dot color=black,
       tikz options={scale=1.1},
-      bars={0,1,2,4,5},
-      bar labels={0/$x_0$,1/$x_1$,2/$x_2$, 4/$x_3$,5/$x_4$},
     ]{5}
 
       \shiftvertexcolor{1,3,4}{cfred}
@@ -39,9 +37,9 @@
       \shiftvertexcolor{1,3,4}{cfred}
 
       \shiftvertexcolor{2,5}{cfblue}
-      \shiftedge{1,2,3,4}[$e_1$]
-      \shiftedge{1,2,3,5}[$e_2$]
-      \shiftedge{1,3,4,5}[$e_3$]
+      \shiftedge{1,2,3,4}[$\vec e$]
+      \shiftedge{1,2,3,5}[$\vec f$]
+      \shiftedge{1,3,4,5}[$\vec g$]
 
 
 
@@ -51,13 +49,9 @@
 
 \medskip
 \pause 
-We associate each switch with the pair of vertices which it seperates
-\vspace{-1.5em}
-\begin{align*}
-  x_1 := (1,2) \qquad x_2:=(2,3) \qquad x_3:=(4,5)
-\end{align*}
+For a vertex \(v\) (e.g. \(e_i\)), \(v^-\) is the switch just before \(v\), and \(v^+\) just after.
 \pause
-Given an \((i,j)\) switch and vertex \(u\), we say that vertex \(u<x\) if \(u\leq i\),\\similarly \(u>x\) if \(u \geq j\) 
+For a switch \(x\) between \(i\) and \(j\), write \(u<x\) when \(u\leq i\), and \(u>x\) when \(u\geq j\).
 \pause
 
 \medskip
@@ -81,9 +75,9 @@ Edge \(\vec{e}\) contains switch \(x\) if \(e_i<x<e_{i+1}\)
       \shiftvertexcolor{1,3,4}{cfred}
 
       \shiftvertexcolor{2,5}{cfblue}
-      \shiftedge{1,2,3,4}[$e_1$]
-      \shiftedge{1,2,3,5}[$e_2$]
-      \shiftedge{1,3,4,5}[$e_3$]
+      \shiftedge{1,2,3,4}[$\vec e$]
+      \shiftedge{1,2,3,5}[$\vec f$]
+      \shiftedge{1,3,4,5}[$\vec g$]
 
 
 
@@ -93,11 +87,6 @@ Edge \(\vec{e}\) contains switch \(x\) if \(e_i<x<e_{i+1}\)
 
   \medskip 
 
-  We associate each switch with the pair of vertices which it seperates
-\vspace{-1.5em}
-\begin{align*}
-  x_1 := (1,2) \qquad x_2:=(2,3) \qquad x_3:=(4,5)
-\end{align*}
 The switch set \(S_c(\vec{e})\) of  \(\vec{e}\) in \(c\) is the set of switches contained in \(\vec{e}\). 
 \pause 
 
@@ -106,7 +95,7 @@ The switch set \(S_c(\vec{e})\) of  \(\vec{e}\) in \(c\) is the set of switches 
 
 Colouring \(c\) is \(k\)-well spread if every edge has switch count \(1\leq |S_c(\vec{e})| \leq k\)
 \end{frame}
-\begin{frame}{}
+\begin{frame}{Switch positions and monochromatic edges}
   \center{
   \only<1>{
  \begin{shiftchain}[
@@ -122,9 +111,9 @@ Colouring \(c\) is \(k\)-well spread if every edge has switch count \(1\leq |S_c
       \shiftvertexcolor{1,3,4,5}{cfred}
 
       \shiftvertexcolor{2}{cfblue}
-      \shiftedge{1,2,3,4}[$e_1$]
-      \shiftedge{1,2,3,5}[$e_2$]
-      \shiftedge{1,3,4,5}[$e_3$]
+      \shiftedge{1,2,3,4}[$\vec e$]
+      \shiftedge{1,2,3,5}[$\vec f$]
+      \shiftedge{1,3,4,5}[$\vec g$]
 
 
 
@@ -145,19 +134,23 @@ Colouring \(c\) is \(k\)-well spread if every edge has switch count \(1\leq |S_c
       \shiftvertexcolor{1,3,4,5}{cfred}
 
       \shiftvertexcolor{2}{cfblue}
-      \shiftedge{1,2,3,4}[$e_1$]
-      \shiftedge{1,2,3,5}[$e_2$]
-      \shiftedge{1,3,4,5}[$e_3$]
-      \shiftedge{1,3,4,5}[$e_4$]
+      \shiftedge{1,2,3,4}[$\vec e$]
+      \shiftedge{1,2,3,5}[$\vec f$]
+      \shiftedge{1,3,4,5}[$\vec g$]
+      \shiftedge{1,3,4,5}[$\vec h$]
 
 
   \end{shiftchain}
 }
 
-  We say that a switch \(x\) is at position \((i,j)\)in an edge if \(i<x<j\). 
-
-  \pause 
-  An edge is monochromatic iff the number of switches is even at all positions.
+  \begin{itemize}
+    \item<1-> A switch \(x\) has position \((i,i+1)\) in \(\vec e\) if
+      \(e_i<x<e_{i+1}\), for \(i=1,2,3\).
+    \item<2-> An edge with exactly two switches, both at that position,
+      is a \((i,i+1)\)-edge: \((1,2)\), \((2,3)\), or \((3,4)\).
+    \item<3-> An edge is monochromatic iff every gap has an even number
+      of switches.
+  \end{itemize}
 
 
 \end{frame}
