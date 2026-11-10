@@ -1,5 +1,48 @@
 % Lemma 3.1 of Smith, reordered to make the positional claim the first step.
-\begin{frame}{X1: every edge contains one or two switches}
+\begin{frame}[t]{X1--X3: how the proof works}
+  \begin{itemize}
+    \item<1-> \textbf{(X1)} Every edge $\vec{f}$ contains exactly one or two switches.
+    \item<2-> \textbf{(X2)} If $\vec f$ contains $x_i$ and $x_{i+1}$,
+      then $x_{i+1}=f_4^-$.
+    \item<3-> \textbf{(X3)} Every monochromatic edge in $c_X$ is a $(3,4)$-edge.
+  \end{itemize}
+  \medskip
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \uncover<2->{
+        \textbf{X2}\par\smallskip
+        \begin{shiftchain}[
+          column sep=6mm, row sep=6mm, dot radius=3.0pt,
+          labels=false, label font=\scriptsize,
+          bars={2,7}, bar labels={2/$x_i$,7/$x_{i+1}$},
+        ]{8}
+          \foreach \pos/\lab in {1/f_1,3/f_2,5/f_3,8/f_4}
+            \node at (\pos,0) {$\lab$};
+          \shiftedge{1/cfred,3/cfnavy,5/cfnavy,8/cfred}[$\vec f$]
+        \end{shiftchain}
+        \par\smallskip{\small $x_{i+1}=f_4^-$}
+      }
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \uncover<3->{
+        \textbf{X3}\par\smallskip
+        \begin{shiftchain}[
+          column sep=6mm, row sep=6mm, dot radius=3.0pt,
+          labels=false, label font=\scriptsize,
+          bars={5,7}, bar labels={5/$x_i$,7/$x_{i+1}$},
+        ]{8}
+          \foreach \pos/\lab in {1/f_1,3/f_2,5/f_3,8/f_4}
+            \node at (\pos,0) {$\lab$};
+          \shiftedge{1/cfred,3/cfred,5/cfred,8/cfred}[$\vec f$]
+        \end{shiftchain}
+        \par\smallskip{\small Both switches in $(f_3,f_4)$.}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+\begin{frame}{X1: every edge contains at least one switch}
   \medskip
 
   \begin{center}
@@ -7,7 +50,6 @@
     \begin{shiftchain}[
       column sep=6mm, row sep=5mm, dot radius=3.0pt,
       label font=\scriptsize,
-      bars={1,12},
     ]{12}
 
     \shiftvertexcolor{2,5,8,12}{cfred}
@@ -20,7 +62,8 @@
     \begin{shiftchain}[
       column sep=6mm, row sep=5mm, dot radius=3.0pt,
       label font=\scriptsize,
-      bars={1,11},
+      bars={11},
+      bar labels{11/{$x$}}
     ]{12}
 
     \shiftvertexcolor{2,5,8}{cfred}
@@ -29,10 +72,10 @@
     \end{shiftchain}
   }
   \end{center}
-  At least 1 switch by greedy colouring design
+  At least 1 switch by greedy colouring design -- the greedy algorithm would always put a \(x=f_4^-\) switch
 \end{frame}
 
-\begin{frame}{X2: the second switch is immediately before $f_4$}
+\begin{frame}{X2: If there are at least two switches, the second is immediately before $f_4$}
   \begin{center}
   \begin{overlayarea}{\textwidth}{2.5cm}
     \centering
@@ -40,28 +83,29 @@
       \begin{shiftchain}[
         column sep=6mm, row sep=6mm, dot radius=3.0pt,
         label font=\scriptsize,
-        bars={4}, bar labels={4/$x_i$},
+        bars={3}, bar labels={3/$x_i$},
       ]{12}
-        \shiftedge{2/cfred,5/cfnavy,8/cfnavy,12/cfgrey}[$\vec f$]
+        \shiftedge{1/cfred,5/cfnavy,8/cfnavy,12/cfgrey}[$\vec f$]
       \end{shiftchain}
     }
     \only<2-3>{
       \begin{shiftchain}[
         column sep=6mm, row sep=6mm, dot radius=3.0pt,
         label font=\scriptsize,
-        bars={4,10}, bar labels={4/$x_i$,10/$x_{i+1}$},
+        bars={3,10}, bar labels={3/$x_i$,10/$x_{i+1}$},
       ]{12}
-        \shiftedge{2/cfred,5/cfnavy,8/cfnavy,12/cfred}[$\vec f$]
+        \shiftedge{1/cfred,5/cfnavy,8/cfnavy,12/cfred}[$\vec f$]
         \shiftedge{6/cfnavy,7/cfnavy,9/cfnavy,11/cfred}[$\vec e$]
       \end{shiftchain}
     }
-    \only<4>{
+    \only<4->{
       \begin{shiftchain}[
         column sep=6mm, row sep=6mm, dot radius=3.0pt,
         label font=\scriptsize,
-        bars={4,11}, bar labels={4/$x_i$,11/$x_{i+1}$},
+        bars={3,10/dashed,11}, bar labels={3/$x_i$,11/$x_{i+1}$},
+        ghost dots={11/2}, ghost dot style={cfred},
       ]{12}
-        \shiftedge{2/cfred,5/cfnavy,8/cfnavy,12/cfred}[$\vec f$]
+        \shiftedge{1/cfred,5/cfnavy,8/cfnavy,12/cfred}[$\vec f$]
         \shiftedge{6/cfnavy,7/cfnavy,9/cfnavy,12/cfred}[$\vec e$]
       \end{shiftchain}
     }
@@ -69,15 +113,33 @@
   \end{center}
   \begin{itemize}
     \item<1-> The first switch $x_i$ lies inside $\vec f$.
-    \item<2-> $x_i<e_1$: without $x_{i+1}=e_4^-$, $\vec e$ is all blue.
-    \item<3-> Comparability gives $f_1<e_1\Rightarrow f_4\le e_4$ -- this $e_4<f_4$ is impossible.
-    \item<4-> $x_{i+1}=e_4^-<f_4\Rightarrow e_4\le f_4$.
-      Thus $e_4=f_4$ and $x_{i+1}=f_4^-$: no third switch.
+    \item<2-> There must be an edge $\vec e$ such that without $x_{i+1}$ $\vec e$ would be monochromatic. 
+    \item<3-> $\vec e>x_i$, $x_{i+1}=e_4^-$
+    \item<4-> If $e_1>f_1$ then if $e_4<f_4$, $\vec e$ and $\vec f$ are incomporable
+    \item<5-> Thus $e_4=f_4=x_{i+1}$
+
   \end{itemize}
+
+  \onslide<6->{\claimreminder{\Xone\Xtwo}}
 \end{frame}
 
-\begin{frame}[t]{X3: monochromatic edges are $(3,4)$-edges}
-  \claimreminder{\Xone\Xtwo}
+\begin{frame}[t]{}
+  \small\setstretch{1.05}
+  \claimreminder{\Xone\Xtwo\switchparity}
+
+  \begin{lemma}{Claim}
+    \Xthree
+  \end{lemma}
+
+  \begin{proof}{Proof}
+    \begin{itemize}
+      \item<1-> Let $\vec f$ be monochromatic in $c_X$.
+      \item<2-> By X1 and Parity, it has exactly two switches in one gap.
+      \item<3-> By X2, $x_{i+1}=f_4^-$ lies in $(f_3,f_4)$.
+      \item<4-> Both switches lie in this gap, so $\vec f$ is a $(3,4)$-edge.
+    \end{itemize}
+  \end{proof}
+
   \begin{center}
     \begin{shiftchain}[
       column sep=6mm, row sep=6mm, dot radius=3.0pt,
@@ -87,21 +149,13 @@
       \shiftedge{2/cfred,4/cfred,6/cfred,12/cfred}[$\vec f$]
     \end{shiftchain}
   \end{center}
-  \medskip
-
-  \begin{itemize}
-    \item<1-> A monochromatic edge has an even number of switches in each gap.
-    \item<2-> By X1, it has two switches in one gap.
-    \item<3-> By X2, $x_{i+1}=f_4^-$, so $\vec f$ is a $(3,4)$-edge.
-  \end{itemize}
 \end{frame}
 
 \begin{frame}{Stage X: conclusions}
   \begin{itemize}
-    \item \textbf{(X1)} Every edge $\vec f$ has one or two switches:
-      $1\le |S_{c_0}(\vec f)|\le 2$.
+    \item \textbf{(X1)} Every edge $\vec f$ has exactly one or two switches.
     \item \textbf{(X2)} If $\vec f$ contains $x_i$ and $x_{i+1}$,
       then $x_{i+1}=f_4^-$.
-    \item \textbf{(X3)} Every monochromatic edge in $c_0$ is a $(3,4)$-edge.
+    \item \textbf{(X3)} Every monochromatic edge in $c_X$ is a $(3,4)$-edge.
   \end{itemize}
 \end{frame}

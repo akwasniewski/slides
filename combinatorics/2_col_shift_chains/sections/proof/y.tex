@@ -1,62 +1,182 @@
 \begin{frame}[t]{Stage Y: recap}
+  \small\setstretch{1.0}
   \claimreminder{\Xthree}
-  Stage X leaves only $(3,4)$-edges monochromatic.
-  We process them right to left, moving the first switch in each edge
-  to just before its third vertex.
+  Sweep right to left; move the first switch of each $(3,4)$-edge
+  just before its third vertex.
 
-  \begin{center}
-    \only<1>{
-      \begin{shiftchain}[
-        column sep=6mm, row sep=4mm, dot radius=3.0pt,
-        dot color=black, label font=\scriptsize,
-        bars={3,6,9},
-        bar labels={3/$x_1$,6/$x_2$,9/$y_3$},
-      ]{10}
-        \shiftvertexcolor{1,2,3,7,8,9}{cfred}
-        \shiftvertexcolor{4,5,6,10}{cfnavy}
-        \shiftedge{1,2,3,4}
-        \shiftedge{2,3,6,7}
-        \shiftedge{4,5,6,7}
-        \shiftedge{4,5,6,10}
-        \shiftedge{7,8,9,10}
-      \end{shiftchain}
-    }
-    \only<2>{
-      \begin{shiftchain}[
-        column sep=6mm, row sep=4mm, dot radius=3.0pt,
-        dot color=black, label font=\scriptsize,
-        bars={3,5,6/dashed,9},
-        bar labels={3/$x_1$,5/$y_2$,6/$x_2$,9/$y_3$},
-      ]{10}
-        \shiftvertexcolor{1,2,3,7,8,9}{cfred}
-        \shiftvertexcolor{4,5,10}{cfnavy}
-        \shiftvertexcolor{6}{cfpink}
-        \shiftedge{1,2,3,4}
-        \shiftedge{2,3,6,7}
-        \shiftedge{4,5,6,7}
-        \shiftedge{4,5,6,10}
-        \shiftedge{7,8,9,10}
-      \end{shiftchain}
-    }
-    \only<3>{
-      \begin{shiftchain}[
-        column sep=6mm, row sep=4mm, dot radius=3.0pt,
-        dot color=black, label font=\scriptsize,
-        bars={3,5,6/dashed,9},
-        bar labels={3/$x_1$,5/$y_2$,6/$x_2$,9/$y_3$},
-      ]{10}
-        \shiftvertexcolor{1,2,3,6,7,8,9}{cfred}
-        \shiftvertexcolor{4,5,10}{cfnavy}
-        \shiftedge{1,2,3,4}
-        \shiftedge{2,3,6,7}
-        \shiftedge{4,5,6,7}
-        \shiftedge{4,5,6,10}
-        \shiftedge{7,8,9,10}
-      \end{shiftchain}
-    }
+  \smallskip
+  \centering
+  % Key steps from the algorithm outline, on the same numbered chain.
+  \only<1>{%
+    \outlinediagram
+      {3,6,9,13,16,19}
+      {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$,16/$x_5$,19/$x_6$}
+      {1,2,3,7,8,9,14,15,16,20}
+      {4,5,6,10,11,12,13,17,18,19}
+      {9}
+      {Y: right to left (RL) --- $e_{9}$ is monochromatic}
+      {-1}%
+  }%
+  \only<2>{%
+    \outlinediagram
+      {3,6,9,13,15/outline moved,16/outline old,19}
+      {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$,15/$y_5$,19/$x_6$,16/$x_5$}
+      {1,2,3,7,8,9,14,15,20}
+      {4,5,6,10,11,12,13,16,17,18,19}
+      {9}
+      {Y: right to left (RL) --- move $y_5$ before vertex $16$}
+      {-1}%
+  }%
+  \only<3>{%
+    \outlinediagram
+      {3,6,9,13,15,19}
+      {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$,15/$y_5$,19/$x_6$}
+      {1,2,3,7,8,9,14,15,20}
+      {4,5,6,10,11,12,13,16,17,18,19}
+      {4}
+      {Y: right to left (RL) --- $e_{4}$ is monochromatic}
+      {-1}%
+  }%
+  \only<4>{%
+    \outlinediagram
+      {3,5/outline moved,6/outline old,9,13,15,19}
+      {3/$x_1$,5/$y_2$,9/$x_3$,13/$x_4$,15/$y_5$,19/$x_6$,6/$x_2$}
+      {1,2,3,6,7,8,9,14,15,20}
+      {4,5,10,11,12,13,16,17,18,19}
+      {4}
+      {Y: right to left (RL) --- move $y_2$ before vertex $6$}
+      {-1}%
+  }%
+  \only<5>{%
+    \outlinediagram
+      {3,5,9,13,15,19}
+      {3/$x_1$,5/$y_2$,9/$x_3$,13/$x_4$,15/$y_5$,19/$x_6$}
+      {1,2,3,6,7,8,9,14,15,20}
+      {4,5,10,11,12,13,16,17,18,19}
+      {1}
+      {Y: right to left (RL) --- $e_{1}$}
+      {-1}%
+  }%
+\end{frame}
 
-  \end{center}
-
+% Introduce every claim before starting the induction.  The statements stay
+% visible as the example on the right changes to the newly introduced claim.
+\begin{frame}[t]{Y1--Y6: what Stage Y preserves and achieves}
+  {\normalfont\small\color{black}\setstretch{1}
+    $t$: number of Stage Y switch moves performed\par
+    $c_{Y,t}=c_t$: colouring after $t$ moves\par
+    $c_{Y,0}=c_X$, \quad $c_{Y,T}=c_Y$ \quad ($T$: total number of moves)\par
+    Induction on $t$: Y1--Y5 preserved; Y6 at termination\par
+  }
+  \smallskip
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.58\textwidth}
+      \footnotesize\setstretch{1}
+      \begin{itemize}[itemsep=5pt]
+        \item<1-> \Yone
+        \item<2-> \Ytwo
+        \item<3-> \Ythree
+        \item<4-> \Yfour
+        \item<5-> \Yfive
+        \item<6-> \Ysix
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.39\textwidth}
+      \centering\small\setstretch{1}
+      \begin{overlayarea}{\linewidth}{5.5cm}
+        \centering
+        \only<1>{
+          \textbf{Y1: one or two switches}\par\medskip
+          \begin{shiftchain}[
+            column sep=5mm, row sep=6mm, dot radius=3pt,
+            labels=false, label font=\scriptsize,
+            bars={3,7}, bar labels={3/$y_j$,7/$y_{j+1}$},
+          ]{8}
+            \shiftvertexcolor{1,2,8}{cfred}
+            \shiftvertexcolor{4,5,6}{cfnavy}
+            \shiftedge{1,2,4,5}[$\vec f$]
+            \shiftedge{2,4,6,8}[$\vec g$]
+          \end{shiftchain}
+          \par\medskip
+          $\vec f$: one bar.\quad $\vec g$: two bars.
+        }
+        \only<2>{
+          \textbf{Y2: each switch stays in its interval}\par\medskip
+          \begin{shiftchain}[
+            column sep=5mm, row sep=6mm, dot radius=3pt,
+            labels=false, label font=\scriptsize,
+            bars={2/dashed,5,8/dashed},
+            bar labels={2/$x_{j-1}$,5/$y_j(t)$,8/$x_j$},
+          ]{9}
+            \shiftedge{3/cfred,5/cfred,7/cfnavy,9/cfnavy}[$\vec f$]
+          \end{shiftchain}
+          \par\medskip
+          Dashed bars: original positions.
+        }
+        \only<3>{
+          \textbf{Y3: the next switch is past $f_2$}\par\medskip
+          \begin{shiftchain}[
+            column sep=5mm, row sep=6mm, dot radius=3pt,
+            labels=false, label font=\scriptsize,
+            bars={3,5/dashed,7},
+            bar labels={3/$y_j(t)$,5/$x_j$,7/$y_{j+1}(t)$},
+          ]{9}
+            \foreach \pos/\lab in {1/f_1,4/f_2,6/f_3,9/f_4}
+              \node at (\pos,0) {$\lab$};
+            \shiftedge{1/cfred,4/cfnavy,6/cfnavy,9/cfred}[$\vec f$]
+          \end{shiftchain}
+          \par\medskip
+          $f_1<x_j\quad\Longrightarrow\quad f_2<y_{j+1}(t)$.
+        }
+        \only<4>{
+          \textbf{Y4: forbidden pattern}\par\medskip
+          \begin{shiftchain}[
+            column sep=5mm, row sep=6mm, dot radius=3pt,
+            labels=false, label font=\scriptsize,
+            bars={2,4}, bar labels={2/$y_j$,4/$y_{j+1}$},
+          ]{9}
+            \foreach \pos/\lab in {1/f_1,5/f_2,7/f_3,9/f_4}
+              \node at (\pos,0) {$\lab$};
+            \shiftedge[cfred]{1,5,7,9}[$\vec f$]
+          \end{shiftchain}
+          \par\medskip
+          \textcolor{cfred}{No two switches in $(f_1,f_2)$.}
+        }
+        \only<5>{
+          \textbf{Y5: a witness for a $(2,3)$-edge}\par\medskip
+          \begin{shiftchain}[
+            column sep=4mm, row sep=7mm, dot radius=3pt,
+            labels=false, label font=\scriptsize,
+            bars={3,6,8/dashed,10},
+            bar labels={3/$y_{j-1}$,6/$y_j$,8/$x_j$,10/$y_{j+1}$},
+          ]{12}
+            \node at (7,0) {$f_3=g_3$};
+            \shiftvertexcolor{1,2,7,9}{cfred}
+            \shiftvertexcolor{4,5,12}{cfnavy}
+            \shiftedge{1,2,7,9}[$\vec f$]
+            \shiftedge{4,5,7,12}[$\vec g$]
+          \end{shiftchain}
+          \par\medskip
+          $f_3^-=y_j=g_3^-<x_j$\par\smallskip
+          $y_{j+1}<g_4$.
+        }
+        \only<6>{
+          \textbf{Y6: the final monochromatic pattern}\par\medskip
+          \begin{shiftchain}[
+            column sep=5mm, row sep=6mm, dot radius=3pt,
+            labels=false, label font=\scriptsize,
+            bars={3,6}, bar labels={3/$y_{j-1}$,6/$y_j$},
+          ]{9}
+            \foreach \pos/\lab in {1/f_1,2/f_2,7/f_3,9/f_4}
+              \node at (\pos,0) {$\lab$};
+            \shiftedge[cfred]{1,2,7,9}[$\vec f$]
+          \end{shiftchain}
+          \par\medskip
+          In $c_Y$: both switches in $(f_2,f_3)$.
+        }
+      \end{overlayarea}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[t]{Y1, Y4: base case from X1 and X3}

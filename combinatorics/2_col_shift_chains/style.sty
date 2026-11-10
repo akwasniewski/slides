@@ -93,14 +93,15 @@
     ]#1\end{tcolorbox}%
   \end{minipage}\par%
 }
-\newcommand{\Xone}{\textbf{X1.} Every edge $\vec f$ has one or two switches in $c_0$: $1\le |S_{c_0}(\vec f)|\le 2$.\par}
+\newcommand{\switchparity}{\textbf{Parity.} A monochromatic edge has an even number of switches in each gap.\par}
+\newcommand{\Xone}{\textbf{X1.} Every edge $\vec f$ has exactly one or two switches in $c_X$.\par}
 \newcommand{\Xtwo}{\textbf{X2.} If $\vec f$ contains $x_j,x_{j+1}$, then $x_{j+1}=f_4^-$.\par}
-\newcommand{\Xthree}{\textbf{X3.} Every monochromatic edge in $c_0$ is a $(3,4)$-edge.\par}
+\newcommand{\Xthree}{\textbf{X3.} Every monochromatic edge in $c_X$ is a $(3,4)$-edge.\par}
 \newcommand{\Yone}{\textbf{Y1.} $c_t$ is 2-well-spread: every edge has one or two switches.\par}
-\newcommand{\Ytwo}{\textbf{Y2.} $x_{j-1}<y_j(t)\leq x_j$ for $j\in[s]$.\par}
-\newcommand{\Ythree}{\textbf{Y3.} For $\vec f\in E(H)$ and $j\in[s]$, $f_1<x_j\Rightarrow f_2<y_{j+1}(t)$.\par}
+\newcommand{\Ytwo}{\textbf{Y2.} $x_{j-1}<y_j(t)\leq x_j$.\par}
+\newcommand{\Ythree}{\textbf{Y3.} For $\vec f\in E(H)$, $f_1<x_j\Rightarrow f_2<y_{j+1}(t)$.\par}
 \newcommand{\Yfour}{\textbf{Y4.} There are no $(1,2)$-edges in $c_t$.\par}
-\newcommand{\Yfive}{\textbf{Y5.} If $\vec f$ is a $(2,3)$-edge with switches $y_{j-1}(t),y_j(t)$ for $j\in[2,s]$, then $f_3^-=y_j(t)<x_j$, and some $\vec g\in E(H)$ has $y_j(t)=g_3^-$ and $y_{j+1}(t)<g_4$.\par}
+\newcommand{\Yfive}{\textbf{Y5.} If $\vec f$ is a $(2,3)$-edge with switches $y_{j-1}(t),y_j(t)$, then $f_3^-=y_j(t)<x_j$, and some $\vec g\in E(H)$ has $y_j(t)=g_3^-$ and $y_{j+1}(t)<g_4$.\par}
 \newcommand{\Ysix}{\textbf{Y6.} Every monochromatic edge in $c_Y$ is a $(2,3)$-edge.\par}
 \newcommand{\Zone}{\textbf{Z1.} $\hat c_t$ is 3-well-spread: every edge has at most three switches.\par}
 \newcommand{\Ztwo}{\textbf{Z2.} $M(\hat c_t)\subsetneq M(\hat c_{t-1})$ for $t\geq1$.\par}
@@ -185,6 +186,9 @@
 % Use /solid to override a globally dashed bar style.
 % bar labels={2/$x_1$,4/$y_2$} puts labels below the corresponding bars.
 % Labels use label font; labels=false hides only the vertex column numbers.
+% ghost dots={11/2} leaves a solid, unfilled vertex circle at column 11,
+% edge row 2 (rows count from 1), using dot radius.
+% ghost dot style={cfred} customises the outlines with TikZ drawing options.
 \pgfkeys{
   /shiftchain/.is family,
   /shiftchain,
@@ -199,6 +203,8 @@
   bars/.store in=\shiftchain@bars,
   bar style/.store in=\shiftchain@barstyle,
   bar labels/.store in=\shiftchain@barlabels,
+  ghost dots/.store in=\shiftchain@ghostdots,
+  ghost dot style/.store in=\shiftchain@ghostdotstyle,
   tikz options/.store in=\shiftchain@tikzoptions
 }
 \newcount\shiftchain@row
@@ -207,6 +213,7 @@
     column sep=5mm, row sep=5mm, dot radius=3.0pt,
     dot color=black, labels=true, label font=\small,
     bars={}, bar style={}, bar labels={},
+    ghost dots={}, ghost dot style={},
     tikz options={},#1}%
   \shiftchain@row=0\relax
   \begin{tikzpicture}[x=\shiftchain@columnsep,y=\shiftchain@rowsep,
@@ -221,6 +228,14 @@
     \fi
 }{%
   \ifnum\shiftchain@row>0\relax
+    \ifx\shiftchain@ghostdots\@empty\else
+      \foreach \shiftchain@column/\shiftchain@ghostrow in \shiftchain@ghostdots {%
+        \draw[black,solid,line width=0.6pt,fill=none,
+          style/.expand once=\shiftchain@ghostdotstyle]
+          (\shiftchain@column,-\shiftchain@ghostrow)
+          circle[radius=\shiftchain@radius];%
+      }%
+    \fi
     \ifx\shiftchain@bars\@empty\else
       \foreach \shiftchain@entry in \shiftchain@bars {%
         \expandafter\shiftchain@drawbar\shiftchain@entry//\@nil
