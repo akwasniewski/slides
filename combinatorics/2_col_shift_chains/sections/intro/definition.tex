@@ -1,24 +1,25 @@
 \begin{frame}{Shift-chains}
     Given an \(r\)-uniform hypergraph \(H=(V,E)\) and a total ordering \(<_V\) on \(V\), each edge \(e\) can be interpreted as a vector:
-    \[\vec{e}=\set{e_1,\dots,e_r}\]
-
+    \(\vec{e}=\set{e_1,\dots,e_r}\) \\
+    where \(e_1<e_2<\dots<e_r\).
     \begin{columns}[T]
     \begin{column}{0.52\textwidth}
-      where \(e_1<e_2<\dots<e_r\).
 
       \medskip
       We define a partial order on edges by
+      \vspace{-1em}
       \[\vec{e}<_E\vec{f}\Longleftrightarrow
         \forall_i\ e_i\leq f_i.\]
 
       \(\vec{e}\) and \(\vec{f}\) are comparable if either
-      \(\vec{e}<_E\vec{f}\) or \(\vec{f}<_E\vec{e}\).
-
-      \medskip
+      \vspace{-1em}
+      \[\vec{e}<_E\vec{f} \text{ or } \vec{f}<_E\vec{e}\]
+      
       A hypergraph is a shift-chain if \(<_E\) is a total order.
     \end{column}
-    \begin{column}{0.44\textwidth}
+    \begin{column}{0.4\textwidth}
       \centering
+      \vspace{-3em}
       \only<1>{
         \begin{shiftchain}[
           column sep=5mm,
@@ -49,9 +50,8 @@
           \shiftedge{3,4,5,6}
         \end{shiftchain}
       }
-
+      \vspace{3em}
       \onslide<3->{
-        \par\medskip
         \begin{shiftchain}[
           column sep=5mm,
           row sep=4mm,
@@ -59,11 +59,13 @@
           dot color=cfred,
           tikz options={scale=1.1}
         ]{7}
-          \shiftedge{1,2,5,7}
-          \shiftedge{3,4,5,6}
+        \shiftedge{1,2,5,7}[$\vec{e}$]
+        \shiftedge{3,4,5,6}[$\vec{f}$]
         \end{shiftchain}
         \par\smallskip
-        \textcolor{cfred}{Not a shift-chain}
+      \textcolor{cfred}{Not a shift-chain as}
+      \par\vspace{-0.5em}
+      \textcolor{cfred}{\(e_1<f_1 \land e_4 > f_4\)}
       }
     \end{column}
     \end{columns}

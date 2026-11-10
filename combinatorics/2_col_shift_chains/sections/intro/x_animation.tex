@@ -1,252 +1,271 @@
- \centering
- \only<1>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      % bars={3,6/dashed,8},
-      % Labels sit beneath the bars, including individually dashed bars.
-      % bar labels={3/$x_1$,6/$y_2$,8/$x_3$},
-      bar style={cfnavy,line width=0.6pt}
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-      % \shiftvertexcolor{1,2,3,7,8}{cfred}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<2>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      % bars={3,6/dashed,8},
-      % Labels sit beneath the bars, including individually dashed bars.
-      % bar labels={3/$x_1$,6/$y_2$,8/$x_3$},
-      bar style={cfnavy,line width=0.6pt}
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-      \shiftvertexcolor{1}{cfred}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<3>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      % bars={3,6/dashed,8},
-      % Labels sit beneath the bars, including individually dashed bars.
-      % bar labels={3/$x_1$,6/$y_2$,8/$x_3$},
-      bar style={cfnavy,line width=0.6pt}
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-      \shiftvertexcolor{1,2}{cfred}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<4>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      % bars={3,6/dashed,8},
-      % Labels sit beneath the bars, including individually dashed bars.
-      % bar labels={3/$x_1$,6/$y_2$,8/$x_3$},
-      bar style={cfnavy,line width=0.6pt}
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-      \shiftvertexcolor{1,2,3}{cfred}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<5>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      % bars={3,6/dashed,8},
-      % Labels sit beneath the bars, including individually dashed bars.
-      % bar labels={3/$x_1$,6/$y_2$,8/$x_3$},
-      bar style={cfnavy,line width=0.6pt}
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-    \shiftvertexcolor{1,2,3}{cfred}
-      \shiftvertexcolor{4}{cfpink}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<6>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      bars={3},
-      % Labels sit beneath the bars, including individually dashed bars.
-      bar labels={3/$x_1$},
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-    \shiftvertexcolor{1,2,3}{cfred}
-      \shiftvertexcolor{4}{cfnavy}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<7>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      bars={3},
-      % Labels sit beneath the bars, including individually dashed bars.
-      bar labels={3/$x_1$},
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-    \shiftvertexcolor{1,2,3}{cfred}
-      \shiftvertexcolor{4,5,6}{cfnavy}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<8>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      bars={3},
-      % Labels sit beneath the bars, including individually dashed bars.
-      bar labels={3/$x_1$},
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-    \shiftvertexcolor{1,2,3}{cfred}
-      \shiftvertexcolor{4,5,6}{cfnavy}
-
-      \shiftvertexcolor{7}{cfblue}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<9>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      bars={3,6},
-      % Labels sit beneath the bars, including individually dashed bars.
-      bar labels={3/$x_1$, 6/$x_2$},
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-    \shiftvertexcolor{1,2,3,7}{cfred}
-      \shiftvertexcolor{4,5,6}{cfnavy}
-
-      % \shiftvertexcolor{7}{cfblue}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<10>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      bars={3,6},
-      % Labels sit beneath the bars, including individually dashed bars.
-      bar labels={3/$x_1$, 6/$x_2$},
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-    \shiftvertexcolor{1,2,3,7,8,9}{cfred}
-      \shiftvertexcolor{4,5,6}{cfnavy}
-
-      % \shiftvertexcolor{7}{cfblue}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
- \only<11>{
-    \begin{shiftchain}[
-      column sep=6mm,
-      row sep=4mm,
-      dot radius=3.0pt,
-      dot color=black,
-      label font=\scriptsize,
-      bars={3,6,9},
-      % Labels sit beneath the bars, including individually dashed bars.
-      bar labels={3/$x_1$, 6/$x_2$, 9/$x_3$},
-    ]{10}
-      % Vertex colours apply to these columns in subsequent rows.
-    \shiftvertexcolor{1,2,3,7,8,9}{cfred}
-      \shiftvertexcolor{4,5,6,10}{cfnavy}
-
-      % \shiftvertexcolor{7}{cfblue}
-      % \shiftvertexcolor{4,5,6,9,10}{cfblue}
-      \shiftedge{1,2,3,4}
-      \shiftedge{2,3,6,7}
-      \shiftedge{4,5,6,7}
-      \shiftedge{4,5,6,10}
-      \shiftedge{7,8,9,10}
-    \end{shiftchain}
-}
+% Colour one vertex per step; go directly from the trial to the forced switch and corrected colour.
+\only<1>{%
+  \outlinediagram
+    {}
+    {}
+    {}
+    {}
+    {0}
+    {X: left to right (LR)}
+    {1}%
+}%
+\only<2>{%
+  \outlinediagram
+    {}
+    {}
+    {1}
+    {}
+    {0}
+    {X: left to right (LR) --- colour vertex $1$}
+    {1}%
+}%
+\only<3>{%
+  \outlinediagram
+    {}
+    {}
+    {1,2}
+    {}
+    {0}
+    {X: left to right (LR) --- colour vertex $2$}
+    {1}%
+}%
+\only<4>{%
+  \outlinediagram
+    {}
+    {}
+    {1,2,3}
+    {}
+    {0}
+    {X: left to right (LR) --- colour vertex $3$}
+    {1}%
+}%
+\only<5>{%
+  \outlinediagram[\outlinetrial{4}{cfpink}]
+    {}
+    {}
+    {1,2,3,4}
+    {}
+    {1}
+    {X: try vertex $4$ --- $e_{1}$ would be monochromatic}
+    {1}%
+}%
+\only<6>{%
+  \outlinediagram
+    {3/outline moved}
+    {3/$x_1$}
+    {1,2,3}
+    {4}
+    {1}
+    {X: insert $x_1$; colour vertex $4$ correctly}
+    {1}%
+}%
+\only<7>{%
+  \outlinediagram
+    {3}
+    {3/$x_1$}
+    {1,2,3}
+    {4,5}
+    {0}
+    {X: left to right (LR) --- colour vertex $5$}
+    {1}%
+}%
+\only<8>{%
+  \outlinediagram
+    {3}
+    {3/$x_1$}
+    {1,2,3}
+    {4,5,6}
+    {0}
+    {X: left to right (LR) --- colour vertex $6$}
+    {1}%
+}%
+\only<9>{%
+  \outlinediagram[\outlinetrial{7}{cfnavy!40}]
+    {3}
+    {3/$x_1$}
+    {1,2,3}
+    {4,5,6,7}
+    {3}
+    {X: try vertex $7$ --- $e_{3}$ would be monochromatic}
+    {1}%
+}%
+\only<10>{%
+  \outlinediagram
+    {3,6/outline moved}
+    {3/$x_1$,6/$x_2$}
+    {1,2,3,7}
+    {4,5,6}
+    {3}
+    {X: insert $x_2$; colour vertex $7$ correctly}
+    {1}%
+}%
+\only<11>{%
+  \outlinediagram
+    {3,6}
+    {3/$x_1$,6/$x_2$}
+    {1,2,3,7,8}
+    {4,5,6}
+    {0}
+    {X: left to right (LR) --- colour vertex $8$}
+    {1}%
+}%
+\only<12>{%
+  \outlinediagram
+    {3,6}
+    {3/$x_1$,6/$x_2$}
+    {1,2,3,7,8,9}
+    {4,5,6}
+    {0}
+    {X: left to right (LR) --- colour vertex $9$}
+    {1}%
+}%
+\only<13>{%
+  \outlinediagram[\outlinetrial{10}{cfpink}]
+    {3,6}
+    {3/$x_1$,6/$x_2$}
+    {1,2,3,7,8,9,10}
+    {4,5,6}
+    {5}
+    {X: try vertex $10$ --- $e_{5}$ would be monochromatic}
+    {1}%
+}%
+\only<14>{%
+  \outlinediagram
+    {3,6,9/outline moved}
+    {3/$x_1$,6/$x_2$,9/$x_3$}
+    {1,2,3,7,8,9}
+    {4,5,6,10}
+    {5}
+    {X: insert $x_3$; colour vertex $10$ correctly}
+    {1}%
+}%
+\only<15>{%
+  \outlinediagram
+    {3,6,9}
+    {3/$x_1$,6/$x_2$,9/$x_3$}
+    {1,2,3,7,8,9}
+    {4,5,6,10,11}
+    {0}
+    {X: left to right (LR) --- colour vertex $11$}
+    {1}%
+}%
+\only<16>{%
+  \outlinediagram
+    {3,6,9}
+    {3/$x_1$,6/$x_2$,9/$x_3$}
+    {1,2,3,7,8,9}
+    {4,5,6,10,11,12}
+    {0}
+    {X: left to right (LR) --- colour vertex $12$}
+    {1}%
+}%
+\only<17>{%
+  \outlinediagram
+    {3,6,9}
+    {3/$x_1$,6/$x_2$,9/$x_3$}
+    {1,2,3,7,8,9}
+    {4,5,6,10,11,12,13}
+    {0}
+    {X: left to right (LR) --- colour vertex $13$}
+    {1}%
+}%
+\only<18>{%
+  \outlinediagram[\outlinetrial{14}{cfnavy!40}]
+    {3,6,9}
+    {3/$x_1$,6/$x_2$,9/$x_3$}
+    {1,2,3,7,8,9}
+    {4,5,6,10,11,12,13,14}
+    {6}
+    {X: try vertex $14$ --- $e_{6}$ would be monochromatic}
+    {1}%
+}%
+\only<19>{%
+  \outlinediagram
+    {3,6,9,13/outline moved}
+    {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$}
+    {1,2,3,7,8,9,14}
+    {4,5,6,10,11,12,13}
+    {6}
+    {X: insert $x_4$; colour vertex $14$ correctly}
+    {1}%
+}%
+\only<20>{%
+  \outlinediagram
+    {3,6,9,13}
+    {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$}
+    {1,2,3,7,8,9,14,15}
+    {4,5,6,10,11,12,13}
+    {0}
+    {X: left to right (LR) --- colour vertex $15$}
+    {1}%
+}%
+\only<21>{%
+  \outlinediagram
+    {3,6,9,13}
+    {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$}
+    {1,2,3,7,8,9,14,15,16}
+    {4,5,6,10,11,12,13}
+    {0}
+    {X: left to right (LR) --- colour vertex $16$}
+    {1}%
+}%
+\only<22>{%
+  \outlinediagram[\outlinetrial{17}{cfpink}]
+    {3,6,9,13}
+    {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$}
+    {1,2,3,7,8,9,14,15,16,17}
+    {4,5,6,10,11,12,13}
+    {8}
+    {X: try vertex $17$ --- $e_{8}$ would be monochromatic}
+    {1}%
+}%
+\only<23>{%
+  \outlinediagram
+    {3,6,9,13,16/outline moved}
+    {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$,16/$x_5$}
+    {1,2,3,7,8,9,14,15,16}
+    {4,5,6,10,11,12,13,17}
+    {8}
+    {X: insert $x_5$; colour vertex $17$ correctly}
+    {1}%
+}%
+\only<24>{%
+  \outlinediagram
+    {3,6,9,13,16}
+    {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$,16/$x_5$}
+    {1,2,3,7,8,9,14,15,16}
+    {4,5,6,10,11,12,13,17,18}
+    {0}
+    {X: left to right (LR) --- colour vertex $18$}
+    {1}%
+}%
+\only<25>{%
+  \outlinediagram
+    {3,6,9,13,16}
+    {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$,16/$x_5$}
+    {1,2,3,7,8,9,14,15,16}
+    {4,5,6,10,11,12,13,17,18,19}
+    {0}
+    {X: left to right (LR) --- colour vertex $19$}
+    {1}%
+}%
+\only<26>{%
+  \outlinediagram[\outlinetrial{20}{cfnavy!40}]
+    {3,6,9,13,16}
+    {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$,16/$x_5$}
+    {1,2,3,7,8,9,14,15,16}
+    {4,5,6,10,11,12,13,17,18,19,20}
+    {10}
+    {X: try vertex $20$ --- $e_{10}$ would be monochromatic}
+    {1}%
+}%
+\only<27>{%
+  \outlinediagram
+    {3,6,9,13,16,19/outline moved}
+    {3/$x_1$,6/$x_2$,9/$x_3$,13/$x_4$,16/$x_5$,19/$x_6$}
+    {1,2,3,7,8,9,14,15,16,20}
+    {4,5,6,10,11,12,13,17,18,19}
+    {10}
+    {X: insert $x_6$; colour vertex $20$ correctly}
+    {1}%
+}%
