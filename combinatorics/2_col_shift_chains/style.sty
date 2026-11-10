@@ -50,12 +50,15 @@
   boxrule=0pt,
   frame hidden,
   borderline west={2pt}{0pt}{#1},
+  boxsep=1pt,
   left=8pt,
   right=4pt,
-  top=4pt,
-  bottom=4pt,
-  before skip=1em,
-  after skip=1em,
+  top=1pt,
+  bottom=2pt,
+  toptitle=1pt,
+  bottomtitle=0pt,
+  before skip=4pt,
+  after skip=4pt,
   fonttitle=\bfseries,
   coltitle=#1,
   title={#2}
@@ -81,31 +84,31 @@
    ]}
   {\end{tcolorbox}}
 
-% Persistent references to claims already established on earlier frames.
+% Centered references to earlier claims, with left-aligned contents.
 \newcommand{\claimreminder}[1]{%
-  \noindent\hfill\begin{minipage}{.9\linewidth}%
+  \par\noindent\hfill\begin{minipage}{.9\linewidth}%
     \begin{tcolorbox}[
       enhanced, blanker, borderline={.5pt}{0pt}{cfnavy},
       arc=0pt,
       left=4pt, right=4pt, top=2pt, bottom=2pt,
       before skip=0pt, after skip=0pt,
-      fontupper=\scriptsize
+      fontupper=\scriptsize, halign=left
     ]#1\end{tcolorbox}%
-  \end{minipage}\par%
+  \end{minipage}\hfill\null\par%
 }
 \newcommand{\switchparity}{\textbf{Parity.} A monochromatic edge has an even number of switches in each gap.\par}
 \newcommand{\Xone}{\textbf{X1.} Every edge $\vec f$ has exactly one or two switches in $c_X$.\par}
 \newcommand{\Xtwo}{\textbf{X2.} If $\vec f$ contains $x_j,x_{j+1}$, then $x_{j+1}=f_4^-$.\par}
 \newcommand{\Xthree}{\textbf{X3.} Every monochromatic edge in $c_X$ is a $(3,4)$-edge.\par}
-\newcommand{\Yone}{\textbf{Y1.} $c_t$ is 2-well-spread: every edge has one or two switches.\par}
+\newcommand{\Yone}{\textbf{Y1.} every edge has one or two switches in $c_{Y,t}$.\par}
 \newcommand{\Ytwo}{\textbf{Y2.} $x_{j-1}<y_j(t)\leq x_j$.\par}
-\newcommand{\Ythree}{\textbf{Y3.} For $\vec f\in E(H)$, $f_1<x_j\Rightarrow f_2<y_{j+1}(t)$.\par}
-\newcommand{\Yfour}{\textbf{Y4.} There are no $(1,2)$-edges in $c_t$.\par}
-\newcommand{\Yfive}{\textbf{Y5.} If $\vec f$ is a $(2,3)$-edge with switches $y_{j-1}(t),y_j(t)$, then $f_3^-=y_j(t)<x_j$, and some $\vec g\in E(H)$ has $y_j(t)=g_3^-$ and $y_{j+1}(t)<g_4$.\par}
+\newcommand{\Ythree}{\textbf{Y3.} For $\vec e\in E(H)$, $e_1<x_j\Rightarrow e_2<y_{j+1}(t)$.\par}
+\newcommand{\Yfour}{\textbf{Y4.} There are no $(1,2)$-edges in $c_{Y,t}$.\par}
+\newcommand{\Yfive}{\textbf{Y5.} If $\vec e$ is a $(2,3)$-edge with switches $y_{j-1}(t),y_j(t)$, then $e_3^-=y_j(t)<x_j$, and some $\vec g\in E(H)$ has $y_j(t)=g_3^-$ and $y_{j+1}(t)<g_4$.\par}
 \newcommand{\Ysix}{\textbf{Y6.} Every monochromatic edge in $c_Y$ is a $(2,3)$-edge.\par}
-\newcommand{\Zone}{\textbf{Z1.} $\hat c_t$ is 3-well-spread: every edge has at most three switches.\par}
-\newcommand{\Ztwo}{\textbf{Z2.} $M(\hat c_t)\subsetneq M(\hat c_{t-1})$ for $t\geq1$.\par}
-\newcommand{\Zthree}{\textbf{Z3.} Every monochromatic edge in $\hat c_t$ is a $(2,3)$-edge, with $z<\vec f$ for all $z\in Z(t)$.\par}
+\newcommand{\Zone}{\textbf{Z1.} $c_{Z,t}$ is 3-well-spread: every edge has at most three switches.\par}
+\newcommand{\Ztwo}{\textbf{Z2.} $M(c_{Z,t})\subsetneq M(c_{Z,t-1})$ for $t\geq1$.\par}
+\newcommand{\Zthree}{\textbf{Z3.} Every monochromatic edge in $c_{Z,t}$ is a $(2,3)$-edge, with $z<\vec f$ for all $z\in Z(t)$.\par}
 \newcommand{\Zfour}{\textbf{Z4.} For each $z\in Z(t)$, some $j\in[s]$ and $v\in[n]$ satisfy $y_j=v^-$ and $z=v^+\leq x_j$.\par}
 
 \renewenvironment{example}[1]
@@ -132,6 +135,7 @@
 \setbeamertemplate{footline}{}
 
 \setbeamertemplate{frametitle}[default][left, leftskip=.25cm] {}
+\setbeamerfont{frametitle}{size=\large}
 \addtobeamertemplate{title page}{}{%
   \vspace{1em}
   \begin{center}

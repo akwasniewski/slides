@@ -83,7 +83,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]{Z1--Z2: base case at $\hat c_0=c_Y$}
+\begin{frame}[t]{Z1--Z2: base case at $c_{Z,0}=c_Y$}
   \small\setstretch{1.05}
   \claimreminder{\Yone}
   \begin{lemma}{Claim}\Zone\Ztwo\end{lemma}
@@ -103,7 +103,7 @@ bars={4,8},bar labels={4/$y_{j-1}$,8/$y_j$}]{13}
   \end{proof}
 \end{frame}
 
-\begin{frame}[t]{Z3--Z4: base case at $\hat c_0=c_Y$}
+\begin{frame}[t]{Z3--Z4: base case at $c_{Z,0}=c_Y$}
   \small\setstretch{1.05}
   \claimreminder{\Ysix}
   \begin{lemma}{Claim}\Zthree\Zfour\end{lemma}
@@ -124,7 +124,7 @@ bars={4,8},bar labels={4/$y_{j-1}$,8/$y_j$}]{13}
 % Inductive step of Lemma 3.3 in Smith.
 \begin{frame}[t]{Z1--Z4: insert the next switch}
   \claimreminder{\Yfive}
-  At time $t$, we have $\hat c_t$.
+  At time $t$, we have $c_{Z,t}$.
   Choose a minimal $(2,3)$-edge $\vec e$ and set $\hat z=e_3^+$.
 
   \begin{center}
@@ -309,7 +309,7 @@ bars={4,7,8,11/dashed},bar labels={4/$y_{i-1}$,7/$y_i=v^-$,8/\raisebox{-3.5mm}{$
 \begin{frame}[t]{Z1--Z4: termination gives a proper 2-colouring}
   \small\setstretch{1.05}
   \claimreminder{\Ztwo\Zthree}
-  \begin{lemma}{Claim}$c_{Y\cup Z}$ is a proper 2-colouring.\end{lemma}
+  \begin{lemma}{Claim}$c_Z$ is a proper 2-colouring.\end{lemma}
   \begin{proof}{Proof}
     \begin{itemize}
       \item<1-> Each step inserts a distinct wall, so at most $n-1$ insertions are possible.

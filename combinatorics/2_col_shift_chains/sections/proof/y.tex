@@ -1,3 +1,84 @@
+% Examples shared by the Y statements and their individual proofs.
+\newcommand{\Yexampleone}{%
+\textbf{Y1: one or two switches}\par\medskip
+\begin{shiftchain}[
+  column sep=5mm, row sep=6mm, dot radius=3pt,
+  labels=false, label font=\scriptsize,
+  bars={3,7}, bar labels={3/$y_j$,7/$y_{j+1}$},
+]{8}
+  \shiftvertexcolor{1,2,8}{cfred}
+  \shiftvertexcolor{4,5,6}{cfnavy}
+  \shiftedge{1,2,4,5}[$\vec e$]
+  \shiftedge{2,4,6,8}[$\vec g$]
+\end{shiftchain}
+\par\medskip
+$\vec e$: one switch.\quad $\vec g$: two switches.
+}
+
+\newcommand{\Yexampletwo}{%
+\textbf{Y2: each switch stays in its interval}\par\medskip
+\begin{shiftchain}[
+  column sep=5mm, row sep=6mm, dot radius=3pt,
+  labels=false, label font=\scriptsize,
+  bars={2/dashed,5,8/dashed},
+  bar labels={2/$x_{j-1}$,5/$y_j(t)$,8/$x_j$},
+]{9}
+  \shiftedge{3/cfred,5/cfred,7/cfnavy,9/cfnavy}[$\vec e$]
+\end{shiftchain}
+\par\medskip
+Dashed bars: original positions.
+}
+
+\newcommand{\Yexamplethree}{%
+\textbf{Y3: the next switch is past $e_2$}\par\medskip
+\begin{shiftchain}[
+  column sep=5mm, row sep=6mm, dot radius=3pt,
+  labels=false, label font=\scriptsize,
+  bars={3,5/dashed,7},
+  bar labels={3/$y_j(t)$,5/$x_j$,7/$y_{j+1}(t)$},
+]{9}
+  \foreach \pos/\lab in {1/e_1,4/e_2,6/e_3,9/e_4}
+    \node at (\pos,0) {$\lab$};
+  \shiftedge{1/cfred,4/cfnavy,6/cfnavy,9/cfred}[$\vec e$]
+\end{shiftchain}
+\par\medskip
+$e_1<x_j\quad\Longrightarrow\quad e_2<y_{j+1}(t)$.
+}
+
+\newcommand{\Yexamplefour}{%
+\textbf{Y4: forbidden pattern}\par\medskip
+\begin{shiftchain}[
+  column sep=5mm, row sep=6mm, dot radius=3pt,
+  labels=false, label font=\scriptsize,
+  bars={2,4}, bar labels={2/$y_j$,4/$y_{j+1}$},
+]{9}
+  \foreach \pos/\lab in {1/e_1,5/e_2,7/e_3,9/e_4}
+    \node at (\pos,0) {$\lab$};
+  \shiftedge[cfred]{1,5,7,9}[$\vec e$]
+\end{shiftchain}
+\par\medskip
+\textcolor{cfred}{No two switches in $(e_1,e_2)$.}
+}
+
+\newcommand{\Yexamplefive}{%
+\textbf{Y5: a witness for a $(2,3)$-edge}\par\medskip
+\begin{shiftchain}[
+  column sep=4mm, row sep=7mm, dot radius=3pt,
+  labels=false, label font=\scriptsize,
+  bars={3,6,8/dashed,10},
+  bar labels={3/$y_{j-1}$,6/$y_j$,8/$x_j$,10/$y_{j+1}$},
+]{12}
+  \node at (7,0) {$e_3=g_3$};
+  \shiftvertexcolor{1,2,7,9}{cfred}
+  \shiftvertexcolor{4,5,12}{cfnavy}
+  \shiftedge{1,2,7,9}[$\vec e$]
+  \shiftedge{4,5,7,12}[$\vec g$]
+\end{shiftchain}
+\par\medskip
+$e_3^-=y_j=g_3^-<x_j$\par\smallskip
+$y_{j+1}<g_4$.
+}
+
 \begin{frame}[t]{Stage Y: recap}
   \small\setstretch{1.0}
   \claimreminder{\Xthree}
@@ -64,7 +145,7 @@
 \begin{frame}[t]{Y1--Y6: what Stage Y preserves and achieves}
   {\normalfont\small\color{black}\setstretch{1}
     $t$: number of Stage Y switch moves performed\par
-    $c_{Y,t}=c_t$: colouring after $t$ moves\par
+    $c_{Y,t}$: colouring after $t$ moves\par
     $c_{Y,0}=c_X$, \quad $c_{Y,T}=c_Y$ \quad ($T$: total number of moves)\par
     Induction on $t$: Y1--Y5 preserved; Y6 at termination\par
   }
@@ -85,81 +166,11 @@
       \centering\small\setstretch{1}
       \begin{overlayarea}{\linewidth}{5.5cm}
         \centering
-        \only<1>{
-          \textbf{Y1: one or two switches}\par\medskip
-          \begin{shiftchain}[
-            column sep=5mm, row sep=6mm, dot radius=3pt,
-            labels=false, label font=\scriptsize,
-            bars={3,7}, bar labels={3/$y_j$,7/$y_{j+1}$},
-          ]{8}
-            \shiftvertexcolor{1,2,8}{cfred}
-            \shiftvertexcolor{4,5,6}{cfnavy}
-            \shiftedge{1,2,4,5}[$\vec f$]
-            \shiftedge{2,4,6,8}[$\vec g$]
-          \end{shiftchain}
-          \par\medskip
-          $\vec f$: one bar.\quad $\vec g$: two bars.
-        }
-        \only<2>{
-          \textbf{Y2: each switch stays in its interval}\par\medskip
-          \begin{shiftchain}[
-            column sep=5mm, row sep=6mm, dot radius=3pt,
-            labels=false, label font=\scriptsize,
-            bars={2/dashed,5,8/dashed},
-            bar labels={2/$x_{j-1}$,5/$y_j(t)$,8/$x_j$},
-          ]{9}
-            \shiftedge{3/cfred,5/cfred,7/cfnavy,9/cfnavy}[$\vec f$]
-          \end{shiftchain}
-          \par\medskip
-          Dashed bars: original positions.
-        }
-        \only<3>{
-          \textbf{Y3: the next switch is past $f_2$}\par\medskip
-          \begin{shiftchain}[
-            column sep=5mm, row sep=6mm, dot radius=3pt,
-            labels=false, label font=\scriptsize,
-            bars={3,5/dashed,7},
-            bar labels={3/$y_j(t)$,5/$x_j$,7/$y_{j+1}(t)$},
-          ]{9}
-            \foreach \pos/\lab in {1/f_1,4/f_2,6/f_3,9/f_4}
-              \node at (\pos,0) {$\lab$};
-            \shiftedge{1/cfred,4/cfnavy,6/cfnavy,9/cfred}[$\vec f$]
-          \end{shiftchain}
-          \par\medskip
-          $f_1<x_j\quad\Longrightarrow\quad f_2<y_{j+1}(t)$.
-        }
-        \only<4>{
-          \textbf{Y4: forbidden pattern}\par\medskip
-          \begin{shiftchain}[
-            column sep=5mm, row sep=6mm, dot radius=3pt,
-            labels=false, label font=\scriptsize,
-            bars={2,4}, bar labels={2/$y_j$,4/$y_{j+1}$},
-          ]{9}
-            \foreach \pos/\lab in {1/f_1,5/f_2,7/f_3,9/f_4}
-              \node at (\pos,0) {$\lab$};
-            \shiftedge[cfred]{1,5,7,9}[$\vec f$]
-          \end{shiftchain}
-          \par\medskip
-          \textcolor{cfred}{No two switches in $(f_1,f_2)$.}
-        }
-        \only<5>{
-          \textbf{Y5: a witness for a $(2,3)$-edge}\par\medskip
-          \begin{shiftchain}[
-            column sep=4mm, row sep=7mm, dot radius=3pt,
-            labels=false, label font=\scriptsize,
-            bars={3,6,8/dashed,10},
-            bar labels={3/$y_{j-1}$,6/$y_j$,8/$x_j$,10/$y_{j+1}$},
-          ]{12}
-            \node at (7,0) {$f_3=g_3$};
-            \shiftvertexcolor{1,2,7,9}{cfred}
-            \shiftvertexcolor{4,5,12}{cfnavy}
-            \shiftedge{1,2,7,9}[$\vec f$]
-            \shiftedge{4,5,7,12}[$\vec g$]
-          \end{shiftchain}
-          \par\medskip
-          $f_3^-=y_j=g_3^-<x_j$\par\smallskip
-          $y_{j+1}<g_4$.
-        }
+        \only<1>{\Yexampleone}
+        \only<2>{\Yexampletwo}
+        \only<3>{\Yexamplethree}
+        \only<4>{\Yexamplefour}
+        \only<5>{\Yexamplefive}
         \only<6>{
           \textbf{Y6: the final monochromatic pattern}\par\medskip
           \begin{shiftchain}[
@@ -167,71 +178,23 @@
             labels=false, label font=\scriptsize,
             bars={3,6}, bar labels={3/$y_{j-1}$,6/$y_j$},
           ]{9}
-            \foreach \pos/\lab in {1/f_1,2/f_2,7/f_3,9/f_4}
+            \foreach \pos/\lab in {1/e_1,2/e_2,7/e_3,9/e_4}
               \node at (\pos,0) {$\lab$};
-            \shiftedge[cfred]{1,2,7,9}[$\vec f$]
+            \shiftedge[cfred]{1,2,7,9}[$\vec e$]
           \end{shiftchain}
           \par\medskip
-          In $c_Y$: both switches in $(f_2,f_3)$.
+          In $c_Y$: both switches in $(e_2,e_3)$.
         }
       \end{overlayarea}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}[t]{Y1, Y4: base case from X1 and X3}
-  \claimreminder{\Xone\Xthree}
-  We prove Y1--Y5 by induction on $t$.
-
-  \begin{lemma}{Claim}
-    \Yone\Yfour
-  \end{lemma}
-
-  \begin{proof}{Proof}
-    \begin{itemize}
-      \item<1-> X1 gives Y1 at $t=0$.
-      \item<2-> X3 gives Y4 at $t=0$.
-    \end{itemize}
-  \end{proof}
-\end{frame}
-
-\begin{frame}[t]{Y2--Y3: base case from switch positions}
-  \small\setstretch{1.05}
-  \claimreminder{\Xtwo}
-  \begin{lemma}{Claim}\Ytwo\Ythree\end{lemma}
-  \begin{proof}{Proof}
-    \begin{itemize}
-      \item<1-> Y2: $y_j(0)=x_j$. For Y3, suppose $f_1<x_j<x_{j+1}\leq f_2$.
-      \item<2-> Then $\vec f$ contains both switches. X2 forces $x_{j+1}=f_4^->f_2$: impossible.
-    \end{itemize}
-\only<1->{\begin{center}
-\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
-bars={3,6,12/dashed},bar labels={3/$x_j$,6/$x_{j+1}$,12/$f_4^-$}]{16}
-\shiftedge{2/cfred,8/cfred,10/cfred,13/cfred}[$\vec f$]
-\end{shiftchain}
-\par\smallskip{\scriptsize Hypothetical $(1,2)$-edge: X2 would put the second bar just before $f_4$.}
-\end{center}}
-  \end{proof}
-\end{frame}
-
-\begin{frame}[t]{Y5: base case from X3}
-  \claimreminder{\Xthree}
-
-  \begin{lemma}{Claim}
-    \Yfive
-  \end{lemma}
-
-  \begin{proof}{Proof}
-    \begin{itemize}
-      \item<1-> X3 gives no $(2,3)$-edges at $t=0$,
-        so Y5 holds vacuously.
-    \end{itemize}
-  \end{proof}
-\end{frame}
 % Inductive step of Lemma 3.2 in Smith.
 \begin{frame}{Y1--Y5: one Stage Y step}
-  At time $t$, choose a maximal $(3,4)$-edge $\vec e$.
-  Move only $y_i(t)$, setting $y_i(t+1)=e_3^-$.
+  Induction on $t$: assume Y1--Y5 at time $t$.\par
+  Choose a maximal $(3,4)$-edge $\vec f$.
+  Move only $y_i(t)$, setting $y_i(t+1)=f_3^-$.\par
 
   \begin{center}
     \only<1>{
@@ -239,9 +202,9 @@ bars={3,6,12/dashed},bar labels={3/$x_j$,6/$x_{j+1}$,12/$f_4^-$}]{16}
         column sep=6mm, row sep=5mm, dot radius=3.0pt,
         label font=\scriptsize,
         bars={0,8,10,12},
-        bar labels={0/$y_{i-1}$,8/$y_i(t)$,10/$y_{i+1}$,12/$y_{i+2}$},
+        bar labels={0/$y_{i-1}(t)$,8/\raisebox{-3.5mm}{$y_i(t)$},10/$y_{i+1}(t)$,12/$y_{i+2}(t)$},
       ]{12}
-        \shiftedge{2/cfred,4/cfred,7/cfred,12/cfred}[$\vec e$]
+        \shiftedge{2/cfred,4/cfred,7/cfred,12/cfred}[$\vec f$]
       \end{shiftchain}
     }
     \only<2->{
@@ -249,281 +212,418 @@ bars={3,6,12/dashed},bar labels={3/$x_j$,6/$x_{j+1}$,12/$f_4^-$}]{16}
         column sep=6mm, row sep=5mm, dot radius=3.0pt,
         label font=\scriptsize,
         bars={0,6,8/dashed,10,12},
-        bar labels={0/$y_{i-1}$,6/$e_3^-$,8/$y_i(t)$,10/$y_{i+1}$,12/$y_{i+2}$},
+        bar labels={0/$y_{i-1}(t)$,6/$f_3^-$,8/\raisebox{-3.5mm}{$y_i(t)$},10/$y_{i+1}(t)$,12/$y_{i+2}(t)$},
       ]{12}
-        \shiftedge{2/cfred,4/cfred,7/cfnavy,12/cfred}[$\vec e$]
+        \shiftedge{2/cfred,4/cfred,7/cfnavy,12/cfred}[$\vec f$]
       \end{shiftchain}
     }
   \end{center}
 
   \begin{itemize}
-    \item<1-> $y_{i-1}(t)<e_1<e_3<y_i(t)<y_{i+1}(t)<e_4<y_{i+2}(t)$.
-    \item<2-> $y_{i-1}(t)<e_1<e_2<y_i(t+1)=e_3^-<e_3<y_{i+1}(t)<e_4$.
+    \item<1-> $y_{i-1}(t)<f_1<f_3<y_i(t)<y_{i+1}(t)<f_4<y_{i+2}(t)$.
+    \item<2-> $y_{i-1}(t)<f_1<f_2<y_i(t+1)=f_3^-<f_3<y_{i+1}(t)<f_4$.
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t]{Y1--Y5: the moved edge starts after $x_{i-1}$}
+\begin{frame}[t]{Auxillary claim: the moved edge starts after $x_{i-1}$}
   \claimreminder{\Ytwo\Xtwo}
 
   \begin{lemma}{Claim}
-    $x_{i-1}<e_1$ (automatic for $i=1$).
+    $x_{i-1}<f_1$
   \end{lemma}
 
   \begin{proof}{Proof}
     \begin{itemize}
-      \item<1-> For $i\geq2$, suppose $e_1<x_{i-1}$.
-      \item<2-> Y2 gives $x_i<y_{i+1}(t)<e_4$,
-        so $\vec e$ contains $x_{i-1},x_i$.
-      \item<3-> X2 forces $x_i=e_4^-$, contradicting
-        $x_i<y_{i+1}(t)<e_4$.
+      \item<1-> Suppose $f_1<x_{i-1}$.
+      \item<2-> Y2 gives $x_i<y_{i+1}(t)<f_4$,
+        so $\vec f$ contains $x_{i-1},x_i$.
+      \item<3-> X2 forces $x_i=f_4^-$, contradicting
+        $x_i<y_{i+1}(t)<f_4$.
     \end{itemize}
   \end{proof}
 
   \begin{center}
-    \only<2>{
+    \only<-2>{
       \begin{shiftchain}[
         column sep=6mm, row sep=5mm, dot radius=3.0pt,
         labels=false, label font=\scriptsize,
-        bars={3/dashed,9,11/dashed,13},
-        bar labels={3/$x_{i-1}$,9/$y_i$,11/$x_i$,13/$y_{i+1}$},
+        bars={3/dashed,7,9/dashed,11/dashed,13},
+        bar labels={3/$x_{i-1}$,7/$y_i(t+1)$,9/\raisebox{-3.5mm}{$y_i(t)$},11/$x_i$,13/$y_{i+1}(t)$},
       ]{16}
-        \shiftedge{2/cfred,5/cfred,8/cfred,16/cfred}[$\vec e$]
+        \shiftedge{2/cfred,5/cfred,8/cfnavy,16/cfred}[$\vec f$]
       \end{shiftchain}
     }
     \only<3->{
       \begin{shiftchain}[
         column sep=6mm, row sep=5mm, dot radius=3.0pt,
         labels=false, label font=\scriptsize,
-        bars={3/dashed,9,11/dashed,13,15/densely dotted},
-        bar labels={3/$x_{i-1}$,9/$y_i$,11/$x_i$,13/$y_{i+1}$,15/$e_4^-$},
+        bars={3/dashed,7,9/dashed,11/dashed,13,15/densely dotted},
+        bar labels={3/$x_{i-1}$,7/$y_i(t+1)$,9/\raisebox{-3.5mm}{$y_i(t)$},11/$x_i$,13/$y_{i+1}(t)$,15/$f_4^-$},
       ]{16}
-        \shiftedge{2/cfred,5/cfred,8/cfred,16/cfred}[$\vec e$]
+        \shiftedge{2/cfred,5/cfred,8/cfnavy,16/cfred}[$\vec f$]
       \end{shiftchain}
     }
   \end{center}
 \end{frame}
 
-\begin{frame}[t]{Y1: no edge loses its last switch}
-  \begin{lemma}{Claim}
-    \Yone
-  \end{lemma}
-  \begin{proof}{Proof}
-  \begin{itemize}
-    \item<1-> Suppose $\vec f$ has no switch in $c_{t+1}$.
-      Since Y1 holds in $c_t$, its only old switch was $y_i(t)$.
-    \item<2-> Hence $y_i(t+1)<f_1<y_i(t)<f_4<y_{i+1}(t)$.
-    \item<3-> But $e_1<y_i(t+1)<f_1$ and
-      $f_4<y_{i+1}(t)<e_4$.
-      Thus $e_1<f_1$ and $f_4<e_4$: $\vec e,\vec f$
-      are incomparable.
-  \end{itemize}
-  \end{proof}
-  \only<3->{
-    \begin{center}
-      \begin{shiftchain}[
-        column sep=6mm, row sep=5mm, dot radius=3.0pt,
-        label font=\scriptsize,
-        bars={6,9/dashed,11},
-        bar labels={6/$y_i(t+1)$,9/$y_i(t)$,11/$y_{i+1}$},
-      ]{12}
-        \shiftedge{2/cfred,4/cfred,7/cfnavy,12/cfred}[$\vec e$]
-        \shiftedge{7/cfnavy,8/cfnavy,9/cfnavy,10/cfnavy}[$\vec f$]
-      \end{shiftchain}
-    \end{center}
-  }
-\end{frame}
 
-\begin{frame}[t]{Y1: no edge gains a third switch}
-  \claimreminder{\Ytwo\Xtwo\textbf{Auxiliary claim.} $x_{i-1}<e_1$.}
-  \begin{lemma}{Claim}
-    \Yone
-  \end{lemma}
+% Prove each invariant from its base case and inductive step.
+% Y5 is split into separate frames for the possible switch pairs.
+\begin{frame}[t]{Y1: every edge keeps one or two switches}
+  \footnotesize\setstretch{1}
+  \tcbset{before skip=0pt,after skip=0pt}
+  \claimreminder{\Xone\Xtwo\Ytwo
+    \textbf{Auxiliary claim.} $x_{i-1}<f_1$.}
+  \begin{lemma}{Claim}\Yone\end{lemma}
   \begin{proof}{Proof}
-  \small
-  \begin{itemize}
-    \item<1-> Suppose $\vec f$ has three switches in $c_{t+1}$.
-      The new one is $y_i(t+1)=e_3^-$.
-    \item<2-> We go right to left, thus old switches are
-      $y_{i-2},y_{i-1}$; Y2 gives $f_1<y_{i-2}\leq x_{i-2}<y_{i-1}\leq x_{i-1}$.
-    \item<3-> Since $x_{i-1}<e_1<e_3\leq f_4$, $\vec f$ contains
-      $x_{i-2},x_{i-1}$. X2 gives $x_{i-1}=f_4^->e_1$:
-      a contradiction.
-  \end{itemize}
-  \only<2->{
-    \begin{center}
-      \begin{shiftchain}[
-        column sep=5mm, row sep=3mm, dot radius=3.0pt,
-        labels=false, label font=\tiny,
-        bars={2,3/dashed,5,6/dashed,9,12/dashed,13},
-        bar labels={3/$x_{i-2}$,6/$x_{i-1}$,9/$e_3^-=f_4^-$},
-      ]{14}
-        \shiftedge{1/cfred,4/cfnavy,7/cfred,10/cfnavy}[$\vec f$]
-        \shiftedge{7/cfred,8/cfred,10/cfnavy,14/cfred}[$\vec e$]
-      \end{shiftchain}
-    \end{center}
-  }
-  \end{proof}
-\end{frame}
-
-\begin{frame}[t]{Y2--Y3: positions survive the move}
-  \small\setstretch{1.05}
-  \claimreminder{\textbf{Auxiliary claim.} $x_{i-1}<e_1$.}
-  \begin{lemma}{Claim}\Ytwo\Ythree\end{lemma}
-  \begin{proof}{Proof}
-    \begin{itemize}
-      \item<1-> Y2: $x_{i-1}<e_1<y_i(t+1)=e_3^-<y_i(t)\leq x_i$.
-      \item<2-> Y3: only $j=i-1$ is new. If $f_1<x_{i-1}<e_1$, then $\vec f<\vec e$.
-      \item<3-> Hence $f_2\leq e_2<y_i(t+1)$.
+    \begin{itemize}[itemsep=0pt,topsep=0pt,parsep=0pt]
+      \item<1-> \textbf{Base.} $c_{Y,0}=c_X$: X1.
+      \item<2-> \textbf{Step: no zero.} Losing the only bar gives
+        $y_i(t+1)<e_1<y_i(t)<e_4<y_{i+1}(t)$.
+        Thus $f_1<e_1$ but $e_4<f_4$: incomparable.
+        \only<2->{%
+          \par\vspace{-1pt}
+          {\centering
+            \begin{shiftchain}[
+              column sep=5.5mm, row sep=3.5mm, dot radius=2.7pt,
+              labels=false, label font=\scriptsize,
+              tikz options={scale=0.9,transform shape},
+              bars={6,9/dashed,11},
+              bar labels={6/$y_i(t+1)$,9/\raisebox{-3.5mm}{$y_i(t)$},11/$y_{i+1}(t)$},
+            ]{12}
+              \shiftedge{2/cfred,4/cfred,7/cfnavy,12/cfred}[$\vec f$]
+              \shiftedge{7/cfnavy,8/cfnavy,9/cfnavy,10/cfnavy}[$\vec e$]
+            \end{shiftchain}
+          \par}
+        }
+      \item<3-> \textbf{No third bar.} A new third bar $y_i(t+1)=f_3^-$
+        joins $y_{i-2}(t),y_{i-1}(t)$. By Y2,
+        $e_1<y_{i-2}(t)\leq x_{i-2}<y_{i-1}(t)\leq x_{i-1}$.
+        \only<3->{%
+          \par\vspace{-1pt}
+          {\centering
+            \begin{shiftchain}[
+              column sep=5.5mm, row sep=3.5mm, dot radius=2.7pt,
+              labels=false, label font=\scriptsize,
+              tikz options={scale=0.9,transform shape},
+              bars={2,5,9,12/dashed,13},
+              bar labels={2/$y_{i-2}(t)$,5/$y_{i-1}(t)$,9/$y_i(t+1)$,12/\raisebox{-3.5mm}{$y_i(t)$}},
+            ]{14}
+              \shiftedge{7/cfred,8/cfred,10/cfnavy,14/cfred}[$\vec f$]
+              \shiftedge{1/cfred,4/cfnavy,7/cfred,10/cfnavy}[$\vec e$]
+            \end{shiftchain}
+          \par}
+        }
+      \item<4-> Since $x_{i-1}<f_1<f_3\leq e_4$, X2 gives
+        $x_{i-1}=e_4^->f_1$: a contradiction.
     \end{itemize}
-\only<2->{\begin{center}
-\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
-bars={3/dashed,8,11/dashed,14/dashed},bar labels={3/$x_{i-1}$,8/$e_3^-$,11/$y_i(t)$,14/$x_i$}]{16}
-\shiftedge{1/cfred,5/cfred,8/cfred,13/cfnavy}[$\vec f$]
-\shiftedge{4/cfred,6/cfred,9/cfnavy,16/cfnavy}[$\vec e$]
-\end{shiftchain}
-\par\smallskip{\scriptsize $f_1<e_1\quad\Longrightarrow\quad f_2\leq e_2<e_3^-$; dashed bars mark reference positions.}
-\end{center}}
   \end{proof}
+\end{frame}
+
+\begin{frame}[t]{Y2: each switch stays in its interval}
+  \footnotesize\setstretch{1}
+  \tcbset{before skip=4pt,after skip=4pt}
+  \claimreminder{\textbf{Auxiliary claim.} $x_{i-1}<f_1$.}
+  \begin{lemma}{Claim}\Ytwo\end{lemma}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.61\textwidth}
+      \begin{proof}{Proof}
+        \begin{itemize}[itemsep=5pt]
+          \item<1-> \textbf{Base.} $y_j(0)=x_j$.
+          \item<2-> \textbf{Step.} Only $y_i(t)$ moves, every other switch keeps it position:
+          \item<3-> For $y_i(t)$ we have:
+            \[
+              x_{i-1}<f_1<f_3^-<y_i(t)\leq x_i.
+            \]
+            \only<3->{%
+              \begin{center}
+                \scriptsize
+                \begin{shiftchain}[
+                  column sep=3mm, row sep=3.5mm, dot radius=2.5pt,
+                  labels=false, label font=\tiny,
+                  bars={2/dashed,7,10/dashed,12/dashed,14},
+                  bar labels={2/$x_{i-1}$,7/$y_i(t+1)$,10/\raisebox{-3.5mm}{$y_i(t)$},12/$x_i$},
+                ]{16}
+                  \shiftedge{3/cfred,5/cfred,8/cfnavy,16/cfred}[$\vec f$]
+                \end{shiftchain}
+                \par\smallskip
+                $x_{i-1}<y_i(t+1)<y_i(t)\leq x_i$.
+              \end{center}
+            }
+        \end{itemize}
+      \end{proof}
+    \end{column}
+    \begin{column}{0.36\textwidth}
+      \centering\scriptsize\setstretch{1}
+      {\let\medskip\smallskip \Yexampletwo}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Y3: the next switch stays past $e_2$}
+  \footnotesize\setstretch{1}
+  \tcbset{before skip=4pt,after skip=4pt}
+  \claimreminder{\Xtwo
+    \textbf{Auxiliary claim.} $x_{i-1}<f_1$.}
+  \begin{lemma}{Claim}\Ythree\end{lemma}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.61\textwidth}
+      \begin{proof}{Proof}
+        \begin{itemize}[itemsep=5pt]
+          \item<1-> \textbf{Base.} If $e_1<x_j<x_{j+1}\leq e_2$,
+            then $\vec e$ contains both original switches.
+            \only<1->{%
+              \par\smallskip
+              {\centering\scriptsize
+                \begin{shiftchain}[
+                  column sep=4.5mm, row sep=3.5mm, dot radius=2.5pt,
+                  labels=false, label font=\tiny,
+                  bars={2,4,9/densely dotted},
+                  bar labels={2/$x_j$,4/$x_{j+1}$,9/$e_4^-$},
+                ]{10}
+                \shiftedge{1/cfred,6/cfred,8/cfred,10/cfred}[$\vec e$]
+                \end{shiftchain}
+                \par\smallskip
+                X2 requires $x_{j+1}=e_4^->e_2$.
+                \par
+              }
+            }
+          \item<2-> \textbf{Step.} Only $j=i-1$ changes.
+            If $e_1<x_{i-1}<f_1$, comparability gives $\vec e<\vec f$.
+            \only<2->{%
+              \par\smallskip
+              {\centering\scriptsize
+                \begin{shiftchain}[
+                  column sep=3.8mm, row sep=3.5mm, dot radius=2.5pt,
+                  labels=false, label font=\tiny,
+                  bars={2/dashed,7,9/dashed,11},
+                  bar labels={2/$x_{i-1}$,7/$y_i(t+1)$,9/\raisebox{-3.5mm}{$y_i(t)$}},
+                ]{12}
+                \shiftedge{3/cfred,5/cfred,8/cfnavy,12/cfred}[$\vec f$]
+                \shiftedge{1/cfred,4/cfred,7/cfred,11/cfnavy}[$\vec e$]
+                \end{shiftchain}
+                \par\smallskip
+                $e_2\leq f_2<f_3^-=y_i(t+1)$.
+                \par
+              }
+            }
+        \end{itemize}
+      \end{proof}
+    \end{column}
+    \begin{column}{0.36\textwidth}
+      \centering\scriptsize\setstretch{1}
+      {\let\medskip\smallskip \Yexamplethree}
+    \end{column}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[t]{Y4: no $(1,2)$-edge appears}
-  \small\setstretch{1.05}
-  \claimreminder{\Yone\Yfour}
+  \footnotesize\setstretch{1}
+  \tcbset{before skip=4pt,after skip=4pt}
+  \claimreminder{\Xthree\Yone}
+  \begin{lemma}{Claim}\Yfour\end{lemma}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.61\textwidth}
+      \begin{proof}{Proof}
+        \begin{itemize}[itemsep=5pt]
+          \item<1-> \textbf{Base.} X3 excludes $(1,2)$-edges in $c_{Y,0}$.
+          \item<2-> \textbf{Step.} Suppose $e_1<y_j(t+1)<y_{j+1}(t+1)<e_2$.
+          \item<3-> Case when none of the switches is the moved switch trivial.
+          \item<4-> If $j=i-1$,
+            \vspace{-1em}
+            \[
+              e_1<y_{i-1}(t)<f_1<f_2<y_i(t+1)=f_3^-<e_2.
+            \]
+            So $e_1<f_1$ but $f_2<e_2$: incomparable.
+          \item<5-> If $j=i$,
+            \vspace{-1em}
+            \[
+              e_1<y_i(t+1)<y_i(t)<y_{i+1}(t)<e_2.
+            \]
+            By Y1, a $(1,2)$-edge already at time $t$:
+            contrary to induction.
+        \end{itemize}
+      \end{proof}
+    \end{column}
+    \begin{column}{0.36\textwidth}
+      \centering\scriptsize\setstretch{1}
+      % Reveal the two labelled cases alongside their proof steps.
+      \begin{overlayarea}{\linewidth}{4.2cm}
+        \centering
+        \uncover<4->{%
+          \textbf{Case $j=i-1$}\par\medskip
+          \begin{shiftchain}[
+            column sep=3.4mm, row sep=3.5mm, dot radius=2.5pt,
+            labels=false, label font=\tiny,
+            bars={3,7,9/dashed,13},
+            bar labels={3/$y_{i-1}(t)$,7/$y_i(t+1)$,9/\raisebox{-3.5mm}{$y_i(t)$},13/$y_{i+1}(t)$},
+          ]{14}
+          \shiftedge{4/cfnavy,6/cfnavy,8/cfred,14/cfnavy}[$\vec f$]
+          \shiftedge{2/cfred,10/cfred,11/cfred,12/cfred}[$\vec e$]
+          \end{shiftchain}
+          \par\smallskip
+          $e_1<f_1$, but $f_2<e_2$.
+        }
+        \par\bigskip
+        \uncover<5->{%
+          \textbf{Case $j=i$}\par\medskip
+          \begin{shiftchain}[
+            column sep=3.4mm, row sep=3.5mm, dot radius=2.5pt,
+            labels=false, label font=\tiny,
+            bars={4,7/dashed,9},
+            bar labels={4/$y_i(t+1)$,7/\raisebox{-3.5mm}{$y_i(t)$},9/$y_{i+1}(t)$},
+          ]{14}
+          \shiftedge{2/cfred,10/cfred,12/cfred,14/cfred}[$\vec e$]
+          \end{shiftchain}
+          \par\smallskip
+          Both old switches were in $(e_1,e_2)$.
+        }
+      \end{overlayarea}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Y5: unchanged switches keep their witness}
+  \footnotesize\setstretch{1}
+  \tcbset{before skip=4pt,after skip=4pt}
+  \claimreminder{\Xthree\Yone\Yfive}
   \begin{lemma}{Claim}
-    \Yfour
+    Y5 holds at $t=0$ and is preserved when neither switch of $\vec e$ moves.
   \end{lemma}
   \begin{proof}{Proof}
-  \begin{itemize}
-    \item<1-> Suppose $\vec f$ has two switches
-      $y_j(t+1),y_{j+1}(t+1)$ in $(f_1,f_2)$.
-    \item<2-> If $j\neq i-1$, then
-      $f_1<y_j(t+1)\leq y_j(t)<y_{j+1}(t)=y_{j+1}(t+1)<f_2$.
-      By Y1, these were the only switches at time $t$,
-      contradicting Y4.
-    \item<3-> If $j=i-1$, then
-      \[
-        f_1<y_{i-1}(t+1)<e_1<e_2<y_i(t+1)<f_2.
-      \]
-      So $f_1<e_1$ but $e_2<f_2$, contradicting comparability.
-  \end{itemize}
+    \begin{itemize}[itemsep=4pt]
+      \item<1-> \textbf{Base.} X3: no $(2,3)$-edges in $c_{Y,0}$.
+      \item<2-> After the move, $\vec f$ is not monochromatic (only $f_3$ changes colour), so $\vec e\ne\vec f$.
+      \item<3-> Let $\vec e$ be a $(2,3)$-edge at $t+1$ with both switches fixed.
+        By Y1, it was already a $(2,3)$-edge at $t$.
+      \item<4-> The next switch ($y_{j+1}(t)$ may move left, the same witness still works.
+    \end{itemize}
   \end{proof}
-\only<2>{\begin{center}
-\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
-bars={4,7},bar labels={4/$y_j(t)$,7/$y_{j+1}(t)$}]{16}
-\shiftedge{2/cfred,10/cfred,12/cfred,14/cfred}[$\vec f$]
-\end{shiftchain}
-\par\smallskip{\scriptsize If $j\ne i-1$, the same two old bars already lie in $(f_1,f_2)$.}
-\end{center}}
-  \only<3->{
-    \begin{center}
+  \begin{center}
+    \only<1-3>{%
       \begin{shiftchain}[
-        column sep=5mm, row sep=5mm, dot radius=3.0pt,
-        label font=\scriptsize,
-        bars={3,7,9/dashed,13},
-        bar labels={3/$y_{i-1}$,7/$y_i(t+1)$,9/$y_i(t)$,13/$y_{i+1}$},
-      ]{14}
-        \shiftedge{4/cfnavy,6/cfnavy,8/cfred,14/cfnavy}[$\vec e$]
-        \shiftedge{2/cfred,10/cfred,11/cfred,12/cfred}[$\vec f$]
+        column sep=6mm, row sep=6mm, dot radius=3pt,
+        labels=false, label font=\scriptsize,
+        bars={4,7,12},
+        bar labels={4/$y_{j-1}(t)$,7/$y_j(t)$,12/\raisebox{-3.5mm}{$y_{j+1}(t)$}},
+      ]{16}
+        \node at (8,0) {$e_3=g_3$};
+        \shiftedge{1/cfred,3/cfred,8/cfred,10/cfred}[$\vec e$]
+        \shiftedge{5/cfnavy,6/cfnavy,8/cfred,16/cfnavy}[$\vec g$]
       \end{shiftchain}
-    \end{center}
-  }
+    }
+    \only<4->{%
+      \begin{shiftchain}[
+        column sep=6mm, row sep=6mm, dot radius=3pt,
+        labels=false, label font=\scriptsize,
+        bars={4,7,10,12/dashed},
+        bar labels={4/$y_{j-1}(t)$,7/$y_j(t)$,10/$y_{j+1}(t+1)$,12/\raisebox{-3.5mm}{$y_{j+1}(t)$}},
+      ]{16}
+        \node at (8,0) {$e_3=g_3$};
+        \shiftedge{1/cfred,3/cfred,8/cfred,10/cfred}[$\vec e$]
+        \shiftedge{5/cfnavy,6/cfnavy,8/cfred,16/cfnavy}[$\vec g$]
+      \end{shiftchain}
+    }
+  \end{center}
 \end{frame}
 
-\begin{frame}[t]{Y5: old $(2,3)$-edges keep their witness}
-  \small\setstretch{1.05}
+\begin{frame}[t]{Y5: moving the right switch gives witness $\vec f$}
+  \footnotesize\setstretch{1}
+  \tcbset{before skip=4pt,after skip=4pt}
+  \claimreminder{\Yone\Ytwo\Yfive}
+  \begin{lemma}{Claim}
+    If the $(2,3)$-edge $\vec e$ has switches $y_{i-1}(t),y_i(t+1)$,
+    then $e_3=f_3$ and $\vec g=\vec f$ is a witness.
+  \end{lemma}
+  \begin{proof}{Proof}
+    \begin{itemize}[itemsep=4pt]
+      \item<1-> Y1 puts the next switch outside $\vec e$:
+        $e_4<y_{i+1}(t)<f_4$.
+      \item<2-> Comparability gives $e_3\leq f_3$;
+        $f_3^-=y_i(t+1)<e_3$ gives $f_3\leq e_3$. Thus $e_3=f_3$.
+      \item<3-> Take $\vec g=\vec f$:
+        $e_3^-=y_i(t+1)=g_3^-<y_i(t)\leq x_i$,
+        and $y_{i+1}(t+1)=y_{i+1}(t)<g_4$.
+    \end{itemize}
+  \end{proof}
+  \begin{center}
+    \begin{shiftchain}[
+      column sep=6mm, row sep=6mm, dot radius=3pt,
+      labels=false, label font=\scriptsize,
+      bars={4,8,10/dashed,13},
+      bar labels={4/$y_{i-1}(t)$,8/$y_i(t+1)$,10/\raisebox{-3.5mm}{$y_i(t)$},13/$y_{i+1}(t)$},
+    ]{16}
+      \uncover<2->{\node at (9,0) {$e_3=f_3$};}
+      \shiftedge{1/cfred,3/cfred,9/cfred,12/cfred}[$\vec e$]
+      \shiftedge{5/cfnavy,7/cfnavy,9/cfred,16/cfnavy}[$\vec f$]
+    \end{shiftchain}
+  \end{center}
+\end{frame}
+
+\begin{frame}[t]{Y5: moving the left switch keeps the old witness}
+  \footnotesize\setstretch{1}
+  \tcbset{before skip=4pt,after skip=4pt}
   \claimreminder{\Yone\Yfive}
-  \begin{lemma}{Claim}\Yfive\end{lemma}
+  \begin{lemma}{Claim}
+    If the $(2,3)$-edge $\vec e$ has switches $y_i(t+1),y_{i+1}(t)$,
+    its old witness still works.
+  \end{lemma}
   \begin{proof}{Proof}
-    \begin{itemize}
-      \item<1-> If $\vec f$ misses the new switch, its two switches stay: losing the old one would leave at most one.
-      \item<2-> The old witness has $f_3^-=y_j=g_3^-<x_j$ and $y_{j+1}(t)<g_4$.
-      \item<3-> Only $y_{j+1}$ might move left; still $y_{j+1}(t+1)\leq y_{j+1}(t)<g_4$.
+    \begin{itemize}[itemsep=4pt]
+      \item<1-> Both old switches were already in the middle gap:
+        $e_2<y_i(t+1)<y_i(t)<y_{i+1}(t)<e_3$.
+      \item<2-> Y1 excludes any further switch at $t$;
+        $\vec e$ was a $(2,3)$-edge, so induction gives $\vec g$.
+      \item<3-> The right switch and the next switch stay fixed:
+        $e_3^-=y_{i+1}(t+1)=g_3^-<x_{i+1}$,
+        and $y_{i+2}(t+1)=y_{i+2}(t)<g_4$.
     \end{itemize}
-\only<2->{\begin{center}
-\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
-bars={4,7,10,12/dashed},bar labels={4/$y_{j-1}$,7/$y_j$,10/$y_{j+1}(t+1)$,12/\raisebox{-3.5mm}{$y_{j+1}(t)$}}]{16}
-\shiftedge{1/cfred,3/cfred,8/cfred,10/cfred}[$\vec f$]
-\shiftedge{2/cfred,4/cfred,8/cfred,16/cfnavy}[$\vec g$]
-\end{shiftchain}
-\par\smallskip{\scriptsize The common third vertex and the witness endpoint stay fixed.}
-\end{center}}
   \end{proof}
-\end{frame}
-
-\begin{frame}[t]{Y5: a new $(2,3)$-edge uses $y_{i-1},y_i$}
-  \small\setstretch{1.05}
-  \claimreminder{\Yone\Ytwo}
-  \begin{lemma}{Claim}\Yfive\end{lemma}
-  \begin{proof}{Proof}
-    \begin{itemize}
-      \item<1-> For this pair, $f_4<y_{i+1}<e_4$ forces $\vec f<\vec e$, so $f_3\leq e_3$.
-      \item<2-> But $e_3^-=y_i(t+1)<f_3$, so $e_3\leq f_3$. Thus $f_3=e_3$.
-      \item<3-> Take $\vec g=\vec e$: $f_3^-=y_i(t+1)<y_i(t)\leq x_i$ and $y_{i+1}<g_4$.
-    \end{itemize}
-\only<1->{\begin{center}
-\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
-bars={4,8,10/dashed,13},bar labels={4/$y_{i-1}$,8/$y_i(t+1)$,10/\raisebox{-3.5mm}{$y_i(t)$},13/$y_{i+1}$}]{16}
-\shiftedge{1/cfred,3/cfred,9/cfred,12/cfred}[$\vec f$]
-\shiftedge{5/cfnavy,7/cfnavy,9/cfred,16/cfnavy}[$\vec e=\vec g$]
-\end{shiftchain}
-\par\smallskip{\scriptsize The two bounds pin both third vertices to the dot just after $y_i(t+1)$.}
-\end{center}}
-  \end{proof}
-\end{frame}
-
-\begin{frame}[t]{Y5: the pair $y_i,y_{i+1}$ keeps its old witness}
-  \small\setstretch{1.05}
-  \claimreminder{\Yone\Yfive}
-  \begin{lemma}{Claim}\Yfive\end{lemma}
-  \begin{proof}{Proof}
-    \begin{itemize}
-      \item<1-> $f_2<y_i(t+1)<y_i(t)<y_{i+1}<f_3$: both old switches were already in $(f_2,f_3)$.
-      \item<2-> By Y1 these were the only old switches. Apply Y5 with $j=i+1$.
-      \item<3-> $f_3^-=y_{i+1}<x_{i+1}$ and the witness $g_3=f_3$, $y_{i+2}<g_4$ remain.
-    \end{itemize}
-\only<1->{\begin{center}
-\begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
-bars={4,6/dashed,9,13},bar labels={4/$y_i(t+1)$,6/\raisebox{-3.5mm}{$y_i(t)$},9/$y_{i+1}$,13/$y_{i+2}$}]{16}
-\shiftedge{1/cfred,3/cfred,10/cfred,12/cfred}[$\vec f$]
-\shiftedge{2/cfred,4/cfred,10/cfred,16/cfnavy}[$\vec g$]
-\end{shiftchain}
-\par\smallskip{\scriptsize Moving the first bar within the same gap preserves the witness.}
-\end{center}}
-  \end{proof}
+  \begin{center}
+    \begin{shiftchain}[
+      column sep=6mm, row sep=6mm, dot radius=3pt,
+      labels=false, label font=\scriptsize,
+      bars={4,6/dashed,9,13},
+      bar labels={4/$y_i(t+1)$,6/\raisebox{-3.5mm}{$y_i(t)$},9/$y_{i+1}(t)$,13/$y_{i+2}(t)$},
+    ]{16}
+      \node at (10,0) {$e_3=g_3$};
+      \shiftedge{1/cfred,3/cfred,10/cfred,12/cfred}[$\vec e$]
+      \shiftedge{7/cfnavy,8/cfnavy,10/cfred,16/cfnavy}[$\vec g$]
+    \end{shiftchain}
+  \end{center}
 \end{frame}
 
 \begin{frame}[t]{Y6: chosen $(3,4)$-edges move left}
   \small\setstretch{1.05}
   \claimreminder{\Yone}
-  \begin{lemma}{Claim}$\vec e(t+1)<\vec e(t)$.\end{lemma}
+  \begin{lemma}{Claim}$\vec f(t+1)<\vec f(t)$.\end{lemma}
   \begin{proof}{Proof}
     \begin{itemize}
-      \item<1-> Suppose the next chosen edge $\vec f>\vec e$. It must be new, since $\vec e$ was maximal.
-      \item<2-> $y_i(t+1)=e_3^-<e_3\leq f_3$. A $(3,4)$-edge has both switches after $f_3$, so the new bar is outside $\vec f$.
-      \item<3-> If the old bar was outside too, $\vec f$ was already monochromatic. If inside, Y1 leaves at most one switch. Both are impossible.
+      \item<1-> Suppose the next chosen edge $\vec e>\vec f$. It must be new, since $\vec f$ was maximal.
+      \item<2-> $y_i(t+1)=f_3^-<f_3\leq e_3$. A $(3,4)$-edge has both switches after $e_3$, so the new bar is outside $\vec e$.
+      \item<3-> If the old bar was outside too, $\vec e$ was already monochromatic. If inside, Y1 leaves at most one switch. Both are impossible.
     \end{itemize}
 \only<2->{\begin{center}
 \begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
-bars={5,8/dashed,11,14},bar labels={5/$e_3^-$,8/$y_i(t)$,11/$y_{i+1}$,14/$y_{i+2}$}]{16}
-\shiftedge{1/cfred,3/cfred,6/cfnavy,13/cfred}[$\vec e$]
-\shiftedge{7/cfnavy,9/cfnavy,10/cfnavy,14/cfred}[$\vec f\text{ (hypothetical)}$]
+bars={5,8/dashed,11,14},bar labels={5/$f_3^-$,8/$y_i(t)$,11/$y_{i+1}$,14/$y_{i+2}$}]{16}
+\shiftedge{1/cfred,3/cfred,6/cfnavy,13/cfred}[$\vec f$]
+\shiftedge{7/cfnavy,9/cfnavy,10/cfnavy,14/cfred}[$\vec e\text{ (hypothetical)}$]
 \end{shiftchain}
-\par\smallskip{\scriptsize The moved bar lies left of $f_1$: it cannot supply a new pair in $(f_3,f_4)$.}
+\par\smallskip{\scriptsize The moved bar lies left of $e_1$: it cannot supply a new pair in $(e_3,e_4)$.}
 \end{center}}
   \end{proof}
 \end{frame}
 
 \begin{frame}[t]{Y6: termination leaves only $(2,3)$-edges}
   \small\setstretch{1.05}
-  \claimreminder{\Yone\Yfour\textbf{Previous step.} $\vec e(t+1)<\vec e(t)$.}
+  \claimreminder{\Yone\Yfour\textbf{Previous step.} $\vec f(t+1)<\vec f(t)$.}
   \begin{lemma}{Claim}\Ysix\end{lemma}
   \begin{proof}{Proof}
     \begin{itemize}
-      \item<1-> The indices cannot increase: otherwise $e_4(t)<y_{i(t)+2}\leq y_{i(t+1)+1}<e_4(t+1)$.
-      \item<2-> Each move shifts a bar left; the moved indices never increase. The new walls strictly decrease: fewer than $n$ moves.
-      \item<3-> At termination: no $(3,4)$-edge; Y4 excludes $(1,2)$-edges. By Y1, only $(2,3)$-edges can be monochromatic.
+      \item<1-> By the previous step, the chosen edges strictly decrease, so Stage Y terminates.
+      \item<2-> At termination: no $(3,4)$-edge; Y4 excludes $(1,2)$-edges. By Y1, only $(2,3)$-edges can be monochromatic.
     \end{itemize}
-\only<3->{\begin{center}
+\only<2->{\begin{center}
 \begin{shiftchain}[column sep=5mm,row sep=4mm,dot radius=3.0pt,labels=false,label font=\scriptsize,
 bars={5,8},bar labels={5/$y_{j-1}$,8/$y_j$}]{16}
 \shiftedge{1/cfred,3/cfred,10/cfred,13/cfred}[$(2,3)$]
