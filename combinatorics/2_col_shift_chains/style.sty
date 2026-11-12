@@ -183,12 +183,12 @@
 % \shiftedge{1,2,3,4}[$e_1$] or \shiftedge[cfblue]{2,3,4,5}[$e_2$].
 % Options: column sep, row sep, dot radius, dot color, labels=true/false,
 % label font, and tikz options (e.g. tikz options={scale=1.2}).
-% bars={2,4} draws vertical bars after columns 2 and 4, spanning the dot rows.
-% bar style={dashed} makes them dashed; any TikZ drawing options are allowed,
-% e.g. \begin{shiftchain}[bars={2,4},bar style={dashed,cfred}]{6}.
-% A /style suffix overrides an individual bar: bars={2,4/dashed,6}.
-% Use /solid to override a globally dashed bar style.
-% bar labels={2/$x_1$,4/$y_2$} puts labels below the corresponding bars.
+% switches={2,4} draws vertical switches after columns 2 and 4, spanning the dot rows.
+% switch style={dashed} makes them dashed; any TikZ drawing options are allowed,
+% e.g. \begin{shiftchain}[switches={2,4},switch style={dashed,cfred}]{6}.
+% A /style suffix overrides an individual switch: switches={2,4/dashed,6}.
+% Use /solid to override a globally dashed switch style.
+% switch labels={2/$x_1$,4/$y_2$} puts labels below the corresponding switches.
 % Labels use label font; labels=false hides only the vertex column numbers.
 % ghost dots={11/2} leaves a solid, unfilled vertex circle at column 11,
 % edge row 2 (rows count from 1), using dot radius.
@@ -204,9 +204,9 @@
   labels/true/.code={\def\shiftchain@labels{1}},
   labels/false/.code={\def\shiftchain@labels{0}},
   label font/.store in=\shiftchain@labelfont,
-  bars/.store in=\shiftchain@bars,
-  bar style/.store in=\shiftchain@barstyle,
-  bar labels/.store in=\shiftchain@barlabels,
+  switches/.store in=\shiftchain@switches,
+  switch style/.store in=\shiftchain@switchstyle,
+  switch labels/.store in=\shiftchain@switchlabels,
   ghost dots/.store in=\shiftchain@ghostdots,
   ghost dot style/.store in=\shiftchain@ghostdotstyle,
   tikz options/.store in=\shiftchain@tikzoptions
@@ -216,10 +216,11 @@
   \pgfkeys{/shiftchain/.cd,
     column sep=5mm, row sep=5mm, dot radius=3.0pt,
     dot color=black, labels=true, label font=\small,
-    bars={}, bar style={}, bar labels={},
+    switches={}, switch style={}, switch labels={},
     ghost dots={}, ghost dot style={},
     tikz options={},#1}%
   \shiftchain@row=0\relax
+  \let\shiftchain@fixedbounds\@empty
   \begin{tikzpicture}[x=\shiftchain@columnsep,y=\shiftchain@rowsep,
     baseline=(current bounding box.center),
     every node/.style={font=\shiftchain@labelfont},
@@ -240,26 +241,29 @@
           circle[radius=\shiftchain@radius];%
       }%
     \fi
-    \ifx\shiftchain@bars\@empty\else
-      \foreach \shiftchain@entry in \shiftchain@bars {%
-        \expandafter\shiftchain@drawbar\shiftchain@entry//\@nil
+    \ifx\shiftchain@switches\@empty\else
+      \foreach \shiftchain@entry in \shiftchain@switches {%
+        \expandafter\shiftchain@drawswitch\shiftchain@entry//\@nil
       }%
     \fi
-    \ifx\shiftchain@barlabels\@empty\else
-      \foreach \shiftchain@entry in \shiftchain@barlabels {%
-        \expandafter\shiftchain@drawbarlabel\shiftchain@entry//\@nil
+    \ifx\shiftchain@switchlabels\@empty\else
+      \foreach \shiftchain@entry in \shiftchain@switchlabels {%
+        \expandafter\shiftchain@drawswitchlabel\shiftchain@entry//\@nil
       }%
     \fi
   \fi
+  \ifx\shiftchain@fixedbounds\@empty\else
+    \shiftchain@fixedbounds
+  \fi
   \end{tikzpicture}%
 }
-\def\shiftchain@drawbar#1/#2/#3\@nil{%
+\def\shiftchain@drawswitch#1/#2/#3\@nil{%
   \draw[black,solid,line width=0.6pt,
-    style/.expand once=\shiftchain@barstyle,#2]
+    style/.expand once=\shiftchain@switchstyle,#2]
     ({#1+0.5},-0.5)
     -- ({#1+0.5},{-\the\shiftchain@row-0.5});%
 }
-\def\shiftchain@drawbarlabel#1/#2/#3\@nil{%
+\def\shiftchain@drawswitchlabel#1/#2/#3\@nil{%
   \node[anchor=north,inner xsep=0pt,inner ysep=2pt]
     at ({#1+0.5},{-\the\shiftchain@row-0.5}) {#2};%
 }
@@ -291,6 +295,15 @@
   \fi
   \fill[\shiftchain@dotcolor] (#1,-\the\shiftchain@row)
     circle[radius=\shiftchain@radius];%
+}
+
+% Give changing overlay diagrams the same TikZ box on every slide.
+% Bounds are applied after the environment draws its switches and labels.
+\newcommand{\shiftchainbounds}[4]{%
+  \def\shiftchain@fixedbounds{%
+    \pgfresetboundingbox
+    \path[use as bounding box] (#1,#2) rectangle (#3,#4);%
+  }%
 }
 
 \definecolor{bggrey}{rgb}{0.95,0.95,0.95}

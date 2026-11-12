@@ -1,0 +1,55 @@
+\begin{frame}[t]{Colouring a shift-chain}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.41\textwidth}
+      A \textbf{2-colouring} gives each vertex one of two colours.
+
+      \medskip
+      \uncover<2->{
+        It is \textbf{proper} if every edge contains both colours.
+      }
+
+      \medskip
+      \only<2>{
+        $\vec f$ is all \textcolor{cfred}{red}: this colouring is not proper.
+      }
+      \only<3->{
+        Colour vertex $5$ \textcolor{cfblue}{blue}: now every edge is mixed.
+      }
+    \end{column}
+    \begin{column}{0.55\textwidth}
+      \centering
+      \only<1-2>{
+        \begin{shiftchain}[
+          column sep=8mm, row sep=7mm, dot radius=3pt
+        ]{6}
+          \shiftvertexcolor{1,2,3,5}{cfred}
+          \shiftvertexcolor{4,6}{cfblue}
+          \shiftedge{1,2,3,4}[$\vec e$]
+          \shiftedge{1,2,3,5}[$\vec f$]
+          \shiftedge{1,3,4,5}[$\vec g$]
+          \shiftedge{2,3,4,6}[$\vec h$]
+          \shiftedge{3,4,5,6}[$\vec i$]
+          \only<2>{
+            \draw[cfred,rounded corners=2pt,line width=0.8pt]
+              (0.7,-2.5) rectangle (5.3,-1.5);
+          }
+          \shiftchainbounds{0}{-6}{6.5}{1}
+        \end{shiftchain}
+      }
+      \only<3->{
+        \begin{shiftchain}[
+          column sep=8mm, row sep=7mm, dot radius=3pt
+        ]{6}
+          \shiftvertexcolor{1,2,3}{cfred}
+          \shiftvertexcolor{4,5,6}{cfblue}
+          \shiftedge{1,2,3,4}[$\vec e$]
+          \shiftedge{1,2,3,5}[$\vec f$]
+          \shiftedge{1,3,4,5}[$\vec g$]
+          \shiftedge{2,3,4,6}[$\vec h$]
+          \shiftedge{3,4,5,6}[$\vec i$]
+          \shiftchainbounds{0}{-6}{6.5}{1}
+        \end{shiftchain}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}

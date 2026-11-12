@@ -29,7 +29,7 @@
 \newcommand{\outlinetrial}[2]{%
   \def\outlinetrialvertex{#1}\def\outlinetrialcolour{#2}%
 }
-% Optional trial styling; bars, labels, red vertices, blue vertices, current edge,
+% Optional trial styling; switches, labels, red vertices, blue vertices, current edge,
 % status, sweep direction (1 = LR, -1 = RL).
 \newcommand{\outlinediagram}[8][]{%
   \def\outlinetrialvertex{0}\def\outlinetrialcolour{cfpink}%
@@ -39,11 +39,9 @@
   \def\outlinecurrent{#6}%
   \begin{shiftchain}[
     column sep=5.5mm,row sep=3.5mm,dot radius=2.6pt,
-    label font=\scriptsize,bars={#2},bar labels={#3},
-    bar style={cfnavy,line width=0.6pt}
+    label font=\scriptsize,switches={#2},switch labels={#3},
+    switch style={cfnavy,line width=0.6pt}
   ]{20}
-    % Fix the bounds so the chain never jumps between overlays.
-    \path[use as bounding box] (-0.8,-11.6) rectangle (20.7,2.5);
     \node at (10.5,2) {#7};
     \ifnum#8=1\relax
       \draw[->,cfnavy,thick] (1,1.1) -- (20,1.1);
@@ -62,6 +60,8 @@
     \outlineedge{14,15,16,17}{14}{17}{8}
     \outlineedge{14,15,16,20}{14}{20}{9}
     \outlineedge{17,18,19,20}{17}{20}{10}
+    % Later labels and outlines must not resize the picture between overlays.
+    \shiftchainbounds{-0.8}{-11.6}{20.7}{2.5}
   \end{shiftchain}%
 }
 
