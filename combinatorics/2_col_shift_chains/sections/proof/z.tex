@@ -1,6 +1,11 @@
 % Examples shared by the Z statements and their individual proofs.
+% In Stage Z, f is the chosen edge and e is an arbitrary edge.
+\newcommand{\Zinsertnotation}{%
+  \textbf{Notation.} Chosen minimal monochromatic edge $\vec f$;
+  inserted switch $\hat z=f_3^+$; arbitrary edge $\vec e$.\par
+}
 \newcommand{\Zexampleone}{%
-  \textbf{Z1: at most three switches}\par\medskip
+  \textbf{Z1: between one and three switches}\par\medskip
   \begin{shiftchain}[
     column sep=4.5mm, row sep=6mm, dot radius=3pt,
     labels=false, label font=\scriptsize,
@@ -42,9 +47,9 @@
     switches={1,5,7},
     switch labels={1/$z$,5/$y_{j-1}$,7/$y_j$},
   ]{10}
-    \shiftedge{2/cfred,4/cfred,8/cfred,10/cfred}[$\vec f$]
+    \shiftedge{2/cfred,4/cfred,8/cfred,10/cfred}[$\vec e$]
   \end{shiftchain}
-  \par\medskip $z<f_1$ for every $z\in Z(t)$.
+  \par\medskip $z<e_1$ for every $z\in Z(t)$.
 }
 
 \newcommand{\Zexamplefour}{%
@@ -157,9 +162,9 @@
 % All inductive hypotheses refer to time t; prove the claims at t+1 below.
 \begin{frame}[t]{Z1--Z4: one Stage Z step}
   \footnotesize\setstretch{1}
-  \claimreminder{\Zthree\Yfive}
-  Assume Z1--Z4 at time $t$; choose a minimal monochromatic edge $\vec e$.
-  Insert $\hat z=e_3^+$.
+  \claimreminder{\Zthree\Yfive\Zinsertnotation}
+  Assume Z1--Z4 at time $t$; choose a minimal monochromatic edge $\vec f$.
+  Insert $\hat z=f_3^+$.
   \begin{center}
     \only<1>{%
       \begin{shiftchain}[
@@ -168,8 +173,8 @@
         switches={0,5,7,12},
         switch labels={0/$y_{i-2}$,5/$y_{i-1}$,7/$y_i$,12/$y_{i+1}$},
       ]{16}
-        \node at (8,0) {$e_3$};
-        \shiftedge{2/cfred,4/cfred,8/cfred,11/cfred}[$\vec e$]
+        \node at (8,0) {$f_3$};
+        \shiftedge{2/cfred,4/cfred,8/cfred,11/cfred}[$\vec f$]
         \shiftchainbounds{-2}{-3.7}{16.7}{0.9}
       \end{shiftchain}
     }
@@ -180,31 +185,31 @@
         switches={0,5,7,8,12},
         switch labels={0/$y_{i-2}$,5/$y_{i-1}$,7/$y_i$,8/\raisebox{-3mm}{$\hat z$},12/$y_{i+1}$},
       ]{16}
-        \node at (8,0) {$e_3=g_3$};
-        \shiftedge{2/cfred,4/cfred,8/cfred,11/cfnavy}[$\vec e$]
+        \node at (8,0) {$f_3=g_3$};
+        \shiftedge{2/cfred,4/cfred,8/cfred,11/cfnavy}[$\vec f$]
         \uncover<3->{\shiftedge{6/cfnavy,7/cfnavy,8/cfred,16/cfred}[$\vec g$]}
         \shiftchainbounds{-2}{-3.7}{16.7}{0.9}
       \end{shiftchain}
     }
   \end{center}
   \begin{itemize}[itemsep=4pt]
-    \item<1-> Z3: $\vec e$ has two $Y$-switches in $(e_2,e_3)$;
-      every old $z\in Z(t)$ lies before $e_1$.
-    \item<2-> Y5: $y_i=e_3^-<x_i$; inserting $\hat z=e_3^+$ changes the colour of $e_4$.
-    \item<3-> Y5 also gives $g_3=e_3$ and $y_{i+1}<g_4$.
+    \item<1-> Z3: $\vec f$ has two $Y$-switches in $(f_2,f_3)$;
+      every old $z\in Z(t)$ lies before $f_1$.
+    \item<2-> Y5: $y_i=f_3^-<x_i$; inserting $\hat z=f_3^+$ changes the colour of $f_4$.
+    \item<3-> Y5 also gives $g_3=f_3$ and $y_{i+1}<g_4$.
   \end{itemize}
 \end{frame}
 
 \begin{frame}[t]{Z1: older inserted switches lie before $x_{i-2}$}
   \footnotesize\setstretch{1}
   \tcbset{before skip=4pt,after skip=4pt}
-  \claimreminder{\Zthree\Zfour\Ytwo}
+  \claimreminder{\Zthree\Zfour\Ytwo\Zinsertnotation}
   \begin{lemma}{Claim}
     Every $z\in Z(t)$ satisfies $z\leq x_{i-2}$.
   \end{lemma}
   \begin{proof}{Proof}
     \begin{itemize}[itemsep=4pt]
-      \item<1-> Z3 gives $z<e_1<y_{i-1}$.
+      \item<1-> Z3 gives $z<f_1<y_{i-1}$.
       \item<2-> By Z4, $y_j=v^-<z=v^+\leq x_j$ for some $j$.
       \item<3-> Thus $j\leq i-2$, so $z\leq x_j\leq x_{i-2}$.
         Y2 also gives $x_{i-2}<y_{i-1}$.
@@ -218,26 +223,27 @@
       switch labels={2/$y_j$,3/\raisebox{-3mm}{$z$},5/$x_{i-2}$,8/$y_{i-1}$,11/$y_i$},
     ]{16}
       \uncover<2->{\node at (3,0) {$v$};}
-      \shiftedge{6/cfred,7/cfred,12/cfred,16/cfred}[$\vec e$]
+      \shiftedge{6/cfred,7/cfred,12/cfred,16/cfred}[$\vec f$]
       \shiftchainbounds{-2}{-2.7}{16.7}{0.9}
     \end{shiftchain}
   \end{center}
 \end{frame}
 
-\begin{frame}[t]{Z1: every edge keeps at most three switches}
+\begin{frame}[t]{Z1: every edge keeps between one and three switches}
   \footnotesize\setstretch{1}
   \tcbset{before skip=4pt,after skip=4pt}
-  \claimreminder{\Yone\Ytwo\Xtwo\Zone
-    \textbf{Previous step.} Every $z\in Z(t)$ satisfies $z\leq x_{i-2}$.}
+  \claimreminder{\Yone\Ytwo\YXtwo\Zone
+    \textbf{Previous step.} Every $z\in Z(t)$ satisfies $z\leq x_{i-2}$.\par\Zinsertnotation}
   \begin{lemma}{Claim}\Zone\end{lemma}
   \begin{proof}{Proof}
     \begin{itemize}[itemsep=4pt]
-      \item<1-> \textbf{Base.} Y1: at most two switches in $c_{Z,0}=c_Y$.
-      \item<2-> \textbf{Step.} A new fourth switch in $\vec f$ requires both
+      \item<1-> \textbf{Base.} Y1: one or two switches in $c_{Z,0}=c_Y$.
+        Insertions preserve the lower bound.
+      \item<2-> \textbf{Step.} A new fourth switch in $\vec e$ requires both
         $\hat z$ and an old $z\in Z(t)$: Y1 allows only two $Y$-switches.
       \item<3-> By the previous step and Y2,
-        $f_1<z\leq x_{i-2}<x_{i-1}<y_i<\hat z<f_4$.
-      \item<4-> X2 forces $x_{i-1}=f_4^-$, but $x_{i-1}<\hat z<f_4$.
+        $e_1<z\leq x_{i-2}<x_{i-1}<y_i<\hat z<e_4$.
+      \item<4-> X2 forces $x_{i-1}=e_4^-$, but $x_{i-1}<\hat z<e_4$.
     \end{itemize}
   \end{proof}
   \begin{center}
@@ -248,7 +254,7 @@
         switches={3,8,11,12},
         switch labels={3/$z$,8/$y_{i-1}$,11/$y_i$,12/\raisebox{-3mm}{$\hat z$}},
       ]{16}
-        \shiftedge{3/cfred,6/cfnavy,10/cfred,16/cfred}[$\vec f$]
+        \shiftedge{3/cfred,6/cfnavy,10/cfred,16/cfred}[$\vec e$]
         \shiftchainbounds{-2}{-2.7}{16.7}{0.9}
       \end{shiftchain}
     }
@@ -257,9 +263,9 @@
         column sep=6mm, row sep=5mm, dot radius=3pt,
         labels=false, label font=\scriptsize,
         switches={3,5/dashed,8,9/dashed,11,12,15/densely dotted},
-        switch labels={3/$z$,5/\raisebox{-3mm}{$x_{i-2}$},8/$y_{i-1}$,9/\raisebox{-3mm}{$x_{i-1}$},11/$y_i$,12/\raisebox{-3mm}{$\hat z$},15/$f_4^-$},
+        switch labels={3/$z$,5/\raisebox{-3mm}{$x_{i-2}$},8/$y_{i-1}$,9/\raisebox{-3mm}{$x_{i-1}$},11/$y_i$,12/\raisebox{-3mm}{$\hat z$},15/$e_4^-$},
       ]{16}
-        \shiftedge{3/cfred,6/cfnavy,10/cfred,16/cfred}[$\vec f$]
+        \shiftedge{3/cfred,6/cfnavy,10/cfred,16/cfred}[$\vec e$]
         \shiftchainbounds{-2}{-2.7}{16.7}{0.9}
       \end{shiftchain}
     }
@@ -269,16 +275,16 @@
 \begin{frame}[t]{Z2: a new monochromatic edge has only two possible switch pairs}
   \footnotesize\setstretch{1}
   \tcbset{before skip=4pt,after skip=4pt}
-  \claimreminder{\Yone\Zone\Zthree\switchparity}
+  \claimreminder{\Yone\Zone\Zthree\switchparity\Zinsertnotation}
   \begin{lemma}{Claim}\Ztwo\end{lemma}
   \begin{proof}{Proof}
     \begin{itemize}[itemsep=4pt]
       \item<1-> \textbf{Base.} No insertion at $t=0$; Z2 starts at $t=1$.
-      \item<2-> \textbf{Step.} The chosen $\vec e$ is no longer monochromatic.
-        Suppose a new monochromatic edge $\vec f$ appears.
+      \item<2-> \textbf{Step.} The chosen $\vec f$ is no longer monochromatic.
+        Suppose a new monochromatic edge $\vec e$ appears.
       \item<3-> It contains $\hat z$; otherwise all its vertices change colour together, or none do.
       \item<4-> Y1, Z1 and Parity: exactly two switches, in one gap.
-      \item<5-> Z3 puts all old $z$ before $e_1$.
+      \item<5-> Z3 puts all old $z$ before $f_1$.
         The partner of $\hat z$ is therefore $y_i$ or $y_{i+1}$.
     \end{itemize}
   \end{proof}
@@ -290,8 +296,8 @@
         switches={4,7,8,12},
         switch labels={4/$y_{i-1}$,7/$y_i$,8/\raisebox{-3mm}{$\hat z$},12/$y_{i+1}$},
       ]{14}
-        \node at (8,0) {$e_3$};
-        \shiftedge{1/cfred,3/cfred,8/cfred,11/cfnavy}[$\vec e$]
+        \node at (8,0) {$f_3$};
+        \shiftedge{1/cfred,3/cfred,8/cfred,11/cfnavy}[$\vec f$]
       \end{shiftchain}
     }
   \end{center}
@@ -300,16 +306,17 @@
 \begin{frame}[t]{Z2: $y_i,\hat z$ cannot lie in the last gap}
   \footnotesize\setstretch{1}
   \tcbset{before skip=4pt,after skip=4pt}
-  \claimreminder{\Ztwo\switchparity}
+  \claimreminder{\Ztwo\switchparity\Zinsertnotation}
   \begin{lemma}{Claim}
-    No new monochromatic edge has only $y_i,\hat z$ in $(f_3,f_4)$.
+    No new monochromatic edge has only $y_i,\hat z$ in $(e_3,e_4)$.
   \end{lemma}
   \begin{proof}{Proof}
     \begin{itemize}[itemsep=4pt]
-      \item<1-> Suppose $f_3<y_i<\hat z<f_4$.
-      \item<2-> Since $f_3<e_3$, comparability gives $\vec f<\vec e$ and $f_1\leq e_1$.
-      \item<3-> But $f_1\leq e_1<y_{i-1}<y_i<\hat z<f_4$:
-        a third switch lies in $\vec f$.
+      \item<1-> Suppose $e_3<y_i<\hat z<e_4$.
+      \item<2-> Since $e_3<f_3=\hat z^-$, comparability gives $\vec e<\vec f$ and $e_1\leq f_1$.
+      \item<3-> But $e_1\leq f_1<y_{i-1}<y_i<\hat z<e_4$
+        (otherwise $e_4<f_3$):
+        a third switch lies in $\vec e$.
     \end{itemize}
   \end{proof}
   \begin{center}
@@ -319,8 +326,8 @@
         labels=false, label font=\scriptsize,
         switches={9,10}, switch labels={9/$y_i$,10/\raisebox{-3mm}{$\hat z$}},
       ]{16}
-        \node at (5,0) {$f_3$};
-        \shiftedge{1/cfred,3/cfred,5/cfred,12/cfred}[$\vec f$]
+        \node at (5,0) {$e_3$};
+        \shiftedge{1/cfred,3/cfred,5/cfred,12/cfred}[$\vec e$]
         \shiftchainbounds{-2}{-3.7}{16.7}{0.9}
       \end{shiftchain}
     }
@@ -331,10 +338,10 @@
         switches={7,9,10},
         switch labels={7/$y_{i-1}$,9/$y_i$,10/\raisebox{-3mm}{$\hat z$}},
       ]{16}
-        \node at (5,0) {$f_3$};
-        \node at (10,0) {$e_3$};
-        \shiftedge{1/cfred,3/cfred,5/cfred,12/cfnavy}[$\vec f$]
-        \shiftedge{4/cfred,6/cfred,10/cfred,14/cfnavy}[$\vec e$]
+        \node at (5,0) {$e_3$};
+        \node at (10,0) {$f_3$};
+        \shiftedge{1/cfred,3/cfred,5/cfred,12/cfnavy}[$\vec e$]
+        \shiftedge{4/cfred,6/cfred,10/cfred,14/cfnavy}[$\vec f$]
         \shiftchainbounds{-2}{-3.7}{16.7}{0.9}
       \end{shiftchain}
     }
@@ -344,31 +351,35 @@
 \begin{frame}[t]{Z2: $y_i,\hat z$ cannot lie in either earlier gap}
   \footnotesize\setstretch{1}
   \tcbset{before skip=4pt,after skip=4pt}
-  \claimreminder{\Yfive\Ztwo\switchparity}
+  \claimreminder{\Yfive\Ztwo\switchparity\Zinsertnotation}
   \begin{lemma}{Claim}
-    No new monochromatic edge has only $y_i,\hat z$ in $(f_1,f_2)$ or $(f_2,f_3)$.
+    No new monochromatic edge has only $y_i,\hat z$ in $(e_1,e_2)$ or $(e_2,e_3)$.
   \end{lemma}
   \begin{proof}{Proof}
-    \begin{itemize}[itemsep=4pt]
-      \item<1-> In both cases, $\hat z<f_3$.
-      \item<2-> Y5 gives $g_3=e_3<\hat z<f_3$ and $y_{i+1}<g_4$.
-      \item<3-> Comparability gives $\vec g<\vec f$, so $y_{i+1}<g_4\leq f_4$:
-        a third switch lies in $\vec f$.
+    \begin{itemize}[itemsep=1pt,topsep=0pt,parsep=0pt]
+      \item<1-> In both cases, $\hat z<e_3$.
+      \item<2-> Y5 applied to the $(2,3)$-edge $\vec f$ gives
+        $g_3=f_3<\hat z<e_3$ and $y_{i+1}<g_4$.
+      \item<3-> Comparability gives $\vec g<\vec e$, so $y_{i+1}<g_4\leq e_4$:
+        a third switch lies in $\vec e$.
     \end{itemize}
   \end{proof}
   \begin{columns}[T,onlytextwidth]
     \begin{column}{0.48\textwidth}
       \centering\scriptsize
-      \textbf{Gap $(f_1,f_2)$}\par\smallskip
+      \textbf{Gap $(e_1,e_2)$}\par\smallskip
       \only<1>{%
         \begin{shiftchain}[
           column sep=3.5mm, row sep=5mm, dot radius=2.7pt,
           labels=false, label font=\tiny,
           switches={9,10},
-          switch labels={9/$y_i$,10/\raisebox{-3mm}{$\hat z$}},
+          switch labels={9/$y_i$},
         ]{16}
-          \shiftedge{8/cfnavy,11/cfnavy,13/cfnavy,16/cfnavy}[$\vec f$]
-          \shiftchainbounds{0}{-3.7}{16.2}{0.9}
+          \node at (10.5,0) {$\hat z$};
+          \shiftedge{} % Reserve the rows for f and g on later overlays.
+          \shiftedge{}
+          \shiftedge{8/cfnavy,11/cfnavy,13/cfnavy,16/cfnavy}[$\vec e$]
+          \shiftchainbounds{-1}{-4.7}{16.2}{0.9}
         \end{shiftchain}
       }
       \only<2->{%
@@ -376,27 +387,31 @@
         column sep=3.5mm, row sep=5mm, dot radius=2.7pt,
         labels=false, label font=\tiny,
         switches={7,9,10,14},
-        switch labels={7/$y_{i-1}$,9/$y_i$,10/\raisebox{-3mm}{$\hat z$},14/$y_{i+1}$},
+        switch labels={7/$y_{i-1}$,9/$y_i$,14/$y_{i+1}$},
       ]{16}
-        \node at (10,0) {$e_3=g_3$};
+        \node at (10.5,0) {$\hat z$};
+        \shiftedge{2/cfred,5/cfred,10/cfred,13/cfnavy}[$\vec f$]
         \shiftedge{4/cfred,6/cfred,10/cfred,16/cfred}[$\vec g$]
-        \shiftedge{8/cfnavy,11/cfnavy,13/cfnavy,16/cfred}[$\vec f$]
-        \shiftchainbounds{0}{-3.7}{16.2}{0.9}
+        \shiftedge{8/cfnavy,11/cfnavy,13/cfnavy,16/cfred}[$\vec e$]
+        \shiftchainbounds{-1}{-4.7}{16.2}{0.9}
       \end{shiftchain}
       }
     \end{column}
     \begin{column}{0.48\textwidth}
       \centering\scriptsize
-      \textbf{Gap $(f_2,f_3)$}\par\smallskip
+      \textbf{Gap $(e_2,e_3)$}\par\smallskip
       \only<1>{%
         \begin{shiftchain}[
           column sep=3.5mm, row sep=5mm, dot radius=2.7pt,
           labels=false, label font=\tiny,
           switches={9,10},
-          switch labels={9/$y_i$,10/\raisebox{-3mm}{$\hat z$}},
+          switch labels={9/$y_i$},
         ]{16}
-          \shiftedge{8/cfnavy,9/cfnavy,12/cfnavy,16/cfnavy}[$\vec f$]
-          \shiftchainbounds{0}{-3.7}{16.2}{0.9}
+          \node at (10.5,0) {$\hat z$};
+          \shiftedge{} % Reserve the rows for f and g on later overlays.
+          \shiftedge{}
+          \shiftedge{8/cfnavy,9/cfnavy,12/cfnavy,16/cfnavy}[$\vec e$]
+          \shiftchainbounds{-1}{-4.7}{16.2}{0.9}
         \end{shiftchain}
       }
       \only<2->{%
@@ -404,12 +419,13 @@
         column sep=3.5mm, row sep=5mm, dot radius=2.7pt,
         labels=false, label font=\tiny,
         switches={7,9,10,14},
-        switch labels={7/$y_{i-1}$,9/$y_i$,10/\raisebox{-3mm}{$\hat z$},14/$y_{i+1}$},
+        switch labels={7/$y_{i-1}$,9/$y_i$,14/$y_{i+1}$},
       ]{16}
-        \node at (10,0) {$e_3=g_3$};
+        \node at (10.5,0) {$\hat z$};
+        \shiftedge{2/cfred,5/cfred,10/cfred,13/cfnavy}[$\vec f$]
         \shiftedge{4/cfred,6/cfred,10/cfred,16/cfred}[$\vec g$]
-        \shiftedge{8/cfnavy,9/cfnavy,12/cfnavy,16/cfred}[$\vec f$]
-        \shiftchainbounds{0}{-3.7}{16.2}{0.9}
+        \shiftedge{8/cfnavy,9/cfnavy,12/cfnavy,16/cfred}[$\vec e$]
+        \shiftchainbounds{-1}{-4.7}{16.2}{0.9}
       \end{shiftchain}
       }
     \end{column}
@@ -419,18 +435,19 @@
 \begin{frame}[t]{Z2: the pair $\hat z,y_{i+1}$ is impossible}
   \footnotesize\setstretch{1}
   \tcbset{before skip=4pt,after skip=4pt}
-  \claimreminder{\Yfive\Ythree\Ztwo}
+  \claimreminder{\Yfive\Ythree\Ztwo\Zinsertnotation}
   \begin{lemma}{Claim}
     No new monochromatic edge has only $\hat z,y_{i+1}$.
   \end{lemma}
   \begin{proof}{Proof}
-    \begin{itemize}[itemsep=4pt]
-      \item<1-> $y_i$ is outside $\vec f$, so
-        $e_3^-=y_i<f_1<\hat z=e_3^+$. Thus $f_1=e_3$.
-      \item<2-> Both switches lie in the first gap: $y_{i+1}<f_2$.
-      \item<3-> Y5 gives $f_1=e_3<x_i$; Y3 gives $f_2<y_{i+1}$: a contradiction.
+    \begin{itemize}[itemsep=1pt,topsep=0pt,parsep=0pt]
+      \item<1-> $y_i$ is outside $\vec e$, so
+        $f_3^-=y_i<e_1<\hat z=f_3^+$. Thus $e_1=f_3$.
+      \item<2-> Both switches lie in the first gap: $y_{i+1}<e_2$.
+      \item<3-> Y5 applied to the $(2,3)$-edge $\vec f$ gives $f_3<x_i$.
+        Since $e_1=f_3$, Y3 applied to $\vec e$ gives $e_2<y_{i+1}$: a contradiction.
       \item<4-> Both possible pairs are excluded. No new monochromatic edge appears,
-        and $\vec e$ is repaired: Z2.
+        and $\vec f$ is repaired: Z2.
     \end{itemize}
   \end{proof}
   \begin{center}
@@ -440,11 +457,11 @@
       switches={5,6,9/dashed,12},
       switch labels={5/$y_i$,6/\raisebox{-3mm}{$\hat z$},9/$x_i$,12/$y_{i+1}$},
     ]{16}
-      \node at (6,0) {$f_1=e_3$};
-      \node at (14,0) {$f_2$};
-      \shiftedge{6/cfred,14/cfred,15/cfred,16/cfred}[$\vec f$]
+      \node at (6,0) {$e_1=f_3$};
+      \node at (14,0) {$e_2$};
+      \shiftedge{6/cfred,14/cfred,15/cfred,16/cfred}[$\vec e$]
       \uncover<3->{\draw[<-,cfred,thick] (10,0.8) -- (14,0.8)
-        node[midway,above] {$f_2<y_{i+1}$};}
+        node[midway,above] {$e_2<y_{i+1}$};}
       \shiftchainbounds{-2}{-2.7}{16.7}{1.5}
     \end{shiftchain}
   \end{center}
@@ -453,49 +470,45 @@
 \begin{frame}[t]{Z3: surviving edges start after the new switch}
   \footnotesize\setstretch{1}
   \tcbset{before skip=4pt,after skip=4pt}
-  \claimreminder{\Ysix\Ztwo\Zthree\switchparity}
+  \claimreminder{\Ysix\Ztwo\Zthree\switchparity\Zinsertnotation}
   \begin{lemma}{Claim}\Zthree\end{lemma}
   \begin{proof}{Proof}
-    \begin{itemize}[itemsep=4pt]
-      \item<1-> \textbf{Base.} Y6 gives the $(2,3)$ pattern; $Z(0)=\varnothing$.
-      \item<2-> \textbf{Step.} By Z2 and induction, a surviving $\vec f$ was a $(2,3)$-edge,
-        and every old $z$ lies before $f_1$.
-      \item<3-> It cannot contain $\hat z$: its two old switches plus $\hat z$ violate Parity.
-      \item<4-> Minimality gives $\vec e<\vec f$, hence $\hat z<e_4\leq f_4$.
-        Thus $\hat z<f_1$; the two switches of $\vec f$ stay in $(f_2,f_3)$.
+    \begin{itemize}[itemsep=1pt,topsep=0pt,parsep=0pt]
+      \item<1-> Z2 and induction (starting from Y6): a survivor $\vec e$ was a
+        $(2,3)$-edge, with all old $z<e_1$.
+      \item<2-> Parity: $\hat z$ cannot lie inside a surviving edge.
+      \item<3-> Minimality: $\hat z<f_4\leq e_4$, so $\hat z<e_1$.
+        The $(2,3)$ pattern is unchanged.
     \end{itemize}
   \end{proof}
   \begin{center}
-    \uncover<2->{%
       \begin{shiftchain}[
         column sep=6mm, row sep=5mm, dot radius=3pt,
         labels=false, label font=\scriptsize,
         switches={3,5,6,10,12},
         switch labels={3/$y_{i-1}$,5/$y_i$,6/\raisebox{-3mm}{$\hat z$},10/$y_{i+1}$,12/$y_{i+2}$},
       ]{16}
-        \shiftedge{1/cfred,2/cfred,6/cfred,9/cfnavy}[$\vec e$]
-        \shiftedge{7/cfnavy,9/cfnavy,13/cfnavy,16/cfnavy}[$\vec f$]
+        \shiftedge{1/cfred,2/cfred,6/cfred,9/cfnavy}[$\vec f$]
+        \shiftedge{7/cfnavy,9/cfnavy,13/cfnavy,16/cfnavy}[$\vec e$]
       \end{shiftchain}
-    }
   \end{center}
 \end{frame}
 
 \begin{frame}[t]{Z4: the new switch brackets the third vertex}
   \footnotesize\setstretch{1}
   \tcbset{before skip=4pt,after skip=4pt}
-  \claimreminder{\Yfive\Zfour}
+  \claimreminder{\Yfive\Zfour\Zinsertnotation}
   \begin{lemma}{Claim}\Zfour\end{lemma}
   \begin{columns}[T,onlytextwidth]
     \begin{column}{0.61\textwidth}
       \begin{proof}{Proof}
-        \begin{itemize}[itemsep=5pt]
-          \item<1-> \textbf{Base.} $Z(0)=\varnothing$.
-          \item<2-> \textbf{Step.} Every older inserted switch keeps its witness:
-            the $Y$-switches stay fixed.
-          \item<3-> Y5 gives $y_i=e_3^-<x_i$.
-            The next possible switch position is $e_3^+$, so $\hat z=e_3^+\leq x_i$.
-          \item<4-> Take $v=e_3$ and $j=i$.
-        \end{itemize}
+        Y5 applied to the $(2,3)$-edge $\vec f$ gives
+        \[
+          y_i=f_3^-<x_i
+          \quad\Longrightarrow\quad
+          \hat z=f_3^+\leq x_i.
+        \]
+        Take $v=f_3$, $j=i$. Old witnesses persist since $Y$ is fixed.
       \end{proof}
     \end{column}
     \begin{column}{0.36\textwidth}
@@ -508,7 +521,7 @@
 \begin{frame}[t]{Z1--Z4: termination gives a proper 2-colouring}
   \footnotesize\setstretch{1}
   \tcbset{before skip=4pt,after skip=4pt}
-  \claimreminder{\Ztwo\Zthree}
+  \claimreminder{\Ztwo\Zthree\Zinsertnotation}
   \begin{lemma}{Claim}$c_Z$ is a proper 2-colouring.\end{lemma}
   \begin{proof}{Proof}
     \begin{itemize}[itemsep=4pt]
