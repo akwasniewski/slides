@@ -1,0 +1,17 @@
+\begin{frame}[t]{Algorithm outline}
+  \small\setstretch{1.0}
+  \textbf{X:} Colour greedily $\longrightarrow$; switch only to avoid a monochromatic edge with no switches.\par
+  \\ \qquad \uncover<27->{X guarantees that at the end all monochromatic edges are (3,4) edges.} \par
+
+  \uncover<28->{\textbf{Y:} Sweep $\longleftarrow$; move the first switch of each $(3,4)$-edge just before its third vertex.}\par
+
+  \\ \qquad \uncover<39->{Y guarantees that after at the end all monochromatic edges are (2,3) edges.}\par
+  \uncover<40->{\textbf{Z:} Sweep $\longrightarrow$; add a switch just after the third vertex of each remaining monochromatic edge.}\par
+  \uncover<52>{\textcolor{cfred}{Formally in Y,Z steps we choose maximal/minimal (3,4)/(2,3) edge. The proofs guarantee that this is equivalent to going LR/RL along the edges}} 
+  \par
+  \smallskip
+  \centering
+  \input{sections/intro/x_animation}
+  \input{sections/intro/y_animation}
+  \input{sections/intro/z_animation}
+\end{frame}

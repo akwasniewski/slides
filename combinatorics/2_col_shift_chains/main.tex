@@ -1,0 +1,27 @@
+% Compile with pdfLaTeX, LuaLaTeX, or XeLaTeX.
+\documentclass[aspectratio=169]{beamer}
+\newif\ifdraft
+\draftfalse
+\usepackage{style}
+\input{sections/algorithm_diagram}
+
+\title[2-colouring shift-chains]{2-Colouring Shift-chains}
+\subtitle{Zak Smith}
+\author[Andrzej Antoni Kwaśniewski]{Andrzej Antoni Kwaśniewski\\Tutor: dr hab. Piotr Micek}
+\date{\today}
+
+\begin{document}
+\onehalfspacing
+
+\frame{\titlepage}
+
+\section{Introduction}
+\include{sections/intro/main}
+\include{sections/proof/main}
+
+\input{sections/wrapup}
+
+% \include{shift_chain_example}
+
+
+\end{document}

@@ -1,0 +1,217 @@
+\begin{frame}[t]{What was known before Smith's theorem?}
+  \begin{itemize}
+    \item<1-> Every shift-chain is properly \textbf{3-colourable}.
+    \item<2-> Some $2$- and $3$-shift-chains need \textbf{3 colours}.
+  \end{itemize}
+
+  \medskip
+  \onslide<2->{
+    \begin{columns}[T,onlytextwidth]
+      \begin{column}{0.27\textwidth}
+        \centering
+        \textbf{$2$-shift-chain}\par\smallskip
+        \begin{tikzpicture}
+          \draw[cfnavy, line width=1.1pt]
+            (0,0) -- (2,0) -- (1,1.7) -- cycle;
+          \fill[cfnavy] (0,0) circle (3pt);
+          \fill[cfnavy] (2,0) circle (3pt);
+          \fill[cfnavy] (1,1.7) circle (3pt);
+        \end{tikzpicture}
+      \end{column}
+      \begin{column}{0.70\textwidth}
+        \centering
+        \textbf{$3$-shift-chain on nine vertices}\par\smallskip
+        % Smith, Figure 3: https://arxiv.org/html/2609.31549v1#S1.F3
+        % Pale trial dots denote the attempted colour; matching outlines
+        % flag monochromatic edges. Correct the dot on the next overlay.
+        % On overlays 16 and 24,
+        % discard the trial's consequences and correct its assumed colour.
+        % Keep only the resulting inequalities beside the four-row brackets.
+        % The leading space in this centred box shifts drawing and notes 3mm right.
+        \makebox[\linewidth][c]{\hspace*{6mm}%
+        \begin{shiftchain}[
+          column sep=4.4mm, row sep=3.4mm,
+          dot radius=2.5pt, dot color=cfgrey,
+          label font=\scriptsize
+        ]{9}
+          \tikzset{forcing note/.style={anchor=west, inner sep=0pt,
+            font=\scriptsize, align=left, text width=44mm}}
+          \only<3->{\shiftvertexcolor{4}{cfred}}
+          % Trial c(5)=c(4): 145, 245, 345 force the blue edge 123.
+          \only<4-10>{\shiftvertexcolor{5}{cfred}}
+          \only<5>{\shiftvertexcolor{1}{cfpink}}
+          \only<6-10>{\shiftvertexcolor{1}{cfnavy}}
+          \only<7>{\shiftvertexcolor{2}{cfpink}}
+          \only<8-10>{\shiftvertexcolor{2}{cfnavy}}
+          \only<9>{\shiftvertexcolor{3}{cfpink}}
+          \only<10>{\shiftvertexcolor{3}{cfnavy}}
+          \only<11->{\shiftvertexcolor{5}{cfnavy}}
+          % Trial c(6)=c(5): 567, 568, 569 force the red edge 789.
+          \only<12-18>{\shiftvertexcolor{6}{cfnavy}}
+          \only<13>{\shiftvertexcolor{7}{cfnavy!40}}
+          \only<14-18>{\shiftvertexcolor{7}{cfred}}
+          \only<15>{\shiftvertexcolor{8}{cfnavy!40}}
+          \only<16-18>{\shiftvertexcolor{8}{cfred}}
+          \only<17>{\shiftvertexcolor{9}{cfnavy!40}}
+          \only<18>{\shiftvertexcolor{9}{cfred}}
+          \only<19->{\shiftvertexcolor{6}{cfred}}
+          \only<20>{\shiftvertexcolor{3}{cfpink}}
+          \only<21->{\shiftvertexcolor{3}{cfnavy}}
+          \only<22>{\shiftvertexcolor{7}{cfpink}}
+          \only<23->{\shiftvertexcolor{7}{cfnavy}}
+          \shiftedge{1,2,3}
+          \shiftedge{1,4,5}
+          \shiftedge{2,4,5}
+          \shiftedge{3,4,5}
+          \shiftedge{3,4,6}
+          \shiftedge{3,5,7}
+          \shiftedge{4,6,7}
+          \shiftedge{5,6,7}
+          \shiftedge{5,6,8}
+          \shiftedge{5,6,9}
+          \shiftedge{7,8,9}
+          \only<4->{
+            \draw[cfgrey, thick]
+              (9.5,-0.6) -- (9.8,-0.6) -- (9.8,-4.4) -- (9.5,-4.4);
+          }
+          \only<12->{
+            \draw[cfgrey, thick]
+              (9.5,-7.6) -- (9.8,-7.6) -- (9.8,-11.4) -- (9.5,-11.4);
+          }
+          % Explain each forced vertex directly beside its edge row.
+          \only<4-10>{
+            \node[forcing note] at (10.3,0) {Try $5$ \textcolor{cfred}{red}, like $4$.};
+          }
+          \only<5-10>{
+            \node[forcing note] at (10.3,-2) {$145$ forces $1$ \textcolor{cfnavy}{blue}.};
+          }
+          \only<7-10>{
+            \node[forcing note] at (10.3,-3) {$245$ forces $2$ \textcolor{cfnavy}{blue}.};
+          }
+          \only<6>{
+            \draw[cfyel, rounded corners=2pt, thick]
+              (0.65,-2.4) rectangle (5.35,-1.6);
+          }
+          \only<8>{
+            \draw[cfyel, rounded corners=2pt, thick]
+              (1.65,-3.4) rectangle (5.35,-2.6);
+          }
+          \only<9-10>{
+            \node[forcing note] at (10.3,-4) {$345$ forces $3$ \textcolor{cfnavy}{blue}.};
+          }
+          \only<10>{
+            \draw[cfyel, rounded corners=2pt, thick]
+              (2.65,-4.4) rectangle (5.35,-3.6);
+            \node[forcing note, text=cfnavy] at (10.3,-1) {$123$ is monochromatic!};
+            \draw[cfnavy, rounded corners=2pt, thick]
+              (0.65,-1.4) rectangle (3.35,-0.6);
+          }
+          \only<11->{
+            \node[forcing note] at (10.3,-2.5) {$c(4)\ne c(5)$};
+          }
+          \only<12-18>{
+            \node[forcing note] at (10.3,-7) {Try $6$ \textcolor{cfnavy}{blue}, like $5$.};
+          }
+          \only<13-18>{
+            \node[forcing note] at (10.3,-8) {$567$ forces $7$ \textcolor{cfred}{red}.};
+          }
+          \only<15-18>{
+            \node[forcing note] at (10.3,-9) {$568$ forces $8$ \textcolor{cfred}{red}.};
+          }
+          \only<14>{
+            \draw[cfyel, rounded corners=2pt, thick]
+              (4.65,-8.4) rectangle (7.35,-7.6);
+          }
+          \only<16>{
+            \draw[cfyel, rounded corners=2pt, thick]
+              (4.65,-9.4) rectangle (8.35,-8.6);
+          }
+          \only<17-18>{
+            \node[forcing note] at (10.3,-10) {$569$ forces $9$ \textcolor{cfred}{red}.};
+          }
+          \only<18>{
+            \draw[cfyel, rounded corners=2pt, thick]
+              (4.65,-10.4) rectangle (9.35,-9.6);
+            \node[forcing note, text=cfred] at (10.3,-11) {$789$ is monochromatic!};
+            \draw[cfred, rounded corners=2pt, thick]
+              (6.65,-11.4) rectangle (9.35,-10.6);
+          }
+          \only<19->{
+            \node[forcing note] at (10.3,-9.5) {$c(5)\ne c(6)$};
+          }
+          \only<20->{
+            \node[forcing note] at (10.3,-5) {$346$ forces $3$ \textcolor{cfnavy}{blue}.};
+          }
+          \only<22->{
+            \node[forcing note] at (10.3,-7) {$467$ forces $7$ \textcolor{cfnavy}{blue}.};
+          }
+          \only<21>{
+            \draw[cfyel, rounded corners=2pt, thick]
+              (2.65,-5.4) rectangle (6.35,-4.6);
+          }
+          \only<23>{
+            \draw[cfyel, rounded corners=2pt, thick]
+              (3.65,-7.4) rectangle (7.35,-6.6);
+          }
+          % Trial overlays: the pale dot has the same attempted colour
+          % as the other vertices of the outlined monochromatic edge.
+          \only<5>{
+            \draw[cfred, rounded corners=2pt, thick]
+              (0.65,-2.4) rectangle (5.35,-1.6);
+          }
+          \only<7>{
+            \draw[cfred, rounded corners=2pt, thick]
+              (1.65,-3.4) rectangle (5.35,-2.6);
+          }
+          \only<9>{
+            \draw[cfred, rounded corners=2pt, thick]
+              (2.65,-4.4) rectangle (5.35,-3.6);
+          }
+          \only<13>{
+            \draw[cfnavy, rounded corners=2pt, thick]
+              (4.65,-8.4) rectangle (7.35,-7.6);
+          }
+          \only<15>{
+            \draw[cfnavy, rounded corners=2pt, thick]
+              (4.65,-9.4) rectangle (8.35,-8.6);
+          }
+          \only<17>{
+            \draw[cfnavy, rounded corners=2pt, thick]
+              (4.65,-10.4) rectangle (9.35,-9.6);
+          }
+          \only<20>{
+            \draw[cfred, rounded corners=2pt, thick]
+              (2.65,-5.4) rectangle (6.35,-4.6);
+          }
+          \only<22>{
+            \draw[cfred, rounded corners=2pt, thick]
+              (3.65,-7.4) rectangle (7.35,-6.6);
+          }
+          \only<24->{
+            \node[forcing note, text=cfnavy] at (10.3,-6) {$357$ is monochromatic!};
+            \draw[cfnavy, rounded corners=2pt, thick]
+              (2.65,-6.4) rectangle (7.35,-5.6);
+          }
+          \shiftchainbounds{0.6}{-11.6}{21}{0.5}
+        \end{shiftchain}%
+        }
+      \end{column}
+    \end{columns}
+  }
+  \onslide<24->{
+    \smallskip
+    \centering\small $\{3,5,7\}$ is forced monochromatic: no proper 2-colouring.
+  }
+\end{frame}
+
+\begin{frame}{From Pálvölgyi's question to Smith's theorem}
+  \begin{example}{Pálvölgyi's question (2010)}
+    Are all $r$-shift-chains 2-colourable when $r$ is large enough?
+  \end{example}
+
+  \onslide<2->{
+    \begin{theorem}{Theorem (Smith, 2026)}
+      All $r$-shift-chains of uniformity at least $r_0=4$ are properly 2-colourable.
+    \end{theorem}
+  }
+\end{frame}

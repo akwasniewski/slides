@@ -1,0 +1,67 @@
+% One numbered chain is reused throughout all three sweeps.
+% Outline the current edge: yellow if proper, its shared colour if monochromatic.
+\makeatletter
+\newcommand{\outlineedge}[4]{%
+  \ifnum#4=\outlinecurrent\relax
+    % Read the actual column colours, including monochromatic edges that Y skips.
+    \expandafter\let\expandafter\outlinefirstcolor
+      \csname shiftchain@vertexcolor@#2\endcsname
+    \let\outlineborder\outlinefirstcolor
+    \@for\outlinevertex:=#1\do{%
+      \expandafter\ifx\csname shiftchain@vertexcolor@\outlinevertex\endcsname\outlinefirstcolor
+      \else\def\outlineborder{cfyel}\fi
+    }%
+    \draw[draw=\outlineborder,line width=1.6pt,rounded corners=3pt]
+      ({#2-0.35},{-#4-0.35}) rectangle ({#3+0.35},{-#4+0.35});
+  \fi
+  % Trial dots use a pale colour; the outline still reflects the attempted colour.
+  \def\outlinedots{}\def\outlineseparator{}%
+  \@for\outlinevertex:=#1\do{%
+    \edef\outlinedots{\outlinedots\outlineseparator\outlinevertex}%
+    \ifnum\outlinevertex=\outlinetrialvertex\relax
+      \edef\outlinedots{\outlinedots/\outlinetrialcolour}%
+    \fi
+    \def\outlineseparator{,}%
+  }%
+  \expandafter\shiftedge\expandafter{\outlinedots}[$e_{#4}$]
+}
+\makeatother
+\newcommand{\outlinetrial}[2]{%
+  \def\outlinetrialvertex{#1}\def\outlinetrialcolour{#2}%
+}
+% Optional trial styling; switches, labels, red vertices, blue vertices, current edge,
+% status, sweep direction (1 = LR, -1 = RL).
+\newcommand{\outlinediagram}[8][]{%
+  \def\outlinetrialvertex{0}\def\outlinetrialcolour{cfpink}%
+  #1%
+  \tikzset{outline moved/.style={draw=cfnavy!60!black,line width=1.2pt},
+    outline old/.style={dashed,draw=cfgrey,line width=0.6pt}}%
+  \def\outlinecurrent{#6}%
+  \begin{shiftchain}[
+    column sep=5.5mm,row sep=3.5mm,dot radius=2.6pt,
+    label font=\scriptsize,switches={#2},switch labels={#3},
+    switch style={cfnavy,line width=0.6pt}
+  ]{20}
+    \node at (10.5,2) {#7};
+    \ifnum#8=1\relax
+      \draw[->,cfnavy,thick] (1,1.1) -- (20,1.1);
+    \else
+      \draw[<-,cfnavy,thick] (1,1.1) -- (20,1.1);
+    \fi
+    \shiftvertexcolor{#4}{cfred}
+    \shiftvertexcolor{#5}{cfnavy}
+    \outlineedge{1,2,3,4}{1}{4}{1}
+    \outlineedge{2,3,6,7}{2}{7}{2}
+    \outlineedge{4,5,6,7}{4}{7}{3}
+    \outlineedge{4,5,6,10}{4}{10}{4}
+    \outlineedge{7,8,9,10}{7}{10}{5}
+    \outlineedge{11,12,13,14}{11}{14}{6}
+    \outlineedge{12,13,16,17}{12}{17}{7}
+    \outlineedge{14,15,16,17}{14}{17}{8}
+    \outlineedge{14,15,16,20}{14}{20}{9}
+    \outlineedge{17,18,19,20}{17}{20}{10}
+    % Later labels and outlines must not resize the picture between overlays.
+    \shiftchainbounds{-0.8}{-11.6}{20.7}{2.5}
+  \end{shiftchain}%
+}
+

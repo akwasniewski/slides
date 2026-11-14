@@ -1,0 +1,66 @@
+\begin{frame}[t]
+  \setstretch{1.1}
+  \begin{lemma}{Claim}
+    If every $r_0$-shift-chain is properly $k$-colourable, then every
+    $r$-shift-chain with $r>r_0$ is properly $k$-colourable.
+  \end{lemma}
+
+  \begin{proof}{Proof}
+    \small
+    \begin{columns}[T,onlytextwidth]
+      \begin{column}{0.53\textwidth}
+        \begin{itemize}
+          \item<2-> Cut each edge after its first $r_0$ vertices.
+            Coordinatewise order is preserved.
+          \item<3-> Properly $k$-colour the resulting $r_0$-shift-chain.
+          \item<4-> Restore the full edges; colour any still uncoloured
+            vertices arbitrarily.
+            Each original edge contains a non-monochromatic shortened edge.
+        \end{itemize}
+      \end{column}
+      \begin{column}{0.45\textwidth}
+        \centering
+        {\scriptsize Example: $r_0=4$, $r=6$}\par\smallskip
+        \begin{shiftchain}[
+          column sep=3.5mm, row sep=7mm,
+          dot radius=2.7pt, dot color=black, label font=\tiny
+        ]{15}
+          % Each row has its own cutoff; there is no global vertex cutoff.
+          % Vertex 10 is discarded in row 1 but retained in row 2.
+          % Show, cut, colour, then restore with one colour per vertex.
+          \only<3->{
+            \shiftvertexcolor{1,3,5,7,9,11}{cfred}
+            \shiftvertexcolor{2,4,6,8,10}{cfnavy}
+          }
+          \only<4->{
+            \shiftvertexcolor{12,13,15}{cfred}
+          }
+          \only<1,4->{
+            \shiftedge{1,3,6,8,10,12}
+            \shiftedge{2,5,7,10,12,13}
+            \shiftedge{4,6,9,11,13,15}
+          }
+          \only<2-3>{
+            \shiftedge{1,3,6,8}
+            \shiftedge{2,5,7,10}
+            \shiftedge{4,6,9,11}
+          }
+          \onslide<2->{
+            \foreach \cut/\row in {8.5/1,10.5/2,11.5/3} {
+              \draw[cfgrey,dashed] (\cut,{-\row+0.35})
+                -- (\cut,{-\row-0.35});
+            }
+          }
+        \end{shiftchain}
+      \end{column}
+    \end{columns}
+  \end{proof}
+
+  \onslide<5->{
+    \begin{theorem}{Theorem (Smith, 2026)}
+      All $r$-shift-chains of uniformity at least $r_0=4$ are properly 2-colourable.
+    \end{theorem}
+    \smallskip
+    \centering By the claim, it suffices to prove this for $4$-shift-chains.
+  }
+\end{frame}

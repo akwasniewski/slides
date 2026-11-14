@@ -1,0 +1,265 @@
+% Definitions and their examples appear together on each overlay.
+\begin{frame}[t]{2-colourings and switches}
+  \small\setstretch{1.1}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.50\textwidth}
+      A \textbf{2-colouring} assigns each vertex red or blue.
+      A \textbf{switch} lies between consecutive vertices of different colours.
+      Fixing the first colour, the switches determine \(c\).
+
+      \medskip
+      \uncover<2->{
+        For a switch \(x\) between consecutive vertices \((i,i+1)\),
+        \[
+          u<x\iff u\leq i,\qquad u>x\iff u\geq i+1.
+        \]
+      }
+
+      \uncover<3->{
+        \(v^-\) and \(v^+\) denote the switch positions immediately
+        before and after vertex \(v\).
+      }
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \centering
+      \begin{shiftchain}[
+        column sep=9mm, row sep=7mm,
+        dot radius=3pt,
+        switches={2,3,4},
+        switch labels={2/$x_1$,3/$x_2$,4/$x_3$}
+      ]{5}
+        \shiftvertexcolor{1,2,4}{cfred}
+        \shiftvertexcolor{3,5}{cfblue}
+        \shiftedge{1,2,3,4,5}[$c$]
+      \end{shiftchain}
+      \par\smallskip
+      \(c(1)=\text{\textcolor{cfred}{red}}\),
+      switches \(x_1,x_2,x_3\).
+
+      \medskip
+      \uncover<2->{
+        \(2<x_1<3<x_2<4<x_3<5\).
+        \par\smallskip
+        \(3<x_2\), \quad \(4>x_2\).
+      }
+
+      \medskip
+      \uncover<3->{
+        \(3^-=x_1,\qquad 3^+=x_2\).
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[t]{Switch sets and well-spread colourings}
+  \small\setstretch{1.1}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.50\textwidth}
+      Edge \(\vec e\) \textbf{contains} switch \(x\) if
+      \(e_i<x<e_{i+1}\) for some \(i\).
+
+      \medskip
+      \uncover<2->{
+        The \textbf{switch set} \(S_c(\vec e)\) consists of all switches
+        contained in \(\vec e\).
+        \par\smallskip
+        Its size \(\lvert S_c(\vec e)\rvert\) is the \textbf{switch count}.
+      }
+
+      \medskip
+      \uncover<3->{
+        Colouring \(c\) is \textbf{\(k\)-well-spread} if every edge satisfies
+        \[
+          1\leq\lvert S_c(\vec e)\rvert\leq k.
+        \]
+      }
+    \end{column}
+    \begin{column}{0.46\textwidth}
+      \centering
+      \begin{shiftchain}[
+        column sep=9mm, row sep=5mm,
+        dot radius=3pt,
+        switches={1,2,4},
+        switch labels={1/$x_1$,2/$x_2$,4/$x_3$}
+      ]{5}
+        \shiftvertexcolor{1,3,4}{cfred}
+        \shiftvertexcolor{2,5}{cfblue}
+        \shiftedge{1,2,3,4}[$\vec e$]
+        \shiftedge{1,2,3,5}[$\vec f$]
+        \shiftedge{1,3,4,5}[$\vec g$]
+      \end{shiftchain}
+      \par\smallskip
+      \(e_2=2<x_2<3=e_3\).
+
+      \medskip
+      \uncover<2->{
+        \(S_c(\vec e)=\{x_1,x_2\}\), \quad \(\lvert S_c(\vec e)\rvert=2\).
+        \par\smallskip
+        \(S_c(\vec f)=S_c(\vec g)=\{x_1,x_2,x_3\}\).
+      }
+
+      \medskip
+      \uncover<3->{
+        Switch counts: \(2,3,3\).
+        \par\smallskip
+        This colouring is \textbf{3-well-spread}.
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% Count switches in each gap, not just in the whole edge.
+\begin{frame}[t]{Monochromatic edges: even switches in every gap}
+  \small\setstretch{1.0}
+  Each switch flips the colour:
+  \(\textcolor{cfred}{\bullet}\ \xrightarrow{x_1}\
+    \textcolor{cfblue}{\bullet}\ \xrightarrow{x_2}\
+    \textcolor{cfred}{\bullet}\).
+  Two flips restore the colour.
+
+  \medskip
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \begin{shiftchain}[
+        column sep=7mm, row sep=4mm, dot radius=3pt,
+        label font=\scriptsize, switches={1,2}
+      ]{5}
+        \shiftvertexcolor{1,3,4,5}{cfred}
+        \shiftvertexcolor{2}{cfblue}
+        \shiftedge{1,3,4,5}[$\vec e$]
+      \end{shiftchain}
+      \par\smallskip
+      Gaps: \((2,0,0)\) --- \textcolor{cfred}{monochromatic}.
+      \par
+      Two switches in one gap; zero in the others.
+
+      \medskip
+      \uncover<2->{
+        \begin{shiftchain}[
+          column sep=7mm, row sep=4mm, dot radius=3pt,
+          label font=\scriptsize, switches={1,2,3,4}
+        ]{6}
+          \shiftvertexcolor{1,3,5,6}{cfred}
+          \shiftvertexcolor{2,4}{cfblue}
+          \shiftedge{1,3,5,6}[$\vec f$]
+        \end{shiftchain}
+        \par\smallskip
+        Gaps: \((2,2,0)\) --- \textcolor{cfred}{monochromatic}.
+        \par
+        Each gap preserves the colour.
+      }
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \uncover<3->{
+        \begin{shiftchain}[
+          column sep=7mm, row sep=4mm, dot radius=3pt,
+          label font=\scriptsize, switches={2}
+        ]{4}
+          \shiftvertexcolor{1,2}{cfred}
+          \shiftvertexcolor{3,4}{cfblue}
+          \shiftedge{1,2,3,4}[$\vec g$]
+        \end{shiftchain}
+        \par\smallskip
+        Gaps: \((0,1,0)\) --- not monochromatic.
+        \par
+        One switch changes the colour.
+      }
+
+      \medskip
+      \uncover<4->{
+        \begin{shiftchain}[
+          column sep=7mm, row sep=4mm, dot radius=3pt,
+          label font=\scriptsize, switches={1,2}
+        ]{5}
+          \shiftvertexcolor{1,3,4,5}{cfred}
+          \shiftvertexcolor{2}{cfblue}
+          \shiftedge{1,2,3,5}[$\vec h$]
+        \end{shiftchain}
+        \par\smallskip
+        Gaps: \((1,1,0)\) --- not monochromatic.
+        \par
+        An even total is not enough!
+      }
+    \end{column}
+  \end{columns}
+
+  \medskip
+  \uncover<5->{
+    \centering
+    \textbf{All edge vertices have the same colour}
+    \(\iff\) \textbf{every gap has an even switch count.}\par
+  }
+
+  \uncover<6->{
+    \smallskip
+    \raggedright
+    A switch \(x\) has \textbf{position \((i,i+1)\)} in \(\vec e\) if
+    \(e_i<x<e_{i+1}\).\par
+    An \textbf{\((i,i+1)\)-edge} has exactly two switches, both in the \(i\)-th gap.\par
+  }
+\end{frame}
+
+\begin{frame}[t]{The three types of \((i,i+1)\)-edges}
+  \small\setstretch{1.0}
+  \begin{columns}[T,onlytextwidth]
+    \begin{column}{0.48\textwidth}
+      \claimreminder{
+        An edge is monochromatic iff every gap has an even switch count.\par
+        A colouring is 2-well-spread iff every edge has one or two switches.
+      }
+
+      \uncover<3->{
+        \begin{lemma}{Claim}
+          In a 2-well-spread colouring, an edge is monochromatic iff it is
+          a \((1,2)\)-, \((2,3)\)-, or \((3,4)\)-edge.
+        \end{lemma}
+      }
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \begin{shiftchain}[
+        column sep=7mm, row sep=4mm, dot radius=3pt,
+        label font=\scriptsize,
+        switches={1,2}, switch labels={1/$x_1$,2/$x_2$}
+      ]{5}
+        \shiftvertexcolor{1,3,4,5}{cfred}
+        \shiftvertexcolor{2}{cfblue}
+        \shiftedge{1,3,4,5}[$\vec e$]
+      \end{shiftchain}
+      \par\smallskip
+      \textbf{\((1,2)\)-edge}: \(e_1=1<x_1<x_2<3=e_2\).
+
+      \medskip
+      \uncover<2->{
+        \begin{shiftchain}[
+          column sep=7mm, row sep=4mm, dot radius=3pt,
+          label font=\scriptsize,
+          switches={2,3}, switch labels={2/$x_1$,3/$x_2$}
+        ]{5}
+          \shiftvertexcolor{1,2,4,5}{cfred}
+          \shiftvertexcolor{3}{cfblue}
+          \shiftedge{1,2,4,5}[$\vec f$]
+        \end{shiftchain}
+        \par\smallskip
+        \textbf{\((2,3)\)-edge}: \(f_2=2<x_1<x_2<4=f_3\).
+      }
+
+      \medskip
+      \uncover<3->{
+        \begin{shiftchain}[
+          column sep=7mm, row sep=4mm, dot radius=3pt,
+          label font=\scriptsize,
+          switches={3,4}, switch labels={3/$x_1$,4/$x_2$}
+        ]{5}
+          \shiftvertexcolor{1,2,3,5}{cfred}
+          \shiftvertexcolor{4}{cfblue}
+          \shiftedge{1,2,3,5}[$\vec g$]
+        \end{shiftchain}
+        \par\smallskip
+        \textbf{\((3,4)\)-edge}: \(g_3=3<x_1<x_2<5=g_4\).
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
